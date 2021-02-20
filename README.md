@@ -16,6 +16,7 @@ it as the final version of this project.**
   - Mockito 1.9.5
 - SonarCloud
   - https://sonarcloud.io/
+  - https://sonarcloud.io/organizations/showmeyourcodeyoutube/projects
 
 ## Design patterns
 
