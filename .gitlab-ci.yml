@@ -16,7 +16,12 @@ build:
 test:
   stage: test
   script:
-    - mvn test
+    - mvn verify
+    - cat target/site/jacoco/index.html | grep -o '<tfoot>.*</tfoot>'
+  artifacts:
+    when: always
+    reports:
+      junit: target/test-results/test/**/TEST-*.xml
 
 analyze-source-code:
   stage: analysis
