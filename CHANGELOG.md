@@ -1,6 +1,8 @@
 # Java sorting algorithms
 
-## 2.0.0 (not yet released)
+## 2.0.1 (not yet released)
+
+## 2.0.0 (20.02.2021)
 
 ## Added
 
