@@ -1,23 +1,24 @@
 # Java sorting algorithms
+
 The console application shows performance of various sorting algorithms like Bubble Sort, Quick Sort etc.
 
-## Technology
+**This is the old project which needs more attention. Algorithms require refactoring and it will be done in the future. Please do not treat
+it as the final version of this project.**
+
+## Technology stack
+
 - Maven
 - Java 11 (AWS Coretto)
-- design pattern- Factory
-- Enum Types
-- Thread
+- vavr
+  - https://github.com/vavr-io/vavr
 - Testing
-    - JUnit 4.12
-    - Mockito 1.9.5
-    - PowerMock 1.6.4
+  - JUnit 5
+  - Mockito 1.9.5
 
-## Changelog
-- 2016-11-05
-    - first release
+## Design patterns
 
-## Todos
-- rewrite to Kotlin
-- rewrite to Go
-- use immutable collections
-- add logger
+- Factory
+
+## Todo
+
+- Use functional approach, rewrite the algorithm implementations
