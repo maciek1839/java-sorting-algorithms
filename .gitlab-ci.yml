@@ -3,6 +3,7 @@ image: maven:3-jdk-11
 stages:
   - build
   - test
+  - analysis
 
 build:
   stage: build
@@ -16,3 +17,8 @@ test:
   stage: test
   script:
     - mvn test
+
+analyze-source-code:
+  stage: analysis
+  script:
+    - mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar

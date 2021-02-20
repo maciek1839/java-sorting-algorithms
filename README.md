@@ -14,6 +14,8 @@ it as the final version of this project.**
 - Testing
   - JUnit 5
   - Mockito 1.9.5
+- SonarCloud
+  - https://sonarcloud.io/
 
 ## Design patterns
 
