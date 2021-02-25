@@ -1,6 +1,12 @@
 # Java sorting algorithms
 
-## 2.0.1 (not yet released)
+## 2.0.2 (not yet released)
+
+## 2.0.1 (25.02.2021)
+
+## Added
+
+- Display code coverage as a badge on Gitlab using Jacoco plugin
 
 ## 2.0.0 (20.02.2021)
 
