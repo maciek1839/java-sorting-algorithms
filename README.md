@@ -31,3 +31,8 @@ it as the final version of this project.**
 
 ## Todo
 - Use functional approach, rewrite the algorithm implementations
+- Sorting algorithms benchmark - time & memory
+- generate Markdown table with result and present them in README
+- Compare implementation with Vavr and without
+- Use thread pool
+- Generate 1000, 2000 and 5000 elements for test. The data should be always the same!
