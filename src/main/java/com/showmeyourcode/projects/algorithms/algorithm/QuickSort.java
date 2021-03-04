@@ -38,6 +38,11 @@ public class QuickSort extends AlgorithmBase {
         return data;
     }
 
+    @Override
+    public AlgorithmType getType() {
+        return AlgorithmType.QUICK_SORT;
+    }
+
     //we use index of table's elements!
     private int[] sortWithPivot(int[] tData, int from, int to) {
 

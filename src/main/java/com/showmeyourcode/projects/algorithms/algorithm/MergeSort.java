@@ -34,6 +34,11 @@ public class MergeSort extends AlgorithmBase {
         return data;
     }
 
+    @Override
+    public AlgorithmType getType() {
+        return AlgorithmType.MERGE_SORT;
+    }
+
     private int[] mergeParts(int[] data, int partSize) {
 
         int leftPart = 0, leftStart = 0, rightStart = partSize, rightPart = partSize;

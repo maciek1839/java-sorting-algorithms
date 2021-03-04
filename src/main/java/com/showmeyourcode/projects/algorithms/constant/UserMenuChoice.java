@@ -14,6 +14,7 @@ public enum UserMenuChoice {
     ALGORITHM_7(7),
     ALGORITHM_8(8),
     ALGORITHM_9(9),
+    BENCHMARK(10),
     EXIT(11);
 
     private static final Map<Integer, UserMenuChoice> enumMap = new HashMap<>(values().length, 1);

@@ -62,4 +62,9 @@ public class ShakerSort extends AlgorithmBase {
 
         return data;
     }
+
+    @Override
+    public AlgorithmType getType() {
+        return AlgorithmType.SHAKER_SORT;
+    }
 }

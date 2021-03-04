@@ -36,6 +36,11 @@ public class BubbleSort extends AlgorithmBase {
         return tData;
     }
 
+    @Override
+    public AlgorithmType getType() {
+        return AlgorithmType.BUBBLE_SORT;
+    }
+
     /*
     PSEUDOCODE
         find it on the Internet

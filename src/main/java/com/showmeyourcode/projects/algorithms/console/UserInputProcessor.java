@@ -1,7 +1,9 @@
 package com.showmeyourcode.projects.algorithms.console;
 
 import com.showmeyourcode.projects.algorithms.algorithm.*;
+import com.showmeyourcode.projects.algorithms.benchmark.BenchmarkProcessor;
 import com.showmeyourcode.projects.algorithms.constant.UserMenuChoice;
+import com.showmeyourcode.projects.algorithms.generator.BenchmarkDataGenerator;
 import com.showmeyourcode.projects.algorithms.model.SortingAppConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,6 +13,7 @@ public class UserInputProcessor {
     private static final Logger logger = LoggerFactory.getLogger(UserInputProcessor.class);
 
     private final SortingAppConfiguration appConfiguration;
+    private final BenchmarkProcessor benchmarkProcessor;
 
     private final BubbleSort bubbleSort;
     private final CountingSort countingSort;
@@ -25,6 +28,7 @@ public class UserInputProcessor {
 
     public UserInputProcessor(SortingAppConfiguration config) {
         appConfiguration = config;
+        benchmarkProcessor = new BenchmarkProcessor(new BenchmarkDataGenerator(config));
         final AlgorithmFactory algorithmFactory = new AlgorithmFactoryImpl(config);
         bubbleSort = (BubbleSort) algorithmFactory.createAlgorithm(AlgorithmType.BUBBLE_SORT);
         countingSort = (CountingSort) algorithmFactory.createAlgorithm(AlgorithmType.COUNTING_SORT);
@@ -106,6 +110,10 @@ public class UserInputProcessor {
                 startWaiting();
                 runAlgorithm(shellSort);
                 stopWaiting();
+                break;
+            case BENCHMARK:
+                var benchMarkReport = benchmarkProcessor.getBenchmarkDataReport(appConfiguration);
+                benchmarkProcessor.saveResults(benchMarkReport);
                 break;
             case EXIT:
                 logger.info("Thank you and see you again!");

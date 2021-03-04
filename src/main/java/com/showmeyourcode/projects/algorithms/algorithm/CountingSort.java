@@ -58,6 +58,11 @@ public class CountingSort extends AlgorithmBase {
         return tData;
     }
 
+    @Override
+    public AlgorithmType getType() {
+        return AlgorithmType.COUNTING_SORT;
+    }
+
     /*
     PSEUDOCODE
         find it on the Internet

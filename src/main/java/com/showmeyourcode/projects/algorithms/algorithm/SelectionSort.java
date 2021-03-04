@@ -48,4 +48,9 @@ public class SelectionSort extends AlgorithmBase {
         }
         return data;
     }
+
+    @Override
+    public AlgorithmType getType() {
+        return AlgorithmType.SELECTION_SORT;
+    }
 }

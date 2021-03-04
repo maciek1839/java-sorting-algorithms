@@ -7,4 +7,6 @@ public interface Algorithm {
     long showUsage();
 
     int[] sortData(int[] data);
+
+    AlgorithmType getType();
 }

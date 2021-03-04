@@ -10,7 +10,7 @@ class SortingAppConfigurationLoaderTest {
 
     @Test
     void should_loadAppSettings_when_fileExists() throws CannotLoadAppPropertiesException {
-        var expectedConfig = new SortingAppConfiguration(1000, 10000);
+        var expectedConfig = new SortingAppConfiguration(10000, 10000);
         SortingAppConfigurationLoader classUnderTest = new SortingAppConfigurationLoader("application.properties");
         var config = classUnderTest.getConfig();
 

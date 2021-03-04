@@ -27,7 +27,7 @@ public class UserInputInterceptor {
         UserMenuChoice result;
         if (uChoice.equals(String.valueOf(UserMenuChoice.EXIT.getUserChoice())))
             result = UserMenuChoice.EXIT;
-        else if (uChoice.length() > 1 || uChoice.matches("(.*)[a-zA-Z](.*)"))
+        else if (uChoice.matches("(.*)[a-zA-Z](.*)"))
             result = UserMenuChoice.BAD_USER_INPUT;
         else
             result = UserMenuChoice.of(Integer.parseInt(uChoice));

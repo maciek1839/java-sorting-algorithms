@@ -48,6 +48,11 @@ public class HeapSort extends AlgorithmBase {
         return data;
     }
 
+    @Override
+    public AlgorithmType getType() {
+        return AlgorithmType.HEAP_SORT;
+    }
+
     //change order down in heap if necessary
     private int[] checkChildren(int[] heap, int i, int amountElements) {
 

@@ -6,7 +6,7 @@ import com.showmeyourcode.projects.algorithms.model.SortingAppConfiguration;
 public class StaticValueProvider {
 
     private final static int DATA_MAX_RANGE = 10000;
-    private final static int DATA_SIZE = 1000;
+    private final static int DATA_SIZE = 10000;
 
     public static int dataMaxRange() {
         return DATA_MAX_RANGE;

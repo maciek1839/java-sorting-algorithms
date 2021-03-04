@@ -39,6 +39,11 @@ public class ShellSort extends AlgorithmBase {
         return data;
     }
 
+    @Override
+    public AlgorithmType getType() {
+        return AlgorithmType.SHELL_SORT;
+    }
+
     /*
     PSEUDOCODE
         more on the Internet

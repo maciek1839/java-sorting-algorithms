@@ -3,6 +3,9 @@ package com.showmeyourcode.projects.algorithms.algorithm;
 import com.showmeyourcode.projects.algorithms.generator.DataGenerator;
 import com.showmeyourcode.projects.algorithms.model.SortingAppConfiguration;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AlgorithmFactoryImpl implements AlgorithmFactory {
 
     private final DataGenerator dataGenerator;
@@ -35,5 +38,14 @@ public class AlgorithmFactoryImpl implements AlgorithmFactory {
             default:
                 throw new UnsupportedOperationException(String.format("The algorithm %s is not implemented!", enumVal.toString()));
         }
+    }
+
+    @Override
+    public List<Algorithm> creatAllAvailableAlgorithms() {
+        List<Algorithm> resultList = new ArrayList();
+        for (AlgorithmType type : AlgorithmType.values()) {
+            resultList.add(createAlgorithm(type));
+        }
+        return resultList;
     }
 }

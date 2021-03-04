@@ -44,4 +44,9 @@ public class InsertSort extends AlgorithmBase {
         }
         return data;
     }
+
+    @Override
+    public AlgorithmType getType() {
+        return AlgorithmType.INSERT_SORT;
+    }
 }
