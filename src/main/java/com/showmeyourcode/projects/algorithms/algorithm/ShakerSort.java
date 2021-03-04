@@ -1,7 +1,12 @@
 package com.showmeyourcode.projects.algorithms.algorithm;
 
+import com.showmeyourcode.projects.algorithms.generator.DataGenerator;
+
 public class ShakerSort extends AlgorithmBase {
 
+    ShakerSort(DataGenerator dataGenerator) {
+        super(dataGenerator);
+    }
 
     @Override
     public String getAlgorithmPerformance() {

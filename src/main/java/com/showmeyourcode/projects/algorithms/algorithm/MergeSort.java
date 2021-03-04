@@ -1,6 +1,12 @@
 package com.showmeyourcode.projects.algorithms.algorithm;
 
+import com.showmeyourcode.projects.algorithms.generator.DataGenerator;
+
 public class MergeSort extends AlgorithmBase {
+    MergeSort(DataGenerator dataGenerator) {
+        super(dataGenerator);
+    }
+
     @Override
     public String getAlgorithmPerformance() {
         return "O(N*LOG N)";

@@ -1,13 +1,14 @@
 package com.showmeyourcode.projects.algorithms.algorithm;
 
+import com.showmeyourcode.projects.algorithms.test_util.StaticValueProvider;
 import org.junit.jupiter.api.BeforeEach;
 
 
-public class InsertSortTest extends AlgorithmTestClassBase {
+class InsertSortTest extends AlgorithmTestClassBase {
 
     @BeforeEach
     @Override
     void setProperAlgorithm() {
-        this.algorithm = new InsertSort();
+        this.algorithm = new InsertSort(StaticValueProvider.getDataGenerator());
     }
 }

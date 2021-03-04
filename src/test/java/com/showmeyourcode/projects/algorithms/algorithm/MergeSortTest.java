@@ -1,12 +1,13 @@
 package com.showmeyourcode.projects.algorithms.algorithm;
 
+import com.showmeyourcode.projects.algorithms.test_util.StaticValueProvider;
 import org.junit.jupiter.api.BeforeEach;
 
-public class MergeSortTest extends AlgorithmTestClassBase {
+class MergeSortTest extends AlgorithmTestClassBase {
 
     @BeforeEach
     @Override
     void setProperAlgorithm() {
-        this.algorithm = new MergeSort();
+        this.algorithm = new MergeSort(StaticValueProvider.getDataGenerator());
     }
 }

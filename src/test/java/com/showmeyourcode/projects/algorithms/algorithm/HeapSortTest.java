@@ -1,12 +1,13 @@
 package com.showmeyourcode.projects.algorithms.algorithm;
 
+import com.showmeyourcode.projects.algorithms.test_util.StaticValueProvider;
 import org.junit.jupiter.api.BeforeEach;
 
-public class HeapSortTest extends AlgorithmTestClassBase {
+class HeapSortTest extends AlgorithmTestClassBase {
 
     @BeforeEach
     @Override
     void setProperAlgorithm() {
-        this.algorithm = new HeapSort();
+        this.algorithm = new HeapSort(StaticValueProvider.getDataGenerator());
     }
 }

@@ -1,7 +1,13 @@
 package com.showmeyourcode.projects.algorithms.algorithm;
 
+import com.showmeyourcode.projects.algorithms.generator.DataGenerator;
+
 public class HeapSort extends AlgorithmBase {
 
+
+    HeapSort(DataGenerator dataGenerator) {
+        super(dataGenerator);
+    }
 
     @Override
     public String getAlgorithmPerformance() {

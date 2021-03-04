@@ -1,13 +1,14 @@
 package com.showmeyourcode.projects.algorithms.algorithm;
 
+import com.showmeyourcode.projects.algorithms.test_util.StaticValueProvider;
 import org.junit.jupiter.api.BeforeEach;
 
 
-public class ShellSortTest extends AlgorithmTestClassBase {
+class ShellSortTest extends AlgorithmTestClassBase {
 
     @BeforeEach
     @Override
     void setProperAlgorithm() {
-        this.algorithm = new ShellSort();
+        this.algorithm = new ShellSort(StaticValueProvider.getDataGenerator());
     }
 }

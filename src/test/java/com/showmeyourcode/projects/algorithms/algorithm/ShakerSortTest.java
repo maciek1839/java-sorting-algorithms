@@ -1,12 +1,13 @@
 package com.showmeyourcode.projects.algorithms.algorithm;
 
+import com.showmeyourcode.projects.algorithms.test_util.StaticValueProvider;
 import org.junit.jupiter.api.BeforeEach;
 
-public class ShakerSortTest extends AlgorithmTestClassBase {
+class ShakerSortTest extends AlgorithmTestClassBase {
 
     @BeforeEach
     @Override
     void setProperAlgorithm() {
-        this.algorithm = new ShakerSort();
+        this.algorithm = new ShakerSort(StaticValueProvider.getDataGenerator());
     }
 }

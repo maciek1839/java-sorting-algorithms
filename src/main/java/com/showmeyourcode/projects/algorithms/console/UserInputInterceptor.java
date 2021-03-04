@@ -1,12 +1,17 @@
 package com.showmeyourcode.projects.algorithms.console;
 
 import com.showmeyourcode.projects.algorithms.constant.UserMenuChoice;
+import com.showmeyourcode.projects.algorithms.model.SortingAppConfiguration;
 
 import java.util.Scanner;
 
 public class UserInputInterceptor {
     private final Menu menu = new Menu();
-    private final UserInputProcessor userInputProcessor = new UserInputProcessor();
+    private final UserInputProcessor userInputProcessor;
+
+    public UserInputInterceptor(SortingAppConfiguration appConfiguration) {
+        userInputProcessor = new UserInputProcessor(appConfiguration);
+    }
 
     public void startListening() {
         Scanner scannerChoice = new Scanner(System.in);

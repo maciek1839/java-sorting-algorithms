@@ -2,14 +2,15 @@ package com.showmeyourcode.projects.algorithms.console;
 
 import com.showmeyourcode.projects.algorithms.algorithm.*;
 import com.showmeyourcode.projects.algorithms.constant.UserMenuChoice;
-import com.showmeyourcode.projects.algorithms.factory.AlgorithmFactory;
-import com.showmeyourcode.projects.algorithms.factory.AlgorithmFactoryImpl;
+import com.showmeyourcode.projects.algorithms.model.SortingAppConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class UserInputProcessor {
 
     private static final Logger logger = LoggerFactory.getLogger(UserInputProcessor.class);
+
+    private final SortingAppConfiguration appConfiguration;
 
     private final BubbleSort bubbleSort;
     private final CountingSort countingSort;
@@ -22,8 +23,9 @@ public class UserInputProcessor {
     private final ShellSort shellSort;
     private Waiting printPoint = new Waiting();
 
-    public UserInputProcessor() {
-        final AlgorithmFactory algorithmFactory = new AlgorithmFactoryImpl();
+    public UserInputProcessor(SortingAppConfiguration config) {
+        appConfiguration = config;
+        final AlgorithmFactory algorithmFactory = new AlgorithmFactoryImpl(config);
         bubbleSort = (BubbleSort) algorithmFactory.createAlgorithm(AlgorithmType.BUBBLE_SORT);
         countingSort = (CountingSort) algorithmFactory.createAlgorithm(AlgorithmType.COUNTING_SORT);
         heapSort = (HeapSort) algorithmFactory.createAlgorithm(AlgorithmType.HEAP_SORT);
@@ -36,8 +38,10 @@ public class UserInputProcessor {
     }
 
     private void runAlgorithm(Algorithm algorithm) {
-        logger.info("\nName: {} Time: {} s", algorithm, algorithm.showUsage());
-        logger.info("Number of elements: {}    Ranging from -{} to {}", Algorithm.DATASET_SIZE, Algorithm.DATASET_MAX_RANGE - 1, Algorithm.DATASET_MAX_RANGE - 1);
+        logger.info("Name: {} Time: {} s", algorithm, algorithm.showUsage());
+        logger.info("Number of elements: {} Max element value: {}",
+                appConfiguration.getDataSize(),
+                appConfiguration.getMaxRange());
     }
 
     private void startWaiting() {

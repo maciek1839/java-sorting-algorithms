@@ -27,13 +27,13 @@ abstract class AlgorithmTestClassBase {
     }
 
     @Test
-    void shouldReturnEmptyArrayWhenDataIsInvalid() {
+    void should_returnEmptyArray_when_dataIsInvalid() {
         assertEquals(0, algorithm.sortData(null).length);
     }
 
     @ParameterizedTest
     @MethodSource("getDataToSort")
-    void shouldProperlySortData(int[] randomOrderData, int[] expectedData) {
+    void should_properlySortData_forValidInputData(int[] randomOrderData, int[] expectedData) {
         assertArrayEquals(expectedData, algorithm.sortData(randomOrderData));
     }
 }

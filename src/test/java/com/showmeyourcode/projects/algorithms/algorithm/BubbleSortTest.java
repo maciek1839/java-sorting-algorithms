@@ -1,15 +1,14 @@
 package com.showmeyourcode.projects.algorithms.algorithm;
 
 
+import com.showmeyourcode.projects.algorithms.test_util.StaticValueProvider;
 import org.junit.jupiter.api.BeforeEach;
 
 class BubbleSortTest extends AlgorithmTestClassBase {
 
-    private BubbleSort bubbleSort;
-
     @BeforeEach
     @Override
     void setProperAlgorithm() {
-        this.algorithm = new BubbleSort();
+        this.algorithm = new BubbleSort(StaticValueProvider.getDataGenerator());
     }
 }

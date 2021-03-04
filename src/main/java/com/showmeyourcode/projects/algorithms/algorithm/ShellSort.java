@@ -1,6 +1,12 @@
 package com.showmeyourcode.projects.algorithms.algorithm;
 
+import com.showmeyourcode.projects.algorithms.generator.DataGenerator;
+
 public class ShellSort extends AlgorithmBase {
+
+    ShellSort(DataGenerator dataGenerator) {
+        super(dataGenerator);
+    }
 
     @Override
     public String getAlgorithmPerformance() {

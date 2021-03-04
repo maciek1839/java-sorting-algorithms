@@ -1,12 +1,17 @@
 package com.showmeyourcode.projects.algorithms.algorithm;
 
 
+import com.showmeyourcode.projects.algorithms.generator.DataGenerator;
 import io.vavr.Tuple2;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CountingSort extends AlgorithmBase {
+
+    CountingSort(DataGenerator dataGenerator) {
+        super(dataGenerator);
+    }
 
     @Override
     public String getAlgorithmPerformance() {
