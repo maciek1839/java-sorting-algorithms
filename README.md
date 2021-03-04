@@ -12,6 +12,8 @@ The console application shows performance of various sorting algorithms like Bub
 **This is the old project which needs more attention. Algorithms require refactoring and it will be done in the future. Please do not treat
 it as the final version of this project.**
 
+YouTube video: <https://www.youtube.com/watch?v=nrs-DjTRwkk>
+
 ## Technology stack
 
 - Maven
