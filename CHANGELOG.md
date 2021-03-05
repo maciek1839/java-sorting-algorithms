@@ -1,6 +1,17 @@
 # Java sorting algorithms
 
-## 2.0.2 (not yet released)
+## 2.1.0 (05.03.2021)
+
+### Added
+
+- A new benchmark option in GUI.
+- A benchmark table in README.md (it's still empty because algorithms need refactoring).
+- Improve code coverage and add missing tests.
+
+### Changed
+
+- Adjust packages structure.
+- Adjust Logback configuration to not show redundant information.
 
 ## 2.0.1 (25.02.2021)
 
@@ -13,6 +24,7 @@
 ## Added
 
 - Add new logger library (SLF4J & Logback)
+- SonarQube support (using SonarCloud).
 
 ## Changed
 
