@@ -1,7 +1,6 @@
 package com.showmeyourcode.projects.algorithms.configuration;
 
 import com.showmeyourcode.projects.algorithms.exception.CannotLoadAppPropertiesException;
-import com.showmeyourcode.projects.algorithms.model.SortingAppConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,7 +26,7 @@ public class SortingAppConfigurationLoader {
     }
 
     private SortingAppConfiguration loadDefaultConfiguration() throws CannotLoadAppPropertiesException {
-        logger.info("Loading application configuration from file...");
+        logger.info("Loading application configuration from file: {}", propsFileName);
         Properties loadedAppProperties;
         InputStream inputStream = null;
         try {

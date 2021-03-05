@@ -1,12 +1,9 @@
 package com.showmeyourcode.projects.algorithms.benchmark;
 
+import com.showmeyourcode.projects.algorithms.algorithm.AbstractAlgorithmFactory;
 import com.showmeyourcode.projects.algorithms.algorithm.Algorithm;
-import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmFactory;
-import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmFactoryImpl;
-import com.showmeyourcode.projects.algorithms.generator.BenchmarkData;
-import com.showmeyourcode.projects.algorithms.generator.BenchmarkDataGenerator;
-import com.showmeyourcode.projects.algorithms.model.SortingAppConfiguration;
-import com.showmeyourcode.projects.algorithms.model.benchmark.BenchmarkResult;
+import com.showmeyourcode.projects.algorithms.algorithm.implementation.AlgorithmFactory;
+import com.showmeyourcode.projects.algorithms.configuration.SortingAppConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,24 +19,24 @@ import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class BenchmarkProcessor {
 
     static final Logger logger = LoggerFactory.getLogger(BenchmarkProcessor.class);
     private final BenchmarkDataGenerator dataGenerator;
+    private final SortingAppConfiguration appConfiguration;
 
-    public BenchmarkProcessor(BenchmarkDataGenerator dataGenerator) {
+    public BenchmarkProcessor(BenchmarkDataGenerator dataGenerator, SortingAppConfiguration config) {
         this.dataGenerator = dataGenerator;
+        appConfiguration = config;
     }
 
-    public List<BenchmarkResult> getBenchmarkDataReport(SortingAppConfiguration config) {
-        final AlgorithmFactory algorithmFactory = new AlgorithmFactoryImpl(config);
-        List<BenchmarkResult> tmpResults = new ArrayList();
+    public List<BenchmarkResult> getBenchmarkDataReport() {
+        final AbstractAlgorithmFactory algorithmFactory = new AlgorithmFactory(appConfiguration);
+        List<BenchmarkResult> tmpResults = new ArrayList<>();
         var allAlgorithms = algorithmFactory.creatAllAvailableAlgorithms();
         for (BenchmarkData benchmarkData : BenchmarkData.values()) {
             logger.info("Preparing benchmark for {} elements...", benchmarkData.getSize());
-
             try {
                 final int[] initialData = dataGenerator.loadData(benchmarkData);
                 for (Algorithm algorithm : allAlgorithms) {
@@ -59,10 +56,8 @@ public class BenchmarkProcessor {
     }
 
     public void saveResults(List<BenchmarkResult> results) {
-        OutputStream outStream = null;
-        try {
-            File targetFile = new File("src/main/resources/benchmark/results.txt");
-            outStream = new FileOutputStream(targetFile);
+        File targetFile = new File("src/main/resources/benchmark/results.txt");
+        try (OutputStream outStream = new FileOutputStream(targetFile)) {
             DateTimeFormatter formatter =
                     DateTimeFormatter.ISO_LOCAL_DATE_TIME.withZone(ZoneId.from(ZoneOffset.UTC));
             Instant instant = Instant.now();
@@ -73,14 +68,6 @@ public class BenchmarkProcessor {
             }
         } catch (IOException e) {
             logger.error("Cannot write benchmark results! ", e);
-        } finally {
-            if (Objects.nonNull(outStream)) {
-                try {
-                    outStream.close();
-                } catch (IOException e) {
-                    logger.error("Cannot close the stream! ", e);
-                }
-            }
         }
     }
 }

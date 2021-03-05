@@ -7,7 +7,7 @@ public class Waiting extends Thread {
 
     private static final long WAITING_PRINT_PERIOD = 100000000L;
     private volatile boolean isDone;
-    private Logger logger = LoggerFactory.getLogger(Waiting.class);
+    private final Logger logger = LoggerFactory.getLogger(Waiting.class);
 
     Waiting() {
         isDone = false;

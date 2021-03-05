@@ -1,7 +1,7 @@
 package com.showmeyourcode.projects.algorithms.test_util;
 
-import com.showmeyourcode.projects.algorithms.generator.DataGenerator;
-import com.showmeyourcode.projects.algorithms.model.SortingAppConfiguration;
+import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmDataGenerator;
+import com.showmeyourcode.projects.algorithms.configuration.SortingAppConfiguration;
 
 public class StaticValueProvider {
 
@@ -20,7 +20,7 @@ public class StaticValueProvider {
         return new SortingAppConfiguration(dataSize(), DATA_MAX_RANGE);
     }
 
-    public static DataGenerator getDataGenerator() {
-        return new DataGenerator(getConfig());
+    public static AlgorithmDataGenerator getDataGenerator() {
+        return new AlgorithmDataGenerator(getConfig());
     }
 }

@@ -1,7 +1,6 @@
 package com.showmeyourcode.projects.algorithms.configuration;
 
 import com.showmeyourcode.projects.algorithms.exception.CannotLoadAppPropertiesException;
-import com.showmeyourcode.projects.algorithms.model.SortingAppConfiguration;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
