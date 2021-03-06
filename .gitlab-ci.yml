@@ -21,7 +21,7 @@ test:
   artifacts:
     when: always
     reports:
-      junit: target/test-results/test/**/TEST-*.xml
+      junit: target/surefire-reports/TEST-*.xml
 
 analyze-source-code:
   stage: analysis
