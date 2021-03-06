@@ -83,3 +83,4 @@ Remember about:
 
 - using `IT` suffix for integration tests
 - using`Test` suffix for unit tests
+

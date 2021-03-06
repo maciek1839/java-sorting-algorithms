@@ -1,28 +1,28 @@
-2021-03-04T22:39:27.3766523
-BenchmarkResult(datasetSize=10000, algorithmType=BUBBLE_SORT, timeElapsed=172)
-BenchmarkResult(datasetSize=10000, algorithmType=COUNTING_SORT, timeElapsed=16)
-BenchmarkResult(datasetSize=10000, algorithmType=HEAP_SORT, timeElapsed=156)
-BenchmarkResult(datasetSize=10000, algorithmType=INSERT_SORT, timeElapsed=0)
-BenchmarkResult(datasetSize=10000, algorithmType=MERGE_SORT, timeElapsed=7)
-BenchmarkResult(datasetSize=10000, algorithmType=QUICK_SORT, timeElapsed=0)
-BenchmarkResult(datasetSize=10000, algorithmType=SELECTION_SORT, timeElapsed=55)
-BenchmarkResult(datasetSize=10000, algorithmType=SHAKER_SORT, timeElapsed=0)
-BenchmarkResult(datasetSize=10000, algorithmType=SHELL_SORT, timeElapsed=1)
-BenchmarkResult(datasetSize=50000, algorithmType=BUBBLE_SORT, timeElapsed=4857)
-BenchmarkResult(datasetSize=50000, algorithmType=COUNTING_SORT, timeElapsed=8)
-BenchmarkResult(datasetSize=50000, algorithmType=HEAP_SORT, timeElapsed=3331)
-BenchmarkResult(datasetSize=50000, algorithmType=INSERT_SORT, timeElapsed=2)
-BenchmarkResult(datasetSize=50000, algorithmType=MERGE_SORT, timeElapsed=12)
-BenchmarkResult(datasetSize=50000, algorithmType=QUICK_SORT, timeElapsed=0)
-BenchmarkResult(datasetSize=50000, algorithmType=SELECTION_SORT, timeElapsed=509)
-BenchmarkResult(datasetSize=50000, algorithmType=SHAKER_SORT, timeElapsed=2)
-BenchmarkResult(datasetSize=50000, algorithmType=SHELL_SORT, timeElapsed=2)
-BenchmarkResult(datasetSize=100000, algorithmType=BUBBLE_SORT, timeElapsed=14837)
-BenchmarkResult(datasetSize=100000, algorithmType=COUNTING_SORT, timeElapsed=9)
-BenchmarkResult(datasetSize=100000, algorithmType=HEAP_SORT, timeElapsed=11508)
-BenchmarkResult(datasetSize=100000, algorithmType=INSERT_SORT, timeElapsed=1)
-BenchmarkResult(datasetSize=100000, algorithmType=MERGE_SORT, timeElapsed=5)
-BenchmarkResult(datasetSize=100000, algorithmType=QUICK_SORT, timeElapsed=2)
-BenchmarkResult(datasetSize=100000, algorithmType=SELECTION_SORT, timeElapsed=1856)
-BenchmarkResult(datasetSize=100000, algorithmType=SHAKER_SORT, timeElapsed=0)
-BenchmarkResult(datasetSize=100000, algorithmType=SHELL_SORT, timeElapsed=1)
+--------------- Benchmark results 2021-03-06T10:41:46.8672878---------------
+Dataset size: 10000 Algorithm: BUBBLE_SORT Duration: 156 
+Dataset size: 10000 Algorithm: COUNTING_SORT Duration: 15 
+Dataset size: 10000 Algorithm: HEAP_SORT Duration: 160 
+Dataset size: 10000 Algorithm: INSERT_SORT Duration: 0 
+Dataset size: 10000 Algorithm: MERGE_SORT Duration: 0 
+Dataset size: 10000 Algorithm: QUICK_SORT Duration: 0 
+Dataset size: 10000 Algorithm: SELECTION_SORT Duration: 62 
+Dataset size: 10000 Algorithm: SHAKER_SORT Duration: 0 
+Dataset size: 10000 Algorithm: SHELL_SORT Duration: 0 
+Dataset size: 50000 Algorithm: BUBBLE_SORT Duration: 4724 
+Dataset size: 50000 Algorithm: COUNTING_SORT Duration: 15 
+Dataset size: 50000 Algorithm: HEAP_SORT Duration: 3592 
+Dataset size: 50000 Algorithm: INSERT_SORT Duration: 0 
+Dataset size: 50000 Algorithm: MERGE_SORT Duration: 0 
+Dataset size: 50000 Algorithm: QUICK_SORT Duration: 0 
+Dataset size: 50000 Algorithm: SELECTION_SORT Duration: 531 
+Dataset size: 50000 Algorithm: SHAKER_SORT Duration: 0 
+Dataset size: 50000 Algorithm: SHELL_SORT Duration: 0 
+Dataset size: 100000 Algorithm: BUBBLE_SORT Duration: 15057 
+Dataset size: 100000 Algorithm: COUNTING_SORT Duration: 15 
+Dataset size: 100000 Algorithm: HEAP_SORT Duration: 12138 
+Dataset size: 100000 Algorithm: INSERT_SORT Duration: 1 
+Dataset size: 100000 Algorithm: MERGE_SORT Duration: 5 
+Dataset size: 100000 Algorithm: QUICK_SORT Duration: 2 
+Dataset size: 100000 Algorithm: SELECTION_SORT Duration: 1787 
+Dataset size: 100000 Algorithm: SHAKER_SORT Duration: 15 
+Dataset size: 100000 Algorithm: SHELL_SORT Duration: 0 

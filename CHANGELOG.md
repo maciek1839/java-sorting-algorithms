@@ -1,5 +1,16 @@
 # Java sorting algorithms
 
+## 2.2.0 (not yet released)
+
+### Added
+
+- Create the benchmark results file when it does not exist.
+- Show logs during benchmark calculation
+
+### Changed
+
+- Change a format of saving benchmark results.
+
 ## 2.1.0 (05.03.2021)
 
 ### Added

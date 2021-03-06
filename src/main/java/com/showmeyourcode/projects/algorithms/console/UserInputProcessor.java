@@ -7,6 +7,7 @@ import com.showmeyourcode.projects.algorithms.algorithm.implementation.*;
 import com.showmeyourcode.projects.algorithms.benchmark.BenchmarkDataGenerator;
 import com.showmeyourcode.projects.algorithms.benchmark.BenchmarkProcessor;
 import com.showmeyourcode.projects.algorithms.configuration.SortingAppConfiguration;
+import com.showmeyourcode.projects.algorithms.exception.CannotCreateReportResultsFileException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -76,7 +77,11 @@ public class UserInputProcessor {
                 printPoint = new Waiting();
                 startWaiting();
                 var benchMarkReport = benchmarkProcessor.getBenchmarkDataReport();
-                benchmarkProcessor.saveResults(benchMarkReport);
+                try {
+                    benchmarkProcessor.saveResults(benchMarkReport);
+                } catch (CannotCreateReportResultsFileException e) {
+                    logger.error("Sorry, cannot save benchmark results! ", e);
+                }
                 stopWaiting();
                 break;
             case EXIT:

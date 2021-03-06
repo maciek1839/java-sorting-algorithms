@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class BenchmarkProcessorIT {
 
     @Test
-    void should_generateReport_forAllAlgorithms() {
+    void should_generateReport_when_allAlgorithmsLoadData() {
         var config = StaticValueProvider.getConfig();
         BenchmarkDataGenerator dataGenerator = new BenchmarkDataGenerator(config);
         BenchmarkProcessor benchmarkProcessor = new BenchmarkProcessor(dataGenerator, config);
@@ -24,6 +24,12 @@ class BenchmarkProcessorIT {
     @Test
     @Disabled
     void should_saveReportResult_when_resultListIsNotEmpty() {
+
+    }
+
+    @Test
+    @Disabled
+    void should_createResultsFile_when_itDoesNotExist() {
 
     }
 }

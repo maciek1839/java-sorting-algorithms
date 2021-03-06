@@ -4,6 +4,8 @@ import com.showmeyourcode.projects.algorithms.algorithm.AbstractAlgorithmFactory
 import com.showmeyourcode.projects.algorithms.algorithm.Algorithm;
 import com.showmeyourcode.projects.algorithms.algorithm.implementation.AlgorithmFactory;
 import com.showmeyourcode.projects.algorithms.configuration.SortingAppConfiguration;
+import com.showmeyourcode.projects.algorithms.exception.BenchmarkDataNotFoundException;
+import com.showmeyourcode.projects.algorithms.exception.CannotCreateReportResultsFileException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,7 +37,7 @@ public class BenchmarkProcessor {
         final AbstractAlgorithmFactory algorithmFactory = new AlgorithmFactory(appConfiguration);
         List<BenchmarkResult> tmpResults = new ArrayList<>();
         var allAlgorithms = algorithmFactory.creatAllAvailableAlgorithms();
-        for (BenchmarkData benchmarkData : BenchmarkData.values()) {
+        for (AlgorithmsBenchmarkData benchmarkData : AlgorithmsBenchmarkData.values()) {
             logger.info("Preparing benchmark for {} elements...", benchmarkData.getSize());
             try {
                 final int[] initialData = dataGenerator.loadData(benchmarkData);
@@ -47,7 +49,7 @@ public class BenchmarkProcessor {
                     long timeElapsed = Duration.between(start, finish).toMillis();
                     tmpResults.add(new BenchmarkResult(algorithm.getType(), benchmarkData.getSize(), timeElapsed));
                 }
-            } catch (IOException e) {
+            } catch (IOException | BenchmarkDataNotFoundException e) {
                 logger.error("Cannot load data for benchmark from the path: {}", benchmarkData.getPath(), e);
             }
         }
@@ -55,19 +57,45 @@ public class BenchmarkProcessor {
         return tmpResults;
     }
 
-    public void saveResults(List<BenchmarkResult> results) {
-        File targetFile = new File("src/main/resources/benchmark/results.txt");
-        try (OutputStream outStream = new FileOutputStream(targetFile)) {
-            DateTimeFormatter formatter =
-                    DateTimeFormatter.ISO_LOCAL_DATE_TIME.withZone(ZoneId.from(ZoneOffset.UTC));
+    public void saveResults(List<BenchmarkResult> results) throws CannotCreateReportResultsFileException {
+        final String reportResultFilePath = "src/main/resources/benchmark/results.txt";
+        File benchmarkResults = new File(reportResultFilePath);
+
+        createResultsFile(benchmarkResults);
+
+        try (OutputStream outStream = new FileOutputStream(benchmarkResults)) {
+            final String newLine = "\r\n";
+            final String resultAlgorithmEntry = "Dataset size: %d Algorithm: %s Duration: %d %s";
+            DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME.withZone(ZoneId.from(ZoneOffset.UTC));
+            final StringBuilder contentBuilder = new StringBuilder();
             Instant instant = Instant.now();
-            outStream.write((formatter.format(instant) + "\r\n").getBytes(StandardCharsets.UTF_8));
+            contentBuilder.append(String.format("--------------- Benchmark results %s---------------%s",
+                    formatter.format(instant),
+                    newLine
+            ));
             for (BenchmarkResult partialResult : results) {
                 logger.info(partialResult.toString());
-                outStream.write((partialResult.toString() + "\r\n").getBytes(StandardCharsets.UTF_8));
+                contentBuilder.append(String.format(resultAlgorithmEntry,
+                        partialResult.getDatasetSize(),
+                        partialResult.getAlgorithmType(),
+                        partialResult.getTimeElapsed(),
+                        newLine));
             }
+
+            outStream.write(contentBuilder.toString().getBytes(StandardCharsets.UTF_8));
         } catch (IOException e) {
             logger.error("Cannot write benchmark results! ", e);
+        }
+    }
+
+    private void createResultsFile(File benchmarkResults) throws CannotCreateReportResultsFileException {
+        if (!benchmarkResults.exists()) {
+            logger.debug("Creating a benchmark results file: {}", benchmarkResults.getPath());
+            try {
+                benchmarkResults.createNewFile();
+            } catch (IOException e) {
+                throw new CannotCreateReportResultsFileException(e);
+            }
         }
     }
 }

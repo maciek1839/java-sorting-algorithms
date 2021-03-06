@@ -27,6 +27,10 @@
         <appender-ref ref="CONSOLE-ONLY-MESSAGE"/>
     </logger>
 
+    <logger name="com.showmeyourcode.projects.algorithms.benchmark" level="debug" additivity="false">
+        <appender-ref ref="CONSOLE-FULL"/>
+    </logger>
+
     <root level="error">
         <appender-ref ref="CONSOLE-FULL"/>
     </root>
