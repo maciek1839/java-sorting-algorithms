@@ -1,7 +1,7 @@
 package com.showmeyourcode.projects.algorithms.console;
 
 public class Menu {
-    public String createMenu() {
+    public String createMenuToDisplay() {
         return new StringBuilder()
                 .append("\n------------------------\n")
                 .append("1. Bubble Sort\n")

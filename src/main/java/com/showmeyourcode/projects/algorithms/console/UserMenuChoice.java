@@ -35,7 +35,7 @@ public enum UserMenuChoice {
     }
 
     public static int getHighestAvailableUserChoice() {
-        return enumMap.values().stream().map(UserMenuChoice::getUserChoice).max(Integer::compareTo).get();
+        return enumMap.values().stream().map(UserMenuChoice::getUserChoice).max(Integer::compareTo).get();//NOSONAR
     }
 
     public int getUserChoice() {

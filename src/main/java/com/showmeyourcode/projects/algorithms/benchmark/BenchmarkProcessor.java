@@ -89,13 +89,14 @@ public class BenchmarkProcessor {
     }
 
     private void createResultsFile(File benchmarkResults) throws CannotCreateReportResultsFileException {
-        if (!benchmarkResults.exists()) {
-            logger.debug("Creating a benchmark results file: {}", benchmarkResults.getPath());
-            try {
-                benchmarkResults.createNewFile();
-            } catch (IOException e) {
-                throw new CannotCreateReportResultsFileException(e);
+        try {
+            if (benchmarkResults.createNewFile()) {
+                logger.debug("Created the benchmark results file: {}", benchmarkResults.getPath());
+            } else {
+                logger.debug("The benchmark results file already exists: {}", benchmarkResults.getPath());
             }
+        } catch (IOException e) {
+            throw new CannotCreateReportResultsFileException(e);
         }
     }
 }

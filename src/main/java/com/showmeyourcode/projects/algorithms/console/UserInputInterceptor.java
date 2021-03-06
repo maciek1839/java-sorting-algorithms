@@ -22,10 +22,10 @@ public class UserInputInterceptor {
         Optional<UserMenuChoice> currentUserChoice = Optional.empty();
         do {
             if (currentUserChoice.isEmpty() || UserMenuChoice.BAD_USER_INPUT != currentUserChoice.get()) {
-                logger.info(menu.createMenu());
+                logger.info(menu.createMenuToDisplay());
             }
             currentUserChoice = userChoice(scannerChoice.next());
-            userInputProcessor.processUserInput(currentUserChoice.get());
+            userInputProcessor.processUserInput(currentUserChoice.orElse(UserMenuChoice.BAD_USER_INPUT));
         } while (currentUserChoice.isPresent() && UserMenuChoice.EXIT != currentUserChoice.get());
     }
 
