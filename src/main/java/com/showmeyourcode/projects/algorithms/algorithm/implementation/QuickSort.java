@@ -14,15 +14,6 @@ public class QuickSort extends AlgorithmBase {
         return "O(N*LOG N)/O(N^2)";
     }
 
-    /*
-    PSEUDOCODE
-        more on the Internet
-
-    PERFORMANCE
-       Worst-case performance O(n^2)
-       Best-case performance  O(n log n)
-       Worst-case space complexity O(1)
-     */
     @Override
     public String toString() {
         return "Quick sort ";

@@ -13,17 +13,6 @@ public class MergeSort extends AlgorithmBase {
         return "O(N*LOG N)";
     }
 
-    /*
-    PSEUDOCODE
-        more on the Internet
-
-    PERFORMANCE
-       Worst-case performance O(n log n)
-       Best-case performance  O(n log n)
-       Worst-case space complexity O(n)
-
-     */
-
     @Override
     public int[] sortData(int[] data) {
         if (data == null || data.length == 0) {

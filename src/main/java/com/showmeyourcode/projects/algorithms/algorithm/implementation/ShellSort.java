@@ -45,14 +45,6 @@ public class ShellSort extends AlgorithmBase {
         return AlgorithmType.SHELL_SORT;
     }
 
-    /*
-    PSEUDOCODE
-        more on the Internet
-
-    PERFORMANCE
-        depends on paramatere i_hole
-        Stability? Yes
-     */
     @Override
     public String toString() {
         return "Shell Sort ";

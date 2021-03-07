@@ -64,15 +64,7 @@ public class CountingSort extends AlgorithmBase {
         return AlgorithmType.COUNTING_SORT;
     }
 
-    /*
-    PSEUDOCODE
-        find it on the Internet
 
-    PERFORMANCE
-       O(N+M) where N is the number of elements to be sorted and K is the number of possible values in the range.
-       but if we add first loop for searching the lowest and the highest value-> 2n+m
-       0(M)-memory
-     */
     @Override
     public String toString() {
         return "Counting Sort ";

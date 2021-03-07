@@ -14,12 +14,6 @@ YouTube video: <https://www.youtube.com/watch?v=nrs-DjTRwkk>
 **THIS IS THE OLD PROJECT WHICH NEEDS MORE ATTENTION. ALGORITHMS REQUIRE REFACTORING AND IT WILL BE DONE IN THE FUTURE. PLEASE DO NOT TREAT
 IT AS THE FINAL VERSION OF THIS PROJECT.**
 
-## Java main class
-
-```
-SortingAlgorithmsAppLauncher
-```
-
 ## Technology stack
 
 - Maven
@@ -37,6 +31,16 @@ SortingAlgorithmsAppLauncher
 
 - Implement properly sorting algorithms
 - Do the benchmark
+
+## Getting started
+
+1. Enable annotation processing in your IDE (Lombok requires it)
+2. Install Maven dependencies/Import this repository as Maven project.
+3. Run application using a main class:
+
+```
+SortingAlgorithmsAppLauncher
+```
 
 ## Algorithms benchmark
 
@@ -57,15 +61,9 @@ the input array to be sorted.
 
 Time is measured in milliseconds.
 
+**More detailed information you can find here: [Sorting algorithms description](./ALGORITHMS_DESCRIPTION.md)**
+
 Table generated using: <https://www.tablesgenerator.com/markdown_tables#>
-
-### Space complexity
-
-explain
-
-### Best/Average/Worst complexity
-
-explain
 
 ## Test naming convention
 

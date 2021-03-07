@@ -15,15 +15,6 @@ public class HeapSort extends AlgorithmBase {
         return "O(N*LOG N)";
     }
 
-    /*
-    PSEUDOCODE
-        more on the Internet
-
-    PERFORMANCE
-       Worst-case performance O(n log n) -> because we iterate through all elements(n) and
-       Best-case performance  O(n log n)
-       Worst-case space complexity: O(1)
-     */
     @Override
     public String toString() {
         return "Heap Sort ";

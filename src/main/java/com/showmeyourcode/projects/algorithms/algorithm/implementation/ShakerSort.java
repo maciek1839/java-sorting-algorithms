@@ -14,16 +14,6 @@ public class ShakerSort extends AlgorithmBase {
         return "O(N)/O(N^2)";
     }
 
-    /*
-    PSEUDOCODE
-        Shaker sort (bidirectional bubble sort)
-
-    PERFORMANCE
-        Worst-case performance O(n^{2})
-        Best-case performance  O(n)
-        Worst-case space complexity O(1)
-        Stability? Yes
-     */
     @Override
     public String toString() {
         return "Shaker Sort ";

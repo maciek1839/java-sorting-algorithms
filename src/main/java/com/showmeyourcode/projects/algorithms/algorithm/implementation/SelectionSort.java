@@ -14,16 +14,7 @@ public class SelectionSort extends AlgorithmBase {
         return "O(N^2)";
     }
 
-    /*
-    PSEUDOCODE
-        more on the Internet
 
-    PERFORMANCE
-        Worst-case performance O(n^{2})
-        Best-case performance  O(n^{2})
-        Worst-case space complexity	O(1)
-        Stability? No
-     */
     @Override
     public String toString() {
         return "Selection Sort ";
