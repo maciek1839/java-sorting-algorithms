@@ -1,9 +1,9 @@
 package com.showmeyourcode.projects.algorithms.benchmark;
 
 public enum AlgorithmsBenchmarkData implements BenchmarkData {
-    TEN_THOUSANDS("benchmark/10000.txt", 10000),
     FIFTY_THOUSANDS("benchmark/50000.txt", 50000),
-    ONE_HUNDRED_THOUSANDS("benchmark/100000.txt", 100000);
+    ONE_HUNDRED_THOUSAND("benchmark/100000.txt", 100000),
+    ONE_HUNDRED_FIFTY_THOUSAND("benchmark/150000.txt", 150000);
 
     private final String path;
     private final int size;

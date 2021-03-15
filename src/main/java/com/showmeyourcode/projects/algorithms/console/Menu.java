@@ -14,7 +14,8 @@ public class Menu {
                 .append("8. Shaker Sort\n")
                 .append("9. Shell Sort\n")
                 .append("10. Benchmark\n")
-                .append("11. Exit program\n")
+                .append("11. Generate dataset\n")
+                .append("12. Exit program\n")
                 .append("What would you like to try?\tPlease choose one option:\n")
                 .toString();
     }

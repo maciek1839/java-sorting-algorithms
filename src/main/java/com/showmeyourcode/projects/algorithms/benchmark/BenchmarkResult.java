@@ -11,5 +11,7 @@ import lombok.ToString;
 public class BenchmarkResult {
     private final AlgorithmType algorithmType;
     private final int datasetSize;
-    private final long timeElapsed;
+    private final long memoryUsedAtTheBeginningInBytes;
+    private final long memoryUsedAtTheEndInBytes;
+    private final long timeElapsedInNanoSeconds;
 }

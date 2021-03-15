@@ -14,10 +14,28 @@ Here you can find more detailed information about particular algorithms.
 
 ## What is measured and considered?
 
+### Measurement
+
 - Computation time
-- Stability (in other words, preserving the order of initial elements in array when they are correctly sorted)
-- Space complexity
-    - explain
+    - time is measured in nanoseconds; this metric shows how long takes to sort an array
+- Space complexity (Big-O Notation)
+    - used memory is measured in bytes just to prove the Big-O notation; this metric shows how much memory is required by the algorithm to
+      sort an array
+
+| Symbol         | Description                         | Explanation                                                                                                       | 
+|----------------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| O(1)           | constant complexity                 | takes the same amount of space regardless of the input size                                                       |
+| O(log n)       | logarithmic complexity              | takes space proportional to the log of the input size                                                             |
+| O(n)           | linear complexity                   | takes space directly proportional to the input size                                                               |
+| O(n log n)     | log-linear/quasilinear complexity   | also called “linearithmic”, its space complexity grows proportionally to the input size and a logarithmic factor  |
+| O(n^2)         | square/polynomial complexity        | space complexity grows proportionally to the square of the input size                                             |
+
+Reference: <https://www.baeldung.com/cs/space-complexity>
+
+### Consideration
+
+- Stability
+    - in other words, preserving the order of initial elements in array when they are correctly sorted
 - Complexity
     - Best
         - explain

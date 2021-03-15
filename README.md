@@ -44,7 +44,7 @@ SortingAlgorithmsAppLauncher
 
 ## Algorithms benchmark
 
-| Algorithm (time/memory) | 10000 elements | 50000 elements | 100000 elements | Best complexity | Average complexity | Worst complexity | Best complexity | Space complexity | Stable |
+| Algorithm (time/memory) | 50000 elements | 100000 elements | 150000 elements | Best complexity | Average complexity | Worst complexity | Best complexity | Space complexity | Stable |
 |-------------------------|----------------|----------------|-----------------|-----------------|--------------------|------------------|-----------------|------------------|--------|
 | Bubble sort             | ?/?          |  ?/?          | ?/?          |                 |                    |                  |                 |                  |        |
 | Counting sort           |  ?/?          |  ?/?             | ?/?              |                 |                    |                  |                 |                  |        |

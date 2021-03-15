@@ -8,7 +8,6 @@ import org.mockito.Mockito;
 import java.io.IOException;
 import java.util.List;
 
-import static com.showmeyourcode.projects.algorithms.benchmark.AlgorithmsBenchmarkData.TEN_THOUSANDS;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Matchers.any;
 
@@ -21,7 +20,7 @@ class BenchmarkProcessorTest {
         Mockito.when(dataGenerator.loadData(any())).then(invocation -> {
             Object[] args = invocation.getArguments();
             AlgorithmsBenchmarkData data = (AlgorithmsBenchmarkData) args[0];
-            if (data == TEN_THOUSANDS) {
+            if (data == AlgorithmsBenchmarkData.FIFTY_THOUSANDS) {
                 return new int[]{5, 32, 4, 21, 7};
             } else {
                 throw new BenchmarkDataNotFoundException(data);

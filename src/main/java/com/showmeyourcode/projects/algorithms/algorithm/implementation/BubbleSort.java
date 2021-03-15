@@ -10,26 +10,26 @@ public class BubbleSort extends AlgorithmBase {
     }
 
     @Override
-    public int[] sortData(int[] tData) {
-        if (tData == null || tData.length == 0) {
+    public int[] sortData(int[] arrayToSort) {
+        if (arrayToSort == null || arrayToSort.length == 0) {
             return new int[]{};
         }
 
         int valToSwap;
         boolean swapped = true;
 
-        for (int i = 0; i < tData.length - 1 && swapped; i++) {
+        for (int i = 0; i < arrayToSort.length - 1 && swapped; i++) {
             swapped = false;
-            for (int j = 0; j < tData.length - i - 1; j++) {
-                if (tData[j] > tData[j + 1]) {
-                    valToSwap = tData[j];
-                    tData[j] = tData[j + 1];
-                    tData[j + 1] = valToSwap;
+            for (int j = 0; j < arrayToSort.length - i - 1; j++) {
+                if (arrayToSort[j] > arrayToSort[j + 1]) {
+                    valToSwap = arrayToSort[j];
+                    arrayToSort[j] = arrayToSort[j + 1];
+                    arrayToSort[j + 1] = valToSwap;
                     swapped = true;
                 }
             }
         }
-        return tData;
+        return arrayToSort;
     }
 
     @Override

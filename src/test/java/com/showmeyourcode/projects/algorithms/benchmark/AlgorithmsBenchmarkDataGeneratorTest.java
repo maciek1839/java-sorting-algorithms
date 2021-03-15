@@ -15,9 +15,9 @@ class AlgorithmsBenchmarkDataGeneratorTest {
     void should_loadBenchmarkData_when_fileExists() throws BenchmarkDataNotFoundException, IOException {
         var benchmarkDataGenerator = new BenchmarkDataGenerator(StaticValueProvider.getConfig());
 
-        int[] loadedData = benchmarkDataGenerator.loadData(AlgorithmsBenchmarkData.TEN_THOUSANDS);
+        int[] loadedData = benchmarkDataGenerator.loadData(AlgorithmsBenchmarkData.FIFTY_THOUSANDS);
 
-        assertEquals(10000, loadedData.length);
+        assertEquals(50000, loadedData.length);
     }
 
     @Test

@@ -31,17 +31,18 @@ class UserInputInterceptorTest {
 
     public static Stream<Arguments> getExampleUserInput() {
         return Stream.of(
-                Arguments.of("11", UserMenuChoice.EXIT),
-                Arguments.of("1", UserMenuChoice.ALGORITHM_1),
-                Arguments.of("2", UserMenuChoice.ALGORITHM_2),
-                Arguments.of("3", UserMenuChoice.ALGORITHM_3),
-                Arguments.of("4", UserMenuChoice.ALGORITHM_4),
-                Arguments.of("5", UserMenuChoice.ALGORITHM_5),
-                Arguments.of("6", UserMenuChoice.ALGORITHM_6),
-                Arguments.of("7", UserMenuChoice.ALGORITHM_7),
-                Arguments.of("8", UserMenuChoice.ALGORITHM_8),
-                Arguments.of("9", UserMenuChoice.ALGORITHM_9),
-                Arguments.of("10", UserMenuChoice.BENCHMARK)
+                Arguments.of(String.valueOf(UserMenuChoice.EXIT.getUserChoice()), UserMenuChoice.EXIT),
+                Arguments.of(String.valueOf(UserMenuChoice.ALGORITHM_1.getUserChoice()), UserMenuChoice.ALGORITHM_1),
+                Arguments.of(String.valueOf(UserMenuChoice.ALGORITHM_2.getUserChoice()), UserMenuChoice.ALGORITHM_2),
+                Arguments.of(String.valueOf(UserMenuChoice.ALGORITHM_3.getUserChoice()), UserMenuChoice.ALGORITHM_3),
+                Arguments.of(String.valueOf(UserMenuChoice.ALGORITHM_4.getUserChoice()), UserMenuChoice.ALGORITHM_4),
+                Arguments.of(String.valueOf(UserMenuChoice.ALGORITHM_5.getUserChoice()), UserMenuChoice.ALGORITHM_5),
+                Arguments.of(String.valueOf(UserMenuChoice.ALGORITHM_6.getUserChoice()), UserMenuChoice.ALGORITHM_6),
+                Arguments.of(String.valueOf(UserMenuChoice.ALGORITHM_7.getUserChoice()), UserMenuChoice.ALGORITHM_7),
+                Arguments.of(String.valueOf(UserMenuChoice.ALGORITHM_8.getUserChoice()), UserMenuChoice.ALGORITHM_8),
+                Arguments.of(String.valueOf(UserMenuChoice.ALGORITHM_9.getUserChoice()), UserMenuChoice.ALGORITHM_9),
+                Arguments.of(String.valueOf(UserMenuChoice.BENCHMARK.getUserChoice()), UserMenuChoice.BENCHMARK),
+                Arguments.of(String.valueOf(UserMenuChoice.GENERATE_DATASET.getUserChoice()), UserMenuChoice.GENERATE_DATASET)
         );
     }
 

@@ -11,12 +11,15 @@ import com.showmeyourcode.projects.algorithms.exception.CannotCreateReportResult
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
+
 public class UserInputProcessor {
 
     private static final Logger logger = LoggerFactory.getLogger(UserInputProcessor.class);
 
     private final SortingAppConfiguration appConfiguration;
     private final BenchmarkProcessor benchmarkProcessor;
+    private final BenchmarkDataGenerator benchmarkDataGenerator;
 
     private final BubbleSort bubbleSort;
     private final CountingSort countingSort;
@@ -31,7 +34,8 @@ public class UserInputProcessor {
 
     public UserInputProcessor(SortingAppConfiguration config) {
         appConfiguration = config;
-        benchmarkProcessor = new BenchmarkProcessor(new BenchmarkDataGenerator(config), config);
+        benchmarkDataGenerator = new BenchmarkDataGenerator(config);
+        benchmarkProcessor = new BenchmarkProcessor(benchmarkDataGenerator, config);
         final AbstractAlgorithmFactory algorithmFactory = new AlgorithmFactory(config);
         bubbleSort = (BubbleSort) algorithmFactory.createAlgorithm(AlgorithmType.BUBBLE_SORT);
         countingSort = (CountingSort) algorithmFactory.createAlgorithm(AlgorithmType.COUNTING_SORT);
@@ -83,6 +87,13 @@ public class UserInputProcessor {
                     logger.error("Sorry, cannot save benchmark results! ", e);
                 }
                 stopWaiting();
+                break;
+            case GENERATE_DATASET:
+                try {
+                    benchmarkDataGenerator.generateNewDataset(150000);
+                } catch (IOException e) {
+                    logger.error("Sorry, cannot generate a new dataset! ", e);
+                }
                 break;
             case EXIT:
                 logger.info("Thank you and see you again!");

@@ -15,6 +15,10 @@ public abstract class BaseDataGenerator {
     public int[] generateIntData() {
         var dataSize = appConfiguration.getDataSize();
         var maxRange = appConfiguration.getMaxRange();
+        return this.generateIntData(dataSize, maxRange);
+    }
+
+    public int[] generateIntData(int dataSize, int maxRange) {
         var result = new int[dataSize];
         for (int i = 0; i < dataSize; i++) {
             result[i] = randomGenerator.nextInt(maxRange);
