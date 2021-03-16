@@ -7,12 +7,16 @@
 
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=ShowMeYourCodeYouTube_java-sorting-algorithms&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=ShowMeYourCodeYouTube_java-sorting-algorithms)  [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ShowMeYourCodeYouTube_java-sorting-algorithms&metric=alert_status)](https://sonarcloud.io/dashboard?id=ShowMeYourCodeYouTube_java-sorting-algorithms)  [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=ShowMeYourCodeYouTube_java-sorting-algorithms&metric=code_smells)](https://sonarcloud.io/dashboard?id=ShowMeYourCodeYouTube_java-sorting-algorithms)  [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=ShowMeYourCodeYouTube_java-sorting-algorithms&metric=bugs)](https://sonarcloud.io/dashboard?id=ShowMeYourCodeYouTube_java-sorting-algorithms)  [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=ShowMeYourCodeYouTube_java-sorting-algorithms&metric=ncloc)](https://sonarcloud.io/dashboard?id=ShowMeYourCodeYouTube_java-sorting-algorithms)  [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=ShowMeYourCodeYouTube_java-sorting-algorithms&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=ShowMeYourCodeYouTube_java-sorting-algorithms)  [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=ShowMeYourCodeYouTube_java-sorting-algorithms&metric=sqale_index)](https://sonarcloud.io/dashboard?id=ShowMeYourCodeYouTube_java-sorting-algorithms)
 
-The console application shows performance of various sorting algorithms like Bubble Sort, Quick Sort etc.
+**Java console application**  
+**Sorting problem: Total number of item to be sorted**
 
-YouTube video: <https://www.youtube.com/watch?v=nrs-DjTRwkk>
-
-**THIS IS THE OLD PROJECT WHICH NEEDS MORE ATTENTION. ALGORITHMS REQUIRE REFACTORING AND IT WILL BE DONE IN THE FUTURE. PLEASE DO NOT TREAT
-IT AS THE FINAL VERSION OF THIS PROJECT.**
+- YouTube video
+  - <https://www.youtube.com/watch?v=nrs-DjTRwkk>
+- Contributing guidelines
+  - [CONTRIBUTING](./CONTRIBUTING.md)
+- All details and explanation about the benchmark
+  - [ALGORITHMS_DESCRIPTION](./ALGORITHMS_DESCRIPTION.md)
+- Interesting exercises about sorting algorithms found on the Internet - ``exercises`` folder
 
 ## Technology stack
 
@@ -44,10 +48,17 @@ SortingAlgorithmsAppLauncher
 
 ## Algorithms benchmark
 
-| Algorithm (time(ns)/memory(B)) | 50000 elements | 100000 elements | 150000 elements | Best complexity | Average complexity | Worst complexity | Best complexity | Space complexity | Stable | In place|
-|-------------------------|----------------|----------------|-----------------|-----------------|--------------------|------------------|-----------------|------------------|--------|---|
-| Bubble sort             | ?/?          |  ?/?          | ?/?          |                 |                    |                  |                 |                  |        |
-| Counting sort           |  ?/?          |  ?/?             | ?/?              |                 |                    |                  |                 |                  |        |
+```
+An algorithm is a set of instructions designed to perform a specific task.
+Sometimes an algorithm might produce a different output when given the same input.
+This relates to the area of deterministic and non-deterministic algorithms.
+Sorting algorithms are deterministic.
+```
+
+| Algorithm (time(ns)/memory(B))  | 50000 elements   | 100000 elements   | 150000 elements   | Best complexity   | Average complexity   | Worst complexity   | Space complexity (the worst)   | Stable   | In place  |
+|:--------------------------------|:----------------:|:-----------------:|:-----------------:|:-----------------:|:--------------------:|:------------------:|:------------------------------:|:--------:|:---------:|
+| Bubble sort                     | 4760574500       |  20139760400      | 40703039600       |     O(n)          |     O(n^2)           |       O(n^2)       |        O(1)                    |   yes    |  yes      |
+| Counting sort                   |  17973900        |  3729000          | 8716100           |    O(n+k)         |    O(n+k)            |       O(n+k)       |        O(k)                    |  yes/no* |  no/yes*  |
 | Heap sort               |  ?/?        |  ?/?          | ?/?              |                 |                    |                  |                 |                  |        |
 | Insert sort             |  ?/?           |  ?/?             | ?/?              |                 |                    |                  |                 |                  |        |
 | Merge sort              |  ?/?           |  ?/?            | ?/?              |                 |                    |                  |                 |                  |        |
@@ -58,8 +69,15 @@ SortingAlgorithmsAppLauncher
 
 Table generated using: <https://www.tablesgenerator.com/markdown_tables#>
 
-## Others
+Symbol explanations:
 
-- **Contributing** - [document link](./CONTRIBUTING.md)
-- **More detailed algorithm information you can find here: [Sorting algorithms description](./ALGORITHMS_DESCRIPTION.md)**
+- n
+  - number of elements in an array
+- k
+  - the dataset/array elements range
 
+Remarks:
+
+- *The counting sort can be implemented as:
+  - not in-place: stable, O(N) space complexity.
+  - in-place: none stable, O(1) space complexity.

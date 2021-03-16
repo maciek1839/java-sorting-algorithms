@@ -19,30 +19,30 @@ Here you can find more detailed information about particular algorithms.
 **All of them are based on Big-O Notation.**
 
 - Time (Time complexity)
-    - time is measured in nanoseconds; this metric shows how long takes to sort an array
+    - time is measured in nanoseconds,
+    - the time complexity is the number of operations an algorithm performs to complete its task with respect to input size
+      (considering that each operation takes the same amount of time). The algorithm that performs the task in the smallest number of
+      operations is considered the most efficient one.
     - there are three cases to consider:
         - Best
-            - explain https://afteracademy.com/blog/time-and-space-complexity-analysis-of-algorithm
+            - This is the lower bound on running time of an algorithm. We must know the case that causes the minimum number of operations to
+              be executed.
         - Average
-            - explain https://afteracademy.com/blog/time-and-space-complexity-analysis-of-algorithm
-        - Wort
-            - explain https://afteracademy.com/blog/time-and-space-complexity-analysis-of-algorithm
+            - Calculation the running time for all possible inputs, sum all the calculated values and divide the sum by the total number of
+              inputs. The distribution of cases is known ( or predicted).
+        - Worst
+            - This is the upper bound on running time of an algorithm. We must know the case that causes the maximum number of operations to
+              be executed.
 
-| Symbol         | Description                         | Explanation                                                                                                       | 
-|----------------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| O(1)           | constant complexity                 | -                                                      |
-| O(log n)       | logarithmic complexity              | -                                                |
-| O(n)           | linear complexity                   | -                            |
-| O(n log n)     | log-linear/quasilinear complexity   | -  |
-| O(n^2)         | square/polynomial complexity        | -                                             |
-
-Reference: <https://www.bigocheatsheet.com/>
+Reference: <https://www.bigocheatsheet.com/> and <https://afteracademy.com/blog/time-and-space-complexity-analysis-of-algorithm>
 
 - Memory (Space complexity)
-    - used memory is measured in bytes just to prove the Big-O notation; this metric shows how much memory is required by the algorithm to
-      sort an array
+    - used memory is measured in bytes just to prove the Big-O notation,
+    - this metric shows how much memory is required by the algorithm to sort an array
 
-| Symbol         | Description                         | Explanation                                                                                                       | 
+Reference: <https://www.baeldung.com/cs/space-complexity>
+
+| Symbol         | Description                         | Explanation (based on space complexity)                                                                                                     | 
 |----------------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------|
 | O(1)           | constant complexity                 | takes the same amount of space regardless of the input size                                                       |
 | O(log n)       | logarithmic complexity              | takes space proportional to the log of the input size                                                             |
@@ -50,57 +50,93 @@ Reference: <https://www.bigocheatsheet.com/>
 | O(n log n)     | log-linear/quasilinear complexity   | also called “linearithmic”, its space complexity grows proportionally to the input size and a logarithmic factor  |
 | O(n^2)         | square/polynomial complexity        | space complexity grows proportionally to the square of the input size                                             |
 
-Reference: <https://www.baeldung.com/cs/space-complexity>
-
 ### Consideration
 
 - Stability
     - A sorting algorithm is said to be stable if two objects with equal keys appear in the same order in sorted output as they appear in
       the input array to be sorted.
+    -
+    Reference: https://www.baeldung.com/cs/stable-sorting-algorithms#:~:text=Stable%20sorting%20algorithms%20preserve%20the,unstable%20sorting%20algorithms%20don't.&text=Stable%20sorting%20maintains%20the%20order,order%20of%20the%20two%208s
+    .
 - In-place sorting
+    - An in-place algorithm is an algorithm that does not need an extra space and produces an output in the same memory that contains the
+      data by transforming the input ‘in-place’. However, a small constant extra space used for variables is allowed.
+    - In Place
+        - Bubble sort
+        - Selection Sort
+        - Insertion Sort
+        - Heapsort
+    - Not In-Place
+        - Merge Sort
+            - Note that merge sort requires O(n) extra space.
+
+Reference: <https://www.geeksforgeeks.org/in-place-algorithm/>
 
 ## Bubble sort
 
 ### Description
 
-todo
+Bubble sort is a simple sorting algorithm. This sorting algorithm is comparison-based algorithm in which each pair of adjacent elements is
+compared and the elements are swapped if they are not in order. This algorithm is not suitable for large data sets as its average and worst
+case complexity are of Ο(n2) where n is the number of items.
 
 ### Pseudocode
 
-todo
+![Bubble sort pseudocode](docs/bubblesort-pseudocode.svg)
 
 ### Performance
 
-- Worst-case performance O(n^{2})
-- Best-case performance O(n)
-- Worst-case space complexity O(1)
-- Stability? Yes
+#### Worst-case performance O(n<sup>2</sup>)
 
-Case 1) O(n^2) (Worst case) The worst case is if the array is already sorted but in descending order. This means that in the first iteration
-it would have to look at n elements, then after that it would look n - 1 elements (since the biggest integer is at the end)
-and so on and so forth till 1 comparison occurs. Big Oh = n + n - 1 + n - 2 ... + 1 = (n*(n + 1))/2 = O(n^2)(approximation)
+The worst case is if the array is already sorted but in descending order. This means that in the first iteration it would have to look at n
+elements, then after that it would look n - 1 elements (since the biggest integer is at the end)
+and so on and so forth till 1 comparison occurs. Big Oh = n + n - 1 + n - 2 ... + 1 = (n*(n + 1))/2 = O(n<sup>2</sup>)(approximation)
 
-Case 2) O(n) (Best case) This time complexity can occur if the array is already sorted, and that means that no swap occurred and only 1
-iteration of n elements
+- O(n<sup>2</sup>) comparisons
+- O(n<sup>2</sup>) swaps
+
+#### Best-case performance O(n)
+
+This time complexity can occur if the array is already sorted, and that means that no swap occurred and only 1 iteration of n elements.
+
+- O(n) comparisons
+- O(1) swaps
 
 ### Reference
 
-- link
+- https://en.wikipedia.org/wiki/Bubble_sort
+- https://www.tutorialspoint.com/data_structures_algorithms/bubble_sort_algorithm.htm
+- https://www.baeldung.com/cs/bubble-sort-time-complexity
 
 ## Counting sort
 
 ### Description
 
-todo https://www.geeksforgeeks.org/counting-sort/
+Counting sort is a sorting technique based on keys between a specific range. It works by counting the number of objects having distinct key
+values (kind of hashing). Then doing some arithmetic to calculate the position of each object in the sorted output sequence.
+
+Points to be noted:
+
+1. Counting sort is efficient if the range of input data is not significantly greater than the number of objects to be sorted. Consider the
+   situation where the input sequence is between range 1 to 10K and the data is 10, 5, 10K, 5K.
+2. It is not a comparison based sorting. It running time complexity is O(n) with space proportional to the range of data.
+3. It is often used as a sub-routine to another sorting algorithm like radix sort.
+4. Counting sort uses a partial hashing to count the occurrence of the data object in O(1).
+5. Counting sort can be extended to work for negative inputs also.
 
 ### Pseudocode
 
-todo
+![Counting sort pseudocode](./docs/counting-sort-pseudocode.png)
 
 ### Performance
 
-O(N+M) where N is the number of elements to be sorted and K is the number of possible values in the range. but if we add first loop for
-searching the lowest and the highest value-> 2n+m 0(M)-memory
+O(N+K) where N is the number of elements to be sorted and K is the number of possible values in the range. However, if we add first loop for
+searching the lowest and the highest value (the new range - M) -> O(2N+M) - time and 0(M) - memory
+
+### Reference
+
+- https://www.geeksforgeeks.org/counting-sort/
+- https://stackoverflow.com/questions/30222523/is-counting-sort-in-place-stable-or-not
 
 ## Heap sort
 
