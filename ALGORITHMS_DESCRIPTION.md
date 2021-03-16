@@ -97,7 +97,7 @@ case complexity are of Ο(n2) where n is the number of items.
 
 ![Bubble sort pseudocode](docs/bubblesort-pseudocode.svg)
 
-### Performance
+### Performance (additional information not included in the main benchmark table)
 
 #### Worst-case performance O(n<sup>2</sup>)
 
@@ -141,7 +141,7 @@ Points to be noted:
 
 ![Counting sort pseudocode](./docs/counting-sort-pseudocode.png)
 
-### Performance
+### Performance (additional information not included in the main benchmark table)
 
 O(N+K) where N is the number of elements to be sorted and K is the number of possible values in the range. However, if we add first loop for
 searching the lowest and the highest value (the new range - M) -> O(2N+M) - time and 0(M) - memory
@@ -168,7 +168,7 @@ from the unsorted subarray is picked and moved to the sorted subarray.
 
 ![Selection sort pseudocode](./docs/selection-sort-pseudocode.jpg)
 
-### Performance
+### Performance (additional information not included in the main benchmark table)
 
 #### Worst-case performance O(n<sup>2</sup>)
 
@@ -185,6 +185,24 @@ from the unsorted subarray is picked and moved to the sorted subarray.
 - https://www.geeksforgeeks.org/selection-sort/
 - https://en.wikipedia.org/wiki/Selection_sort
 
+## Insertion sort
+
+### Description
+
+Insertion sort is a simple sorting algorithm that works similar to the way you sort playing cards in your hands. The array is virtually
+split into a sorted and an unsorted part. Values from the unsorted part are picked and placed at the correct position in the sorted part.
+
+### Pseudocode
+
+![Insertion sort pseudocode](./docs/insertion-sort-pseudocode.png)
+
+### Performance (additional information not included in the main benchmark table)
+
+### Reference
+
+- https://www.geeksforgeeks.org/insertion-sort/
+- https://en.wikipedia.org/wiki/Insertion_sort
+
 ## Heap sort
 
 ### Description
@@ -199,23 +217,6 @@ todo
 
 Worst-case performance O(n log n) -> because we iterate through all elements(n) and Best-case performance O(n log n)
 Worst-case space complexity: O(1)
-
-## Insert sort
-
-### Description
-
-todo
-
-### Pseudocode
-
-todo
-
-### Performance
-
-Worst-case performance O(n^{2})
-Best-case performance O(n)
-Worst-case space complexity O(1)
-Stability? Yes
 
 ## Merge sort
 

@@ -15,7 +15,7 @@ class AlgorithmsTest {
         return Stream.of(
                 Arguments.of("Bubble Sort ", new BubbleSort(StaticValueProvider.getDataGenerator())),
                 Arguments.of("Counting Sort ", new CountingSort(StaticValueProvider.getDataGenerator())),
-                Arguments.of("Insertion sort ", new InsertSort(StaticValueProvider.getDataGenerator())),
+                Arguments.of("Insertion sort ", new InsertionSort(StaticValueProvider.getDataGenerator())),
                 Arguments.of("Merge sort ", new MergeSort(StaticValueProvider.getDataGenerator()))
         );
     }

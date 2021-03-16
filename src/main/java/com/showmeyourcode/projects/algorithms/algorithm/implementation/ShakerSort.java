@@ -11,7 +11,7 @@ public class ShakerSort extends AlgorithmBase {
 
     @Override
     public String toString() {
-        return "Shaker Sort ";
+        return "Shaker Sort";
     }
 
     @Override

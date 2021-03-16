@@ -4,7 +4,7 @@ public enum AlgorithmType {
     BUBBLE_SORT,
     COUNTING_SORT,
     HEAP_SORT,
-    INSERT_SORT,
+    INSERTION_SORT,
     MERGE_SORT,
     QUICK_SORT,
     SELECTION_SORT,

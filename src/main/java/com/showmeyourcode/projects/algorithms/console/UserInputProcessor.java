@@ -24,7 +24,7 @@ public class UserInputProcessor {
     private final BubbleSort bubbleSort;
     private final CountingSort countingSort;
     private final HeapSort heapSort;
-    private final InsertSort insertSort;
+    private final InsertionSort insertionSort;
     private final MergeSort mergeSort;
     private final QuickSort quickSort;
     private final SelectionSort selectionSort;
@@ -40,7 +40,7 @@ public class UserInputProcessor {
         bubbleSort = (BubbleSort) algorithmFactory.createAlgorithm(AlgorithmType.BUBBLE_SORT);
         countingSort = (CountingSort) algorithmFactory.createAlgorithm(AlgorithmType.COUNTING_SORT);
         heapSort = (HeapSort) algorithmFactory.createAlgorithm(AlgorithmType.HEAP_SORT);
-        insertSort = (InsertSort) algorithmFactory.createAlgorithm(AlgorithmType.INSERT_SORT);
+        insertionSort = (InsertionSort) algorithmFactory.createAlgorithm(AlgorithmType.INSERTION_SORT);
         mergeSort = (MergeSort) algorithmFactory.createAlgorithm(AlgorithmType.MERGE_SORT);
         quickSort = (QuickSort) algorithmFactory.createAlgorithm(AlgorithmType.QUICK_SORT);
         selectionSort = (SelectionSort) algorithmFactory.createAlgorithm(AlgorithmType.SELECTION_SORT);
@@ -60,7 +60,7 @@ public class UserInputProcessor {
                 startAlgorithm(heapSort);
                 break;
             case ALGORITHM_4:
-                startAlgorithm(insertSort);
+                startAlgorithm(insertionSort);
                 break;
             case ALGORITHM_5:
                 startAlgorithm(mergeSort);
