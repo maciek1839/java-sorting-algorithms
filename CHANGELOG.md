@@ -1,15 +1,25 @@
 # Java sorting algorithms
 
-## 2.2.0 (not yet released)
+## 2.3.0 (not yet released)
+
+### Added
+
+### Changed
+
+## 2.2.0 (16.03.2021)
 
 ### Added
 
 - Create the benchmark results file when it does not exist.
-- Show logs during benchmark calculation
+- Show logs during benchmark calculations
+- The benchmark table contains execution and algorithms details.
+- Measure memory during an algorithm execution.
 
 ### Changed
 
 - Change a format of saving benchmark results.
+- Change milliseconds to nanoseconds as a default time execution unit.
+- Refactor part of algorithms: Bubble Sort, Insertion Sort, Counting Sort, Selection Sort.
 
 ## 2.1.0 (05.03.2021)
 
