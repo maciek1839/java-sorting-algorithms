@@ -13,19 +13,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class AlgorithmsTest {
     static Stream<Arguments> getNameAndPerformanceAndAlgorithms() {
         return Stream.of(
-                Arguments.of("O(N)/O(N^2)", "Bubble Sort ", new BubbleSort(StaticValueProvider.getDataGenerator())),
-                Arguments.of("O(N+M)", "Counting Sort ", new CountingSort(StaticValueProvider.getDataGenerator())),
-                Arguments.of("O(N)/O(N^2)", "Insertion sort ", new InsertSort(StaticValueProvider.getDataGenerator())),
-                Arguments.of("O(N*LOG N)", "Merge sort ", new MergeSort(StaticValueProvider.getDataGenerator()))
+                Arguments.of("Bubble Sort ", new BubbleSort(StaticValueProvider.getDataGenerator())),
+                Arguments.of("Counting Sort ", new CountingSort(StaticValueProvider.getDataGenerator())),
+                Arguments.of("Insertion sort ", new InsertSort(StaticValueProvider.getDataGenerator())),
+                Arguments.of("Merge sort ", new MergeSort(StaticValueProvider.getDataGenerator()))
         );
     }
 
     @ParameterizedTest
     @MethodSource("getNameAndPerformanceAndAlgorithms")
-    void shouldReturnProperPerformanceAndNameForAlgorithm(String expectedPerformance,
-                                                          String expectedName,
-                                                          Algorithm algorithm) {
-        assertEquals(expectedPerformance, algorithm.getAlgorithmPerformance());
+    void shouldReturnProperPerformanceAndNameForAlgorithm(String expectedName, Algorithm algorithm) {
         assertEquals(expectedName.trim(), algorithm.toString().trim());
     }
 }

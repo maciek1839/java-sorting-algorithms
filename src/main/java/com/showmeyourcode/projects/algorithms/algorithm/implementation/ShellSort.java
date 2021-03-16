@@ -10,11 +10,6 @@ public class ShellSort extends AlgorithmBase {
     }
 
     @Override
-    public String getAlgorithmPerformance() {
-        return "UNDEFINED";
-    }
-
-    @Override
     public int[] sortData(int[] arrayToSort) {
         if (isArrayEmpty(arrayToSort)) {
             return new int[]{};

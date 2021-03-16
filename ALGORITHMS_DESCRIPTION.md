@@ -55,9 +55,22 @@ Reference: <https://www.baeldung.com/cs/space-complexity>
 - Stability
     - A sorting algorithm is said to be stable if two objects with equal keys appear in the same order in sorted output as they appear in
       the input array to be sorted.
-    -
-    Reference: https://www.baeldung.com/cs/stable-sorting-algorithms#:~:text=Stable%20sorting%20algorithms%20preserve%20the,unstable%20sorting%20algorithms%20don't.&text=Stable%20sorting%20maintains%20the%20order,order%20of%20the%20two%208s
-    .
+    - Reference
+        - https://www.baeldung.com/cs/stable-sorting-algorithms#:~:text=Stable%20sorting%20algorithms%20preserve%20the,unstable%20sorting%20algorithms%20don't.&text=Stable%20sorting%20maintains%20the%20order,order%20of%20the%20two%208s
+        - https://stackoverflow.com/questions/48913820/why-selection-sort-is-unstable
+
+```
+What makes selection sort unstable is that the step of swapping a pair of elements could possibly change the relative order of another pair of elements that have equal keys. For instance, when sorting the array
+
+2 2' 1
+since the element with the minimum key is 1, you'll have to push it to the lowest position of the array by swapping 1 with 2:
+
+1 2' 2
+Swapping 1 with 2 changed the relative order of the two equal elements (2' and 2).
+
+That is, two elements with equal keys do not appear in the same order in the sorted output as they appear in the input array. Hence, selection sort is unstable.
+```
+
 - In-place sorting
     - An in-place algorithm is an algorithm that does not need an extra space and produces an output in the same memory that contains the
       data by transforming the input ‘in-place’. However, a small constant extra space used for variables is allowed.
@@ -138,6 +151,40 @@ searching the lowest and the highest value (the new range - M) -> O(2N+M) - time
 - https://www.geeksforgeeks.org/counting-sort/
 - https://stackoverflow.com/questions/30222523/is-counting-sort-in-place-stable-or-not
 
+## Selection sort
+
+### Description
+
+The selection sort algorithm sorts an array by repeatedly finding the minimum element
+(considering ascending order) from unsorted part and putting it at the beginning. The algorithm maintains two subarrays in a given array:
+
+1) The subarray which is already sorted.
+2) Remaining subarray which is unsorted.
+
+In every iteration of selection sort, the minimum element (considering ascending order)
+from the unsorted subarray is picked and moved to the sorted subarray.
+
+### Pseudocode
+
+![Selection sort pseudocode](./docs/selection-sort-pseudocode.jpg)
+
+### Performance
+
+#### Worst-case performance O(n<sup>2</sup>)
+
+- O(n<sup>2</sup>) comparisons
+- O(n) swaps
+
+#### Best-case performance O(n)
+
+- O(n<sup>2</sup>) comparisons
+- O(1) swaps
+
+### Reference
+
+- https://www.geeksforgeeks.org/selection-sort/
+- https://en.wikipedia.org/wiki/Selection_sort
+
 ## Heap sort
 
 ### Description
@@ -201,23 +248,6 @@ todo
 Worst-case performance O(n^2)
 Best-case performance O(n log n)
 Worst-case space complexity O(1)
-
-## Selection sort
-
-### Description
-
-todo
-
-### Pseudocode
-
-todo
-
-### Performance
-
-Worst-case performance O(n^{2})
-Best-case performance O(n^{2})
-Worst-case space complexity O(1)
-Stability? No
 
 ## Shaker sort
 

@@ -21,11 +21,6 @@ public class CountingSort extends AlgorithmBase {
     }
 
     @Override
-    public String getAlgorithmPerformance() {
-        return "O(N+M)";
-    }
-
-    @Override
     public int[] sortData(int[] inputArray) {
         if (isArrayEmpty(inputArray)) {
             return new int[]{};

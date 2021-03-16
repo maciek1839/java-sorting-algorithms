@@ -10,11 +10,6 @@ public class QuickSort extends AlgorithmBase {
     }
 
     @Override
-    public String getAlgorithmPerformance() {
-        return "O(N*LOG N)/O(N^2)";
-    }
-
-    @Override
     public String toString() {
         return "Quick sort ";
     }

@@ -4,13 +4,9 @@ import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmDataGenerator;
 import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmType;
 
 public class MergeSort extends AlgorithmBase {
+
     MergeSort(AlgorithmDataGenerator dataGenerator) {
         super(dataGenerator);
-    }
-
-    @Override
-    public String getAlgorithmPerformance() {
-        return "O(N*LOG N)";
     }
 
     @Override

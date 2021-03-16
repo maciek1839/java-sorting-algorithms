@@ -10,11 +10,6 @@ public class InsertSort extends AlgorithmBase {
     }
 
     @Override
-    public String getAlgorithmPerformance() {
-        return "O(N)/O(N^2)";
-    }
-
-    @Override
     public String toString() {
         return "Insertion sort ";
     }

@@ -5,14 +5,8 @@ import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmType;
 
 public class HeapSort extends AlgorithmBase {
 
-
     HeapSort(AlgorithmDataGenerator dataGenerator) {
         super(dataGenerator);
-    }
-
-    @Override
-    public String getAlgorithmPerformance() {
-        return "O(N*LOG N)";
     }
 
     @Override

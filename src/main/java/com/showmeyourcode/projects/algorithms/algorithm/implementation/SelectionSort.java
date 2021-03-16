@@ -9,36 +9,33 @@ public class SelectionSort extends AlgorithmBase {
         super(dataGenerator);
     }
 
-    @Override
-    public String getAlgorithmPerformance() {
-        return "O(N^2)";
-    }
-
 
     @Override
-    public String toString() {
-        return "Selection Sort ";
-    }
-
-    @Override
-    public int[] sortData(int[] arrayToSort) {
-        if (isArrayEmpty(arrayToSort)) {
+    public int[] sortData(int[] inputArray) {
+        if (isArrayEmpty(inputArray)) {
             return new int[]{};
         }
 
         int positionToSwap, valSwapped;
 
-        for (int i = 0; i < arrayToSort.length; i++) {
+        for (int i = 0; i < inputArray.length; i++) {
             positionToSwap = i;
-            for (int j = i; j < arrayToSort.length; j++)
-                if (arrayToSort[positionToSwap] > arrayToSort[j])
+            for (int j = i; j < inputArray.length; j++) {
+                if (inputArray[positionToSwap] > inputArray[j]) {
                     positionToSwap = j;
+                }
+            }
 
-            valSwapped = arrayToSort[i];
-            arrayToSort[i] = arrayToSort[positionToSwap];
-            arrayToSort[positionToSwap] = valSwapped;
+            valSwapped = inputArray[i];
+            inputArray[i] = inputArray[positionToSwap];
+            inputArray[positionToSwap] = valSwapped;
         }
-        return arrayToSort;
+        return inputArray;
+    }
+
+    @Override
+    public String toString() {
+        return "Selection Sort";
     }
 
     @Override
