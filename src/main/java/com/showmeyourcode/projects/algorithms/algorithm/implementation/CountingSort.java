@@ -20,14 +20,14 @@ public class CountingSort extends AlgorithmBase {
     }
 
     @Override
-    public int[] sortData(int[] tData) {
-        if (tData == null || tData.length == 0) {
+    public int[] sortData(int[] arrayToSort) {
+        if (isArrayEmpty(arrayToSort)) {
             return new int[]{};
         }
 
-        int theLowest = tData[0], theHighest = tData[0], listCapacity;
+        int theLowest = arrayToSort[0], theHighest = arrayToSort[0], listCapacity;
 
-        for (int tDatum : tData) {
+        for (int tDatum : arrayToSort) {
             if (tDatum < theLowest)
                 theLowest = tDatum;
             else if (tDatum > theHighest)
@@ -40,23 +40,23 @@ public class CountingSort extends AlgorithmBase {
             lowHighValues.add(i, new Tuple2<>(theLowest + i, 0));
         }
         //count each value
-        for (int tDatum : tData) {
+        for (int tDatum : arrayToSort) {
             lowHighValues.set(tDatum - theLowest, new Tuple2<>(lowHighValues.get(tDatum - theLowest)._1(), lowHighValues.get(tDatum - theLowest)._2() + 1));
 
         }
         //flush all countered values
         int howMany, tableIndex = 0;
-        for (int i = 0; tableIndex < tData.length && i < listCapacity; i++) {
+        for (int i = 0; tableIndex < arrayToSort.length && i < listCapacity; i++) {
             howMany = lowHighValues.get(i)._2();
             if (howMany > 0) {
                 while (howMany > 0) {
-                    tData[tableIndex] = lowHighValues.get(i)._1();
+                    arrayToSort[tableIndex] = lowHighValues.get(i)._1();
                     howMany -= 1;
                     tableIndex += 1;
                 }
             }
         }
-        return tData;
+        return arrayToSort;
     }
 
     @Override

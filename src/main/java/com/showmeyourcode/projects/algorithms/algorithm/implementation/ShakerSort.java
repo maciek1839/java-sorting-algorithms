@@ -20,8 +20,8 @@ public class ShakerSort extends AlgorithmBase {
     }
 
     @Override
-    public int[] sortData(int[] data) {
-        if (data == null || data.length == 0) {
+    public int[] sortData(int[] arrayToSort) {
+        if (isArrayEmpty(arrayToSort)) {
             return new int[]{};
         }
 
@@ -30,28 +30,28 @@ public class ShakerSort extends AlgorithmBase {
 
         do {
             isSwapped = false;
-            for (int j = iLoop; j < data.length - iLoop - 1; j++) {
-                if (data[j] > data[j + 1]) {
-                    valToSwap = data[j];
-                    data[j] = data[j + 1];
-                    data[j + 1] = valToSwap;
+            for (int j = iLoop; j < arrayToSort.length - iLoop - 1; j++) {
+                if (arrayToSort[j] > arrayToSort[j + 1]) {
+                    valToSwap = arrayToSort[j];
+                    arrayToSort[j] = arrayToSort[j + 1];
+                    arrayToSort[j + 1] = valToSwap;
                     isSwapped = true;
                 }
             }
             //means that array is sorted and we dont have to do more comparisions
             if (!isSwapped) break;
-            for (int j = data.length - iLoop - 1; j > iLoop; j--) {
-                if (data[j] < data[j - 1]) {
-                    valToSwap = data[j];
-                    data[j] = data[j - 1];
-                    data[j - 1] = valToSwap;
+            for (int j = arrayToSort.length - iLoop - 1; j > iLoop; j--) {
+                if (arrayToSort[j] < arrayToSort[j - 1]) {
+                    valToSwap = arrayToSort[j];
+                    arrayToSort[j] = arrayToSort[j - 1];
+                    arrayToSort[j - 1] = valToSwap;
                     isSwapped = true;
                 }
             }
             iLoop++;
         } while (isSwapped);
 
-        return data;
+        return arrayToSort;
     }
 
     @Override

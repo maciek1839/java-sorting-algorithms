@@ -11,21 +11,21 @@ public class BubbleSort extends AlgorithmBase {
 
     @Override
     public int[] sortData(int[] arrayToSort) {
-        if (arrayToSort == null || arrayToSort.length == 0) {
+        if (isArrayEmpty(arrayToSort)) {
             return new int[]{};
         }
 
-        int valToSwap;
-        boolean swapped = true;
+        int tmpSwappedValue;
+        boolean isSwapped = true;
 
-        for (int i = 0; i < arrayToSort.length - 1 && swapped; i++) {
-            swapped = false;
+        for (int i = 0; i < arrayToSort.length - 1 && isSwapped; i++) {
+            isSwapped = false;
             for (int j = 0; j < arrayToSort.length - i - 1; j++) {
                 if (arrayToSort[j] > arrayToSort[j + 1]) {
-                    valToSwap = arrayToSort[j];
+                    tmpSwappedValue = arrayToSort[j];
                     arrayToSort[j] = arrayToSort[j + 1];
-                    arrayToSort[j + 1] = valToSwap;
-                    swapped = true;
+                    arrayToSort[j + 1] = tmpSwappedValue;
+                    isSwapped = true;
                 }
             }
         }

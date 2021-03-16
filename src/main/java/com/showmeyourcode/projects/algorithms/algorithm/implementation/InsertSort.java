@@ -20,20 +20,20 @@ public class InsertSort extends AlgorithmBase {
     }
 
     @Override
-    public int[] sortData(int[] data) {
-        if (data == null || data.length == 0) {
+    public int[] sortData(int[] arrayToSort) {
+        if (isArrayEmpty(arrayToSort)) {
             return new int[]{};
         }
 
         int iSwapped;
-        for (int i = data.length - 1; i > 0; i--) {
-            for (int j = i; j < data.length && data[j - 1] > data[j]; j++) {
-                iSwapped = data[j - 1];
-                data[j - 1] = data[j];
-                data[j] = iSwapped;
+        for (int i = arrayToSort.length - 1; i > 0; i--) {
+            for (int j = i; j < arrayToSort.length && arrayToSort[j - 1] > arrayToSort[j]; j++) {
+                iSwapped = arrayToSort[j - 1];
+                arrayToSort[j - 1] = arrayToSort[j];
+                arrayToSort[j] = iSwapped;
             }
         }
-        return data;
+        return arrayToSort;
     }
 
     @Override

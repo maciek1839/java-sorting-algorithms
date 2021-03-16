@@ -14,14 +14,14 @@ public class MergeSort extends AlgorithmBase {
     }
 
     @Override
-    public int[] sortData(int[] data) {
-        if (data == null || data.length == 0) {
+    public int[] sortData(int[] arrayToSort) {
+        if (isArrayEmpty(arrayToSort)) {
             return new int[]{};
         }
 
-        for (int i_partSize = 1; i_partSize < data.length; i_partSize = i_partSize * 2)
-            data = mergeParts(data, i_partSize);
-        return data;
+        for (int i_partSize = 1; i_partSize < arrayToSort.length; i_partSize = i_partSize * 2)
+            arrayToSort = mergeParts(arrayToSort, i_partSize);
+        return arrayToSort;
     }
 
     @Override

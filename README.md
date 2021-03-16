@@ -44,8 +44,8 @@ SortingAlgorithmsAppLauncher
 
 ## Algorithms benchmark
 
-| Algorithm (time/memory) | 50000 elements | 100000 elements | 150000 elements | Best complexity | Average complexity | Worst complexity | Best complexity | Space complexity | Stable |
-|-------------------------|----------------|----------------|-----------------|-----------------|--------------------|------------------|-----------------|------------------|--------|
+| Algorithm (time(ns)/memory(B)) | 50000 elements | 100000 elements | 150000 elements | Best complexity | Average complexity | Worst complexity | Best complexity | Space complexity | Stable | In place|
+|-------------------------|----------------|----------------|-----------------|-----------------|--------------------|------------------|-----------------|------------------|--------|---|
 | Bubble sort             | ?/?          |  ?/?          | ?/?          |                 |                    |                  |                 |                  |        |
 | Counting sort           |  ?/?          |  ?/?             | ?/?              |                 |                    |                  |                 |                  |        |
 | Heap sort               |  ?/?        |  ?/?          | ?/?              |                 |                    |                  |                 |                  |        |
@@ -56,29 +56,10 @@ SortingAlgorithmsAppLauncher
 | Shaker sort             |  ?/?           |  ?/?             |  ?/?           |                 |                    |                  |                 |                  |        |
 | Shell sort              |  ?/?           |  ?/?             |  ?/?            |                 |                    |                  |                 |                  |        |
 
-Stable - A sorting algorithm is said to be stable if two objects with equal keys appear in the same order in sorted output as they appear in
-the input array to be sorted.
-
-Time is measured in milliseconds.
-
-**More detailed information you can find here: [Sorting algorithms description](./ALGORITHMS_DESCRIPTION.md)**
-
 Table generated using: <https://www.tablesgenerator.com/markdown_tables#>
 
-## Test naming convention
+## Others
 
-````
-Should_ExpectedBehavior_When_StateUnderTest
-````
-
-Examples:
-
-- Should_ThrowException_When_AgeLessThan18
-- Should_FailToWithdrawMoney_ForInvalidAccount
-- Should_FailToAdmit_IfMandatoryFieldsAreMissing
-
-Remember about:
-
-- using `IT` suffix for integration tests
-- using`Test` suffix for unit tests
+- **Contributing** - [document link](./CONTRIBUTING.md)
+- **More detailed algorithm information you can find here: [Sorting algorithms description](./ALGORITHMS_DESCRIPTION.md)**
 

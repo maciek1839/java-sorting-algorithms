@@ -80,7 +80,7 @@ public class BenchmarkProcessor {
 
         try (OutputStream outStream = new FileOutputStream(benchmarkResults)) {
             final String newLine = "\r\n";
-            final String resultAlgorithmEntry = "Dataset size: %d Algorithm: %s Duration: %d Memory: %d/%d %s";
+            final String resultAlgorithmEntry = "Dataset size: %d Algorithm: %s Duration: %d Memory: %d/%d Memory difference: %d %s";
             DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME.withZone(ZoneId.from(ZoneOffset.UTC));
             final StringBuilder contentBuilder = new StringBuilder();
             Instant instant = Instant.now();
@@ -90,13 +90,17 @@ public class BenchmarkProcessor {
             ));
             for (BenchmarkResult partialResult : results) {
                 logger.info(partialResult.toString());
-                contentBuilder.append(String.format(resultAlgorithmEntry,
-                        partialResult.getDatasetSize(),
-                        partialResult.getAlgorithmType(),
-                        partialResult.getTimeElapsedInNanoSeconds(),
-                        partialResult.getMemoryUsedAtTheBeginningInBytes(),
-                        partialResult.getMemoryUsedAtTheEndInBytes(),
-                        newLine));
+                contentBuilder.append(
+                        String.format(
+                                resultAlgorithmEntry,
+                                partialResult.getDatasetSize(),
+                                partialResult.getAlgorithmType(),
+                                partialResult.getTimeElapsedInNanoSeconds(),
+                                partialResult.getMemoryUsedAtTheBeginningInBytes(),
+                                partialResult.getMemoryUsedAtTheEndInBytes(),
+                                partialResult.getMemoryRuntimeDifference(),
+                                newLine
+                        ));
             }
 
             outStream.write(contentBuilder.toString().getBytes(StandardCharsets.UTF_8));

@@ -21,23 +21,23 @@ public class HeapSort extends AlgorithmBase {
     }
 
     @Override
-    public int[] sortData(int[] data) {
-        if (data == null || data.length == 0) {
+    public int[] sortData(int[] arrayToSort) {
+        if (isArrayEmpty(arrayToSort)) {
             return new int[]{};
         }
 
         //create max heap
-        for (int i = 1; i <= data.length; i++)
-            data = createMaxHeap(data, i);
+        for (int i = 1; i <= arrayToSort.length; i++)
+            arrayToSort = createMaxHeap(arrayToSort, i);
         //strip heap
         int iTmp;
-        for (int i = 0; i < data.length; i++) {
-            iTmp = data[data.length - 1 - i];
-            data[data.length - 1 - i] = data[0];
-            data[0] = iTmp;
-            data = checkChildren(data, 0, data.length - i - 1);
+        for (int i = 0; i < arrayToSort.length; i++) {
+            iTmp = arrayToSort[arrayToSort.length - 1 - i];
+            arrayToSort[arrayToSort.length - 1 - i] = arrayToSort[0];
+            arrayToSort[0] = iTmp;
+            arrayToSort = checkChildren(arrayToSort, 0, arrayToSort.length - i - 1);
         }
-        return data;
+        return arrayToSort;
     }
 
     @Override

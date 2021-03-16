@@ -16,9 +16,29 @@ Here you can find more detailed information about particular algorithms.
 
 ### Measurement
 
-- Computation time
+**All of them are based on Big-O Notation.**
+
+- Time (Time complexity)
     - time is measured in nanoseconds; this metric shows how long takes to sort an array
-- Space complexity (Big-O Notation)
+    - there are three cases to consider:
+        - Best
+            - explain https://afteracademy.com/blog/time-and-space-complexity-analysis-of-algorithm
+        - Average
+            - explain https://afteracademy.com/blog/time-and-space-complexity-analysis-of-algorithm
+        - Wort
+            - explain https://afteracademy.com/blog/time-and-space-complexity-analysis-of-algorithm
+
+| Symbol         | Description                         | Explanation                                                                                                       | 
+|----------------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| O(1)           | constant complexity                 | -                                                      |
+| O(log n)       | logarithmic complexity              | -                                                |
+| O(n)           | linear complexity                   | -                            |
+| O(n log n)     | log-linear/quasilinear complexity   | -  |
+| O(n^2)         | square/polynomial complexity        | -                                             |
+
+Reference: <https://www.bigocheatsheet.com/>
+
+- Memory (Space complexity)
     - used memory is measured in bytes just to prove the Big-O notation; this metric shows how much memory is required by the algorithm to
       sort an array
 
@@ -35,14 +55,9 @@ Reference: <https://www.baeldung.com/cs/space-complexity>
 ### Consideration
 
 - Stability
-    - in other words, preserving the order of initial elements in array when they are correctly sorted
-- Complexity
-    - Best
-        - explain
-    - Average
-        - explain
-    - Wort
-        - explain
+    - A sorting algorithm is said to be stable if two objects with equal keys appear in the same order in sorted output as they appear in
+      the input array to be sorted.
+- In-place sorting
 
 ## Bubble sort
 
@@ -68,11 +83,15 @@ and so on and so forth till 1 comparison occurs. Big Oh = n + n - 1 + n - 2 ... 
 Case 2) O(n) (Best case) This time complexity can occur if the array is already sorted, and that means that no swap occurred and only 1
 iteration of n elements
 
+### Reference
+
+- link
+
 ## Counting sort
 
 ### Description
 
-todo
+todo https://www.geeksforgeeks.org/counting-sort/
 
 ### Pseudocode
 

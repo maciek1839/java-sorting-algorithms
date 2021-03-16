@@ -20,14 +20,14 @@ public class QuickSort extends AlgorithmBase {
     }
 
     @Override
-    public int[] sortData(int[] data) {
-        if (data == null || data.length == 0) {
+    public int[] sortData(int[] arrayToSort) {
+        if (isArrayEmpty(arrayToSort)) {
             return new int[]{};
         }
 
-        sortWithPivot(data, 0, data.length - 1);
+        sortWithPivot(arrayToSort, 0, arrayToSort.length - 1);
 
-        return data;
+        return arrayToSort;
     }
 
     @Override

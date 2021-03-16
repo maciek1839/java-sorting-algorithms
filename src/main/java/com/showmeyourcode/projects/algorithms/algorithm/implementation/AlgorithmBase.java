@@ -22,4 +22,8 @@ public abstract class AlgorithmBase implements Algorithm {
         timeFinished = System.currentTimeMillis();
         return TimeUnit.SECONDS.convert(timeFinished - timeStarted, TimeUnit.MILLISECONDS);
     }
+
+    protected boolean isArrayEmpty(int[] array) {
+        return array == null || array.length == 0;
+    }
 }

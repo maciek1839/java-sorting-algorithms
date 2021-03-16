@@ -21,24 +21,24 @@ public class SelectionSort extends AlgorithmBase {
     }
 
     @Override
-    public int[] sortData(int[] data) {
-        if (data == null || data.length == 0) {
+    public int[] sortData(int[] arrayToSort) {
+        if (isArrayEmpty(arrayToSort)) {
             return new int[]{};
         }
 
         int positionToSwap, valSwapped;
 
-        for (int i = 0; i < data.length; i++) {
+        for (int i = 0; i < arrayToSort.length; i++) {
             positionToSwap = i;
-            for (int j = i; j < data.length; j++)
-                if (data[positionToSwap] > data[j])
+            for (int j = i; j < arrayToSort.length; j++)
+                if (arrayToSort[positionToSwap] > arrayToSort[j])
                     positionToSwap = j;
 
-            valSwapped = data[i];
-            data[i] = data[positionToSwap];
-            data[positionToSwap] = valSwapped;
+            valSwapped = arrayToSort[i];
+            arrayToSort[i] = arrayToSort[positionToSwap];
+            arrayToSort[positionToSwap] = valSwapped;
         }
-        return data;
+        return arrayToSort;
     }
 
     @Override
