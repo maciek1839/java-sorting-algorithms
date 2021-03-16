@@ -58,7 +58,7 @@ Sorting algorithms are deterministic.
 | Insertion sort                  |  1603100         |  1342200          | 499500            |     O(n^2)        |   O(n^2)             | O(n)               |        O(1)                    |   yes    |  yes      |
 | Shell sort                      |  5025000          |  1090400         |  1112400          |     O(n log n)    |  depends on gap sequence |     O(n^2)     |      O(1)                      |   no     |    yes    |
 | Counting sort                   |  17973900        |  3729000          | 8716100           |    O(n+k)         |    O(n+k)            |       O(n+k)       |        O(k)                    |  yes/no* |  no/yes*  |
-| Heap sort               |  ?/?        |  ?/?          | ?/?              |                 |                    |                  |                 |                  |        |
+| Heap sort                       |  3464153000      |  12991558500      | 27996772300       |    O(n log n)     |    O(n log n)        |   O(n log n)       |      O(1)                      |  no      |  yes      |
 | Merge sort              |  ?/?           |  ?/?            | ?/?              |                 |                    |                  |                 |                  |        |
 | Quick sort              |  ?/?           |  ?/?            |  ?/?             |                 |                    |                  |                 |                  |        |
 

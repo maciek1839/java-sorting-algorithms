@@ -207,16 +207,19 @@ split into a sorted and an unsorted part. Values from the unsorted part are pick
 
 ### Description
 
-todo
+Heap sort is a comparison based sorting technique based on Binary Heap data structure. It is similar to selection sort where we first find
+the maximum element and place the maximum element at the end. We repeat the same process for the remaining elements.
 
 ### Pseudocode
 
-todo
+![Heap sort pseudocode](./docs/heap-sort-pseudocode.png)
 
-### Performance
+### Performance (additional information not included in the main benchmark table)
 
-Worst-case performance O(n log n) -> because we iterate through all elements(n) and Best-case performance O(n log n)
-Worst-case space complexity: O(1)
+### Reference
+
+- https://www.geeksforgeeks.org/heap-sort/
+- https://en.wikipedia.org/wiki/Heapsort
 
 ## Merge sort
 

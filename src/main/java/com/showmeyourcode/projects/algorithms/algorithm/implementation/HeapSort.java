@@ -3,6 +3,9 @@ package com.showmeyourcode.projects.algorithms.algorithm.implementation;
 import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmDataGenerator;
 import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmType;
 
+/**
+ * todo: change the implementation
+ */
 public class HeapSort extends AlgorithmBase {
 
     HeapSort(AlgorithmDataGenerator dataGenerator) {
@@ -10,28 +13,27 @@ public class HeapSort extends AlgorithmBase {
     }
 
     @Override
-    public String toString() {
-        return "Heap Sort ";
-    }
-
-    @Override
-    public int[] sortData(int[] arrayToSort) {
-        if (isArrayEmpty(arrayToSort)) {
+    public int[] sortData(int[] inputArray) {
+        if (isArrayEmpty(inputArray)) {
             return new int[]{};
         }
 
-        //create max heap
-        for (int i = 1; i <= arrayToSort.length; i++)
-            arrayToSort = createMaxHeap(arrayToSort, i);
+        for (int i = 1; i <= inputArray.length; i++)
+            inputArray = createMaxHeap(inputArray, i);
         //strip heap
         int iTmp;
-        for (int i = 0; i < arrayToSort.length; i++) {
-            iTmp = arrayToSort[arrayToSort.length - 1 - i];
-            arrayToSort[arrayToSort.length - 1 - i] = arrayToSort[0];
-            arrayToSort[0] = iTmp;
-            arrayToSort = checkChildren(arrayToSort, 0, arrayToSort.length - i - 1);
+        for (int i = 0; i < inputArray.length; i++) {
+            iTmp = inputArray[inputArray.length - 1 - i];
+            inputArray[inputArray.length - 1 - i] = inputArray[0];
+            inputArray[0] = iTmp;
+            inputArray = checkChildren(inputArray, 0, inputArray.length - i - 1);
         }
-        return arrayToSort;
+        return inputArray;
+    }
+
+    @Override
+    public String toString() {
+        return "Heap Sort";
     }
 
     @Override
