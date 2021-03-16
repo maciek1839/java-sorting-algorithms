@@ -225,33 +225,38 @@ the maximum element and place the maximum element at the end. We repeat the same
 
 ### Description
 
-todo
+Like QuickSort, Merge Sort is a Divide and Conquer algorithm. It divides the input array into two halves, calls itself for the two halves,
+and then merges the two sorted halves. The merge() function is used for merging two halves. The merge(arr, l, m, r) is a key process that
+assumes that arr[l..m] and arr[m+1..r] are sorted and merges the two sorted sub-arrays into one. See the following C implementation for
+details.
 
 ### Pseudocode
 
-todo
+![Merge sort pseudocode](./docs/merge-sort-pseudocode.png)
 
-### Performance
+### Performance (additional information not included in the main benchmark table)
 
-Worst-case performance O(n log n)
-Best-case performance O(n log n)
-Worst-case space complexity O(n)
+### Reference
+
+- https://www.geeksforgeeks.org/merge-sort/
 
 ## Quick sort
 
 ### Description
 
-todo
+Like Merge Sort, QuickSort is a Divide and Conquer algorithm. It picks an element as pivot and partitions the given array around the picked
+pivot. There are many different versions of quickSort that pick pivot in different ways.
 
 ### Pseudocode
 
-todo
+![Quick sort pseudocode](./docs/quick-sort-pseudocode.png)
 
-### Performance
+### Performance (additional information not included in the main benchmark table)
 
-Worst-case performance O(n^2)
-Best-case performance O(n log n)
-Worst-case space complexity O(1)
+### Reference
+
+- https://en.wikipedia.org/wiki/Quicksort
+- https://www.geeksforgeeks.org/quick-sort/
 
 ## Shaker sort
 

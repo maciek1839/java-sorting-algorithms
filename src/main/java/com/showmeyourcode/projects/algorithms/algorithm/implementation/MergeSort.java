@@ -3,6 +3,7 @@ package com.showmeyourcode.projects.algorithms.algorithm.implementation;
 import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmDataGenerator;
 import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmType;
 
+// todo: check implementation
 public class MergeSort extends AlgorithmBase {
 
     MergeSort(AlgorithmDataGenerator dataGenerator) {
@@ -10,14 +11,14 @@ public class MergeSort extends AlgorithmBase {
     }
 
     @Override
-    public int[] sortData(int[] arrayToSort) {
-        if (isArrayEmpty(arrayToSort)) {
+    public int[] sortData(int[] inputArray) {
+        if (isArrayEmpty(inputArray)) {
             return new int[]{};
         }
 
-        for (int i_partSize = 1; i_partSize < arrayToSort.length; i_partSize = i_partSize * 2)
-            arrayToSort = mergeParts(arrayToSort, i_partSize);
-        return arrayToSort;
+        for (int i_partSize = 1; i_partSize < inputArray.length; i_partSize = i_partSize * 2)
+            inputArray = mergeParts(inputArray, i_partSize);
+        return inputArray;
     }
 
     @Override
@@ -56,6 +57,6 @@ public class MergeSort extends AlgorithmBase {
 
     @Override
     public String toString() {
-        return "Merge sort ";
+        return "Merge sort";
     }
 }

@@ -3,6 +3,7 @@ package com.showmeyourcode.projects.algorithms.algorithm.implementation;
 import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmDataGenerator;
 import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmType;
 
+//todo: check implementation
 public class QuickSort extends AlgorithmBase {
 
     QuickSort(AlgorithmDataGenerator dataGenerator) {
@@ -11,7 +12,7 @@ public class QuickSort extends AlgorithmBase {
 
     @Override
     public String toString() {
-        return "Quick sort ";
+        return "Quick sort";
     }
 
     @Override
