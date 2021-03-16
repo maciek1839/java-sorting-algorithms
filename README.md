@@ -31,11 +31,6 @@
 - JUnit 5
 - Mockito 1.9.5
 
-## Roadmap
-
-- Implement properly sorting algorithms
-- Do the benchmark
-
 ## Getting started
 
 1. Enable annotation processing in your IDE (Lombok requires it)
@@ -58,15 +53,14 @@ Sorting algorithms are deterministic.
 | Algorithm (time(ns)/memory(B))  | 50000 elements   | 100000 elements   | 150000 elements   | Best complexity   | Average complexity   | Worst complexity   | Space complexity (the worst)   | Stable   | In place  |
 |:--------------------------------|:----------------:|:-----------------:|:-----------------:|:-----------------:|:--------------------:|:------------------:|:------------------------------:|:--------:|:---------:|
 | Bubble sort                     | 4760574500       |  20139760400      | 40703039600       |     O(n)          |     O(n^2)           |       O(n^2)       |        O(1)                    |   yes    |  yes      |
+| Cocktail Shaker sort            |  1534800         |  1697300          |  625600           |     O(n)          |     O(n^2)           |   O(n^2)           |      O(1)                      |   ye     |  yes      |
 | Selection sort                  |  528612800       |  2640280500       |  4902623300       |    O(n^2)         |    O(n^2)            |       O(n^2)       |        O(1)                    |    no    |  yes      |
 | Insertion sort                  |  1603100         |  1342200          | 499500            |     O(n^2)        |   O(n^2)             | O(n)               |        O(1)                    |   yes    |  yes      |
+| Shell sort                      |  5025000          |  1090400         |  1112400          |     O(n log n)    |  depends on gap sequence |     O(n^2)     |      O(1)                      |   no     |    yes    |
 | Counting sort                   |  17973900        |  3729000          | 8716100           |    O(n+k)         |    O(n+k)            |       O(n+k)       |        O(k)                    |  yes/no* |  no/yes*  |
 | Heap sort               |  ?/?        |  ?/?          | ?/?              |                 |                    |                  |                 |                  |        |
-
 | Merge sort              |  ?/?           |  ?/?            | ?/?              |                 |                    |                  |                 |                  |        |
 | Quick sort              |  ?/?           |  ?/?            |  ?/?             |                 |                    |                  |                 |                  |        |
-| Shaker sort             |  ?/?           |  ?/?             |  ?/?           |                 |                    |                  |                 |                  |        |
-| Shell sort              |  ?/?           |  ?/?             |  ?/?            |                 |                    |                  |                 |                  |        |
 
 Table generated using: <https://www.tablesgenerator.com/markdown_tables#>
 

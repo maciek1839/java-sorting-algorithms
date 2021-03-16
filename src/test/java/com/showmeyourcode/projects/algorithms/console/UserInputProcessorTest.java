@@ -28,7 +28,7 @@ class UserInputProcessorTest {
                 Arguments.of(UserMenuChoice.ALGORITHM_5, MergeSort.class),
                 Arguments.of(UserMenuChoice.ALGORITHM_6, QuickSort.class),
                 Arguments.of(UserMenuChoice.ALGORITHM_7, SelectionSort.class),
-                Arguments.of(UserMenuChoice.ALGORITHM_8, ShakerSort.class),
+                Arguments.of(UserMenuChoice.ALGORITHM_8, CocktailShakerSort.class),
                 Arguments.of(UserMenuChoice.ALGORITHM_9, ShellSort.class)
         );
     }

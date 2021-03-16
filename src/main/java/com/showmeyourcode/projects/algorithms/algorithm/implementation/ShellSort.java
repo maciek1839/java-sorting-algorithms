@@ -10,30 +10,30 @@ public class ShellSort extends AlgorithmBase {
     }
 
     @Override
-    public int[] sortData(int[] arrayToSort) {
-        if (isArrayEmpty(arrayToSort)) {
+    public int[] sortData(int[] inputArray) {
+        if (isArrayEmpty(inputArray)) {
             return new int[]{};
         }
 
-        int valToSwap, iHole = arrayToSort.length / 2;
-        //start from top to down
-        while (iHole > 0) {
-            for (int j = iHole; j < arrayToSort.length; j++) {
-                if (arrayToSort[j] < arrayToSort[j - iHole]) {
-                    valToSwap = arrayToSort[j];
-                    arrayToSort[j] = arrayToSort[j - iHole];
-                    arrayToSort[j - iHole] = valToSwap;
-                    for (int i = 0; iHole == 1 && j - iHole - 1 - i >= 0 && arrayToSort[j - iHole - i] < arrayToSort[j - iHole - i - 1]; i++) {
-                        valToSwap = arrayToSort[j - iHole - i];
-                        arrayToSort[j - iHole - i] = arrayToSort[j - iHole - i - 1];
-                        arrayToSort[j - iHole - i - 1] = valToSwap;
+        int valToSwap, gap = inputArray.length / 2;
+
+        while (gap > 0) {
+            for (int j = gap; j < inputArray.length; j++) {
+                if (inputArray[j] < inputArray[j - gap]) {
+                    valToSwap = inputArray[j];
+                    inputArray[j] = inputArray[j - gap];
+                    inputArray[j - gap] = valToSwap;
+                    for (int i = 0; gap == 1 && j - gap - 1 - i >= 0 && inputArray[j - gap - i] < inputArray[j - gap - i - 1]; i++) {
+                        valToSwap = inputArray[j - gap - i];
+                        inputArray[j - gap - i] = inputArray[j - gap - i - 1];
+                        inputArray[j - gap - i - 1] = valToSwap;
                     }
                 }
             }
-            iHole = iHole / 2;
+            gap = gap / 2;
         }
 
-        return arrayToSort;
+        return inputArray;
     }
 
     @Override
@@ -43,6 +43,6 @@ public class ShellSort extends AlgorithmBase {
 
     @Override
     public String toString() {
-        return "Shell Sort ";
+        return "Shell Sort";
     }
 }

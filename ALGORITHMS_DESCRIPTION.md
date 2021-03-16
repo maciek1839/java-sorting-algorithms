@@ -254,29 +254,38 @@ Worst-case space complexity O(1)
 
 ### Description
 
-todo
+Cocktail shaker sort, also known as bidirectional bubble sort, cocktail sort, shaker sort (which can also refer to a variant of selection
+sort), ripple sort, shuffle sort, or shuttle sort, is an extension of bubble sort. The algorithm extends bubble sort by operating in two
+directions. While it improves on bubble sort by more quickly moving items to the beginning of the list, it provides only marginal
+performance improvements.
 
 ### Pseudocode
 
-todo
+![Cocktail sort pseudocode](./docs/cocktail-sort-pseudocode.png)
 
-### Performance
+### Performance (additional information not included in the main benchmark table)
 
-Worst-case performance O(n^{2})
-Best-case performance O(n)
-Worst-case space complexity O(1)
-Stability? Yes
+### Reference
+
+- https://en.wikipedia.org/wiki/Cocktail_shaker_sort
+- https://www.geeksforgeeks.org/cocktail-sort/
 
 ## Shell sort
 
 ### Description
 
-todo
+Shellsort, also known as Shell sort or Shell's method, is an in-place comparison sort. It can be seen as either a generalization of sorting
+by exchange (bubble sort) or sorting by insertion (insertion sort). The method starts by sorting pairs of elements far apart from each
+other, then progressively reducing the gap between elements to be compared. By starting with far apart elements, it can move some
+out-of-place elements into position faster than a simple nearest neighbor exchange.
 
 ### Pseudocode
 
-todo
+![Shell Sort pseudocode](./docs/Shell-Sort-Pseudocode.jpg)
 
-### Performance
+### Performance (additional information not included in the main benchmark table)
 
-depends on paramatere i_hole Stability? Yes
+### Reference
+
+- https://www.geeksforgeeks.org/shellsort/
+- https://en.wikipedia.org/wiki/Shellsort

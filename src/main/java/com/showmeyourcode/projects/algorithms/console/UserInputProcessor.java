@@ -28,7 +28,7 @@ public class UserInputProcessor {
     private final MergeSort mergeSort;
     private final QuickSort quickSort;
     private final SelectionSort selectionSort;
-    private final ShakerSort shakerSort;
+    private final CocktailShakerSort cocktailShakerSort;
     private final ShellSort shellSort;
     private Waiting printPoint = new Waiting();
 
@@ -44,7 +44,7 @@ public class UserInputProcessor {
         mergeSort = (MergeSort) algorithmFactory.createAlgorithm(AlgorithmType.MERGE_SORT);
         quickSort = (QuickSort) algorithmFactory.createAlgorithm(AlgorithmType.QUICK_SORT);
         selectionSort = (SelectionSort) algorithmFactory.createAlgorithm(AlgorithmType.SELECTION_SORT);
-        shakerSort = (ShakerSort) algorithmFactory.createAlgorithm(AlgorithmType.SHAKER_SORT);
+        cocktailShakerSort = (CocktailShakerSort) algorithmFactory.createAlgorithm(AlgorithmType.COCKTAIL_SHAKER_SORT);
         shellSort = (ShellSort) algorithmFactory.createAlgorithm(AlgorithmType.SHELL_SORT);
     }
 
@@ -72,7 +72,7 @@ public class UserInputProcessor {
                 startAlgorithm(selectionSort);
                 break;
             case ALGORITHM_8:
-                startAlgorithm(shakerSort);
+                startAlgorithm(cocktailShakerSort);
                 break;
             case ALGORITHM_9:
                 startAlgorithm(shellSort);

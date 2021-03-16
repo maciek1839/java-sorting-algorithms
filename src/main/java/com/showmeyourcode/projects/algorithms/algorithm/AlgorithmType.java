@@ -8,6 +8,6 @@ public enum AlgorithmType {
     MERGE_SORT,
     QUICK_SORT,
     SELECTION_SORT,
-    SHAKER_SORT,
+    COCKTAIL_SHAKER_SORT,
     SHELL_SORT
 }

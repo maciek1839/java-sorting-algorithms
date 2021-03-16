@@ -27,7 +27,7 @@ class AlgorithmFactoryTest {
                 Arguments.of(AlgorithmType.MERGE_SORT, new MergeSort(StaticValueProvider.getDataGenerator())),
                 Arguments.of(AlgorithmType.QUICK_SORT, new QuickSort(StaticValueProvider.getDataGenerator())),
                 Arguments.of(AlgorithmType.SELECTION_SORT, new SelectionSort(StaticValueProvider.getDataGenerator())),
-                Arguments.of(AlgorithmType.SHAKER_SORT, new ShakerSort(StaticValueProvider.getDataGenerator())),
+                Arguments.of(AlgorithmType.COCKTAIL_SHAKER_SORT, new CocktailShakerSort(StaticValueProvider.getDataGenerator())),
                 Arguments.of(AlgorithmType.SHELL_SORT, new ShellSort(StaticValueProvider.getDataGenerator()))
         );
     }
