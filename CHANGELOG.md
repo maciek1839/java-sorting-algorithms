@@ -19,7 +19,7 @@
 
 - Change a format of saving benchmark results.
 - Change milliseconds to nanoseconds as a default time execution unit.
-- Refactor part of algorithms: Bubble Sort, Insertion Sort, Counting Sort, Selection Sort.
+- Refactor a part of algorithms: Bubble Sort, Insertion Sort, Counting Sort, Selection Sort.
 
 ## 2.1.0 (05.03.2021)
 

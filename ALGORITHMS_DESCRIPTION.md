@@ -3,14 +3,14 @@
 Here you can find more detailed information about particular algorithms.
 
 1. [Bubble sort](#bubble-sort)
-2. [Counting sort](#counting-sort)
-3. [Heap sort](#heap-sort)
-4. [Insert sort](#insert-sort)
-5. [Merge sort](#merge-sort)
-6. [Quick sort](#quick-sort)
-7. [Selection sort](#selection-sort)
-8. [Shaker sort](#shaker-sort)
-9. [Shell sort](#shell-sort)
+1. [Cocktail Shaker sort](#shaker-sort)
+1. [Selection sort](#selection-sort)
+1. [Insertion sort](#insertion-sort)
+1. [Shell sort](#shell-sort)
+1. [Counting sort](#counting-sort)
+1. [Heap sort](#heap-sort)
+1. [Merge sort](#merge-sort)
+1. [Quick sort](#quick-sort)
 
 ## What is measured and considered?
 
@@ -121,35 +121,25 @@ This time complexity can occur if the array is already sorted, and that means th
 - https://www.tutorialspoint.com/data_structures_algorithms/bubble_sort_algorithm.htm
 - https://www.baeldung.com/cs/bubble-sort-time-complexity
 
-## Counting sort
+## Cocktail Shaker sort
 
 ### Description
 
-Counting sort is a sorting technique based on keys between a specific range. It works by counting the number of objects having distinct key
-values (kind of hashing). Then doing some arithmetic to calculate the position of each object in the sorted output sequence.
-
-Points to be noted:
-
-1. Counting sort is efficient if the range of input data is not significantly greater than the number of objects to be sorted. Consider the
-   situation where the input sequence is between range 1 to 10K and the data is 10, 5, 10K, 5K.
-2. It is not a comparison based sorting. It running time complexity is O(n) with space proportional to the range of data.
-3. It is often used as a sub-routine to another sorting algorithm like radix sort.
-4. Counting sort uses a partial hashing to count the occurrence of the data object in O(1).
-5. Counting sort can be extended to work for negative inputs also.
+Cocktail shaker sort, also known as bidirectional bubble sort, cocktail sort, shaker sort (which can also refer to a variant of selection
+sort), ripple sort, shuffle sort, or shuttle sort, is an extension of bubble sort. The algorithm extends bubble sort by operating in two
+directions. While it improves on bubble sort by more quickly moving items to the beginning of the list, it provides only marginal
+performance improvements.
 
 ### Pseudocode
 
-![Counting sort pseudocode](./docs/counting-sort-pseudocode.png)
+![Cocktail sort pseudocode](./docs/cocktail-sort-pseudocode.png)
 
 ### Performance (additional information not included in the main benchmark table)
 
-O(N+K) where N is the number of elements to be sorted and K is the number of possible values in the range. However, if we add first loop for
-searching the lowest and the highest value (the new range - M) -> O(2N+M) - time and 0(M) - memory
-
 ### Reference
 
-- https://www.geeksforgeeks.org/counting-sort/
-- https://stackoverflow.com/questions/30222523/is-counting-sort-in-place-stable-or-not
+- https://en.wikipedia.org/wiki/Cocktail_shaker_sort
+- https://www.geeksforgeeks.org/cocktail-sort/
 
 ## Selection sort
 
@@ -202,6 +192,56 @@ split into a sorted and an unsorted part. Values from the unsorted part are pick
 
 - https://www.geeksforgeeks.org/insertion-sort/
 - https://en.wikipedia.org/wiki/Insertion_sort
+
+## Shell sort
+
+### Description
+
+Shellsort, also known as Shell sort or Shell's method, is an in-place comparison sort. It can be seen as either a generalization of sorting
+by exchange (bubble sort) or sorting by insertion (insertion sort). The method starts by sorting pairs of elements far apart from each
+other, then progressively reducing the gap between elements to be compared. By starting with far apart elements, it can move some
+out-of-place elements into position faster than a simple nearest neighbor exchange.
+
+### Pseudocode
+
+![Shell Sort pseudocode](./docs/Shell-Sort-Pseudocode.jpg)
+
+### Performance (additional information not included in the main benchmark table)
+
+### Reference
+
+- https://www.geeksforgeeks.org/shellsort/
+- https://en.wikipedia.org/wiki/Shellsort
+
+## Counting sort
+
+### Description
+
+Counting sort is a sorting technique based on keys between a specific range. It works by counting the number of objects having distinct key
+values (kind of hashing). Then doing some arithmetic to calculate the position of each object in the sorted output sequence.
+
+Points to be noted:
+
+1. Counting sort is efficient if the range of input data is not significantly greater than the number of objects to be sorted. Consider the
+   situation where the input sequence is between range 1 to 10K and the data is 10, 5, 10K, 5K.
+2. It is not a comparison based sorting. It running time complexity is O(n) with space proportional to the range of data.
+3. It is often used as a sub-routine to another sorting algorithm like radix sort.
+4. Counting sort uses a partial hashing to count the occurrence of the data object in O(1).
+5. Counting sort can be extended to work for negative inputs also.
+
+### Pseudocode
+
+![Counting sort pseudocode](./docs/counting-sort-pseudocode.png)
+
+### Performance (additional information not included in the main benchmark table)
+
+O(N+K) where N is the number of elements to be sorted and K is the number of possible values in the range. However, if we add first loop for
+searching the lowest and the highest value (the new range - M) -> O(2N+M) - time and 0(M) - memory
+
+### Reference
+
+- https://www.geeksforgeeks.org/counting-sort/
+- https://stackoverflow.com/questions/30222523/is-counting-sort-in-place-stable-or-not
 
 ## Heap sort
 
@@ -258,42 +298,3 @@ pivot. There are many different versions of quickSort that pick pivot in differe
 - https://en.wikipedia.org/wiki/Quicksort
 - https://www.geeksforgeeks.org/quick-sort/
 
-## Shaker sort
-
-### Description
-
-Cocktail shaker sort, also known as bidirectional bubble sort, cocktail sort, shaker sort (which can also refer to a variant of selection
-sort), ripple sort, shuffle sort, or shuttle sort, is an extension of bubble sort. The algorithm extends bubble sort by operating in two
-directions. While it improves on bubble sort by more quickly moving items to the beginning of the list, it provides only marginal
-performance improvements.
-
-### Pseudocode
-
-![Cocktail sort pseudocode](./docs/cocktail-sort-pseudocode.png)
-
-### Performance (additional information not included in the main benchmark table)
-
-### Reference
-
-- https://en.wikipedia.org/wiki/Cocktail_shaker_sort
-- https://www.geeksforgeeks.org/cocktail-sort/
-
-## Shell sort
-
-### Description
-
-Shellsort, also known as Shell sort or Shell's method, is an in-place comparison sort. It can be seen as either a generalization of sorting
-by exchange (bubble sort) or sorting by insertion (insertion sort). The method starts by sorting pairs of elements far apart from each
-other, then progressively reducing the gap between elements to be compared. By starting with far apart elements, it can move some
-out-of-place elements into position faster than a simple nearest neighbor exchange.
-
-### Pseudocode
-
-![Shell Sort pseudocode](./docs/Shell-Sort-Pseudocode.jpg)
-
-### Performance (additional information not included in the main benchmark table)
-
-### Reference
-
-- https://www.geeksforgeeks.org/shellsort/
-- https://en.wikipedia.org/wiki/Shellsort

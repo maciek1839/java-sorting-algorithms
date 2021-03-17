@@ -9,26 +9,27 @@ public class SelectionSort extends AlgorithmBase {
         super(dataGenerator);
     }
 
-
     @Override
     public int[] sortData(int[] inputArray) {
         if (isArrayEmpty(inputArray)) {
             return new int[]{};
         }
 
-        int positionToSwap, valSwapped;
+        int indexOfTheLowestNumber, tmpSwappedValue;
 
         for (int i = 0; i < inputArray.length; i++) {
-            positionToSwap = i;
-            for (int j = i; j < inputArray.length; j++) {
-                if (inputArray[positionToSwap] > inputArray[j]) {
-                    positionToSwap = j;
+            indexOfTheLowestNumber = i;
+            for (int j = i + 1; j < inputArray.length; j++) {
+                if (inputArray[indexOfTheLowestNumber] > inputArray[j]) {
+                    indexOfTheLowestNumber = j;
                 }
             }
 
-            valSwapped = inputArray[i];
-            inputArray[i] = inputArray[positionToSwap];
-            inputArray[positionToSwap] = valSwapped;
+            if (indexOfTheLowestNumber != i) {
+                tmpSwappedValue = inputArray[i];
+                inputArray[i] = inputArray[indexOfTheLowestNumber];
+                inputArray[indexOfTheLowestNumber] = tmpSwappedValue;
+            }
         }
         return inputArray;
     }

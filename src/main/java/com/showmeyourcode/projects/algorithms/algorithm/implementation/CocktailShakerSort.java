@@ -29,7 +29,9 @@ public class CocktailShakerSort extends AlgorithmBase {
                 }
             }
 
-            if (!shouldSortFromTheRight) break;
+            if (!shouldSortFromTheRight) {
+                break;
+            }
             for (int j = inputArray.length - tmpArrayIndex - 1; j > tmpArrayIndex; j--) {
                 if (inputArray[j] < inputArray[j - 1]) {
                     valToSwap = inputArray[j];
@@ -38,7 +40,7 @@ public class CocktailShakerSort extends AlgorithmBase {
                 }
             }
             tmpArrayIndex++;
-        } while (shouldSortFromTheRight);
+        } while (tmpArrayIndex < inputArray.length);
 
         return inputArray;
     }

@@ -15,22 +15,22 @@ public class ShellSort extends AlgorithmBase {
             return new int[]{};
         }
 
-        int valToSwap, gap = inputArray.length / 2;
+        int valToSwap, gapDistance = inputArray.length / 2;
 
-        while (gap > 0) {
-            for (int j = gap; j < inputArray.length; j++) {
-                if (inputArray[j] < inputArray[j - gap]) {
+        while (gapDistance > 0) {
+            for (int j = gapDistance; j < inputArray.length; j++) {
+                if (inputArray[j] < inputArray[j - gapDistance]) {
                     valToSwap = inputArray[j];
-                    inputArray[j] = inputArray[j - gap];
-                    inputArray[j - gap] = valToSwap;
-                    for (int i = 0; gap == 1 && j - gap - 1 - i >= 0 && inputArray[j - gap - i] < inputArray[j - gap - i - 1]; i++) {
-                        valToSwap = inputArray[j - gap - i];
-                        inputArray[j - gap - i] = inputArray[j - gap - i - 1];
-                        inputArray[j - gap - i - 1] = valToSwap;
+                    inputArray[j] = inputArray[j - gapDistance];
+                    inputArray[j - gapDistance] = valToSwap;
+                    for (int i = 0; gapDistance == 1 && j - gapDistance - 1 - i >= 0 && inputArray[j - gapDistance - i] < inputArray[j - gapDistance - i - 1]; i++) {
+                        valToSwap = inputArray[j - gapDistance - i];
+                        inputArray[j - gapDistance - i] = inputArray[j - gapDistance - i - 1];
+                        inputArray[j - gapDistance - i - 1] = valToSwap;
                     }
                 }
             }
-            gap = gap / 2;
+            gapDistance = gapDistance / 2;
         }
 
         return inputArray;

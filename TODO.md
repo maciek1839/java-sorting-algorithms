@@ -7,3 +7,4 @@
 - save, load data - BenchmarkDataGenerator
 - Add GIFs and make documentation more friendly.
 - check implementation for quick, merge, heap, shell and shaker sort.
+- Use Java profilers
