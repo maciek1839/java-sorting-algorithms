@@ -53,22 +53,26 @@ This relates to the area of deterministic and non-deterministic algorithms.
 Sorting algorithms are deterministic.
 ```
 
-|Verified | Algorithm&#160;(time(ns)/memory(B))  | 50000&#160;elements   | 100000&#160;elements   | 150000&#160;elements   | Best&#160;complexity   | Average&#160;complexity   | Worst&#160;complexity   | Space&#160;complexity&#160;(the&#160;worst)   | Stable   | In&#160;place  |
+|Verified | Algorithm  | 50000&#160;elements&#160;(ns)   | 100000&#160;elements&#160;(ns)    | 150000&#160;elements&#160;(ns)    | Best&#160;complexity   | Average&#160;complexity   | Worst&#160;complexity   | Space&#160;complexity&#160;(the&#160;worst)   | Stable   | In&#160;place  |
 |:-------:|:--------------------------------|:----------------:|:-----------------:|:-----------------:|:-----------------:|:--------------------:|:------------------:|:------------------------------:|:--------:|:---------:|
-|![green](./docs/check-accept-svgrepo-com.svg)| Bubble sort                                                      | 4760574500       |  20139760400      | 40703039600       |     O(n)          |     O(n^2)           |       O(n^2)       |        O(1)                    |   yes    |  yes      |
-|![green](./docs/check-accept-svgrepo-com.svg)| Cocktail Shaker sort &nbsp; (Bidirectional bubble sort)          |  1548800         |  1697300          |  625600           |     O(n)          |     O(n^2)           |   O(n^2)           |      O(1)                      |   ye     |  yes      |
-|![green](./docs/check-accept-svgrepo-com.svg)| Selection sort                                                   |  528612800       |  2640280500       |  4902623300       |    O(n^2)         |    O(n^2)            |       O(n^2)       |        O(1)                    |    no    |  yes      |
-|![green](./docs/check-accept-svgrepo-com.svg)| Insertion sort                                                   |  1603100         |  1342200          | 499500            |     O(n^2)        |   O(n^2)             | O(n)               |        O(1)                    |   yes    |  yes      |
-|![red](./docs/error-svgrepo-com.svg)| Shell sort                                                                |  5025000         |  1090400          |  1112400          |     O(n log n)    |  depends on gap sequence |     O(n^2)     |      O(1)                      |   no     |    yes    |
-|![green](./docs/check-accept-svgrepo-com.svg)| Counting sort                                                    |  17973900        |  3729000          | 8716100           |    O(n+k)         |    O(n+k)            |       O(n+k)       |        O(k)                    |  yes/no* |  no/yes*  |
-|![red](./docs/error-svgrepo-com.svg)| Heap sort                                                                 |  3464153000      |  12991558500      | 27996772300       |    O(n log n)     |    O(n log n)        |   O(n log n)       |      O(1)                      |  no      |  yes      |
-|![red](./docs/error-svgrepo-com.svg)| Merge sort                                                                |  15889300        |  10531900         | 23490400          |    O(n log n)     |    O(n log n)        |   O(n log n)       |      O(n)                      |  yes     |  no       |
-|![red](./docs/error-svgrepo-com.svg)| Quick sort                                                                |  4945900         |  7275000          |  24473400         |    O(n log n)     |    O(n log n)        |    O(n^2)          |      O(log(n))                 |   no     |  yes      |
+|![green](./docs/check-accept-svgrepo-com.svg)| Bubble&#160;sort                                                      | 4760574500       |  20139760400      | 40703039600       |     O(n)          |     O(n^2)           |       O(n^2)       |        O(1)                    |   yes    |  yes      |
+|![green](./docs/check-accept-svgrepo-com.svg)| Cocktail&#160;Shaker&#160;sort <br/> (Bidirectional&#160;bubble&#160;sort)          |  1548800         |  1697300          |  625600           |     O(n)          |     O(n^2)           |   O(n^2)           |      O(1)                      |   ye     |  yes      |
+|![green](./docs/check-accept-svgrepo-com.svg)| Selection&#160;sort                                                   |  528612800       |  2640280500       |  4902623300       |    O(n^2)         |    O(n^2)            |       O(n^2)       |        O(1)                    |    no    |  yes      |
+|![green](./docs/check-accept-svgrepo-com.svg)| Insertion&#160;sort                                                   |  1603100         |  1342200          | 499500            |     O(n^2)        |   O(n^2)             | O(n)               |        O(1)                    |   yes    |  yes      |
+|![red](./docs/error-svgrepo-com.svg)| Shell&#160;ort                                                                |  5025000         |  1090400          |  1112400          |     O(n log n)    |  depends on gap sequence |     O(n^2)     |      O(1)                      |   no     |    yes    |
+|![green](./docs/check-accept-svgrepo-com.svg)| Counting&#160;sort                                                    |  17973900        |  3729000          | 8716100           |    O(n+k)         |    O(n+k)            |       O(n+k)       |        O(k)                    |  yes/no* |  no/yes*  |
+|![red](./docs/error-svgrepo-com.svg)| Heap&#160;sort                                                                 |  3464153000      |  12991558500      | 27996772300       |    O(n log n)     |    O(n log n)        |   O(n log n)       |      O(1)                      |  no      |  yes      |
+|![red](./docs/error-svgrepo-com.svg)| Merge&#160;sort                                                                |  15889300        |  10531900         | 23490400          |    O(n log n)     |    O(n log n)        |   O(n log n)       |      O(n)                      |  yes     |  no       |
+|![red](./docs/error-svgrepo-com.svg)| Quick&#160;sort                                                                |  4945900         |  7275000          |  24473400         |    O(n log n)     |    O(n log n)        |    O(n^2)          |      O(log(n))                 |   no     |  yes      |
 
 Table generated using: <https://www.tablesgenerator.com/markdown_tables#>
 
 Symbol explanations:
 
+- ns
+  - nanoseconds
+- B
+  - Bytes
 - n
   - number of elements in an array
 - k
