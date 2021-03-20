@@ -15,20 +15,20 @@ public class ShellSort extends AlgorithmBase {
             return new int[]{};
         }
 
-        int valToSwap, gapDistance = inputArray.length / 2;
+        int gapDistance = inputArray.length / 2;
 
-        while (gapDistance > 0) {
-            for (int j = gapDistance; j < inputArray.length; j++) {
-                if (inputArray[j] < inputArray[j - gapDistance]) {
-                    valToSwap = inputArray[j];
-                    inputArray[j] = inputArray[j - gapDistance];
-                    inputArray[j - gapDistance] = valToSwap;
-                    for (int i = 0; gapDistance == 1 && j - gapDistance - 1 - i >= 0 && inputArray[j - gapDistance - i] < inputArray[j - gapDistance - i - 1]; i++) {
-                        valToSwap = inputArray[j - gapDistance - i];
-                        inputArray[j - gapDistance - i] = inputArray[j - gapDistance - i - 1];
-                        inputArray[j - gapDistance - i - 1] = valToSwap;
-                    }
+        while (gapDistance != 0) {
+            int currentIndex = gapDistance;
+            int lastIndex = inputArray.length - 1;
+            while (currentIndex <= lastIndex) {
+                int tmpValue = inputArray[currentIndex];
+                int walkerIndex = currentIndex - gapDistance;
+                while (walkerIndex >= 0 && tmpValue < inputArray[walkerIndex]) {
+                    inputArray[walkerIndex + gapDistance] = inputArray[walkerIndex];
+                    walkerIndex -= gapDistance;
                 }
+                inputArray[walkerIndex + gapDistance] = tmpValue;
+                currentIndex++;
             }
             gapDistance = gapDistance / 2;
         }
