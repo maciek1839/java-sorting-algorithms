@@ -1,6 +1,7 @@
 package com.showmeyourcode.projects.algorithms.algorithm.implementation;
 
 import com.showmeyourcode.projects.algorithms.algorithm.Algorithm;
+import com.showmeyourcode.projects.algorithms.exception.BenchmarkDataNotFoundException;
 import com.showmeyourcode.projects.algorithms.test_util.AlgorithmDataProvider;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
@@ -8,6 +9,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.io.IOException;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
@@ -16,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 abstract class AlgorithmTestClassBase {
     protected Algorithm algorithm;
 
-    public static Stream<Arguments> getDataToSort() {
+    public static Stream<Arguments> getDataToSort() throws BenchmarkDataNotFoundException, IOException {
         return AlgorithmDataProvider.getDataToSort();
     }
 

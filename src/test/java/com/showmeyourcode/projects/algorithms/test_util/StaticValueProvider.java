@@ -1,6 +1,7 @@
 package com.showmeyourcode.projects.algorithms.test_util;
 
 import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmDataGenerator;
+import com.showmeyourcode.projects.algorithms.benchmark.BenchmarkDataGenerator;
 import com.showmeyourcode.projects.algorithms.configuration.SortingAppConfiguration;
 
 public class StaticValueProvider {
@@ -22,5 +23,9 @@ public class StaticValueProvider {
 
     public static AlgorithmDataGenerator getDataGenerator() {
         return new AlgorithmDataGenerator(getConfig());
+    }
+
+    public static BenchmarkDataGenerator getBenchmarkDataGenerator() {
+        return new BenchmarkDataGenerator(getConfig());
     }
 }
