@@ -5,7 +5,6 @@ import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmType;
 
 /**
  * This implementation uses the pivot as median.
- * <p>
  * todo: check implementation
  */
 public class QuickSort extends AlgorithmBase {
