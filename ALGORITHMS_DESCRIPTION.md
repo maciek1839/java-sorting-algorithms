@@ -289,7 +289,7 @@ pivot. There are many different versions of quickSort that pick pivot in differe
 
 ### Pseudocode
 
-![Quick sort pseudocode](./docs/quick-sort-pseudocode.png)
+todo
 
 ### Performance (additional information not included in the main benchmark table)
 

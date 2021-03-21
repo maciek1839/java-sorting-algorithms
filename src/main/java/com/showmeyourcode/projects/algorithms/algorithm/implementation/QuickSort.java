@@ -3,7 +3,11 @@ package com.showmeyourcode.projects.algorithms.algorithm.implementation;
 import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmDataGenerator;
 import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmType;
 
-//todo: check implementation
+/**
+ * This implementation uses the pivot as median.
+ * <p>
+ * todo: check implementation
+ */
 public class QuickSort extends AlgorithmBase {
 
     QuickSort(AlgorithmDataGenerator dataGenerator) {
@@ -31,31 +35,30 @@ public class QuickSort extends AlgorithmBase {
         return AlgorithmType.QUICK_SORT;
     }
 
-    //we use index of table's elements!
-    private int[] sortWithPivot(int[] tData, int from, int to) {
+    private void sortWithPivot(int[] dataToSort, int startIndex, int endIndex) {
 
-        int left = from, right = to;
-        int tmp;
-        int pivot = tData[(from + to) / 2];
+        int leftIndex = startIndex, rightIndex = endIndex;//NOSONAR
+        int pivot = dataToSort[(startIndex + endIndex) / 2];
 
-        while (left <= right) {
-            while (tData[left] < pivot)
-                left++;
-            while (tData[right] > pivot)
-                right--;
-            if (left <= right) {
-                tmp = tData[left];
-                tData[left] = tData[right];
-                tData[right] = tmp;
-                left++;
-                right--;
+        while (leftIndex <= rightIndex) {
+            while (dataToSort[leftIndex] < pivot)
+                leftIndex++;
+            while (dataToSort[rightIndex] > pivot)
+                rightIndex--;
+            if (leftIndex <= rightIndex) {
+                int tmpValue = dataToSort[leftIndex];
+                dataToSort[leftIndex] = dataToSort[rightIndex];
+                dataToSort[rightIndex] = tmpValue;
+                leftIndex++;
+                rightIndex--;
             }
         }
+        if (startIndex < rightIndex) {
+            sortWithPivot(dataToSort, startIndex, rightIndex);
+        }
 
-        if (from < right)
-            sortWithPivot(tData, from, right);
-        if (left < to)
-            sortWithPivot(tData, left, to);
-        return tData;
+        if (leftIndex < endIndex) {
+            sortWithPivot(dataToSort, leftIndex, endIndex);
+        }
     }
 }
