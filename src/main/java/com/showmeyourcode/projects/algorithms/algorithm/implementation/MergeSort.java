@@ -3,7 +3,9 @@ package com.showmeyourcode.projects.algorithms.algorithm.implementation;
 import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmDataGenerator;
 import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmType;
 
-// todo: check implementation
+/**
+ * Reference: https://www.geeksforgeeks.org/merge-sort/
+ */
 public class MergeSort extends AlgorithmBase {
 
     MergeSort(AlgorithmDataGenerator dataGenerator) {
@@ -16,8 +18,8 @@ public class MergeSort extends AlgorithmBase {
             return new int[]{};
         }
 
-        for (int i_partSize = 1; i_partSize < inputArray.length; i_partSize = i_partSize * 2)
-            inputArray = mergeParts(inputArray, i_partSize);
+        divideIntoParts(inputArray, 0, inputArray.length - 1);
+
         return inputArray;
     }
 
@@ -26,33 +28,50 @@ public class MergeSort extends AlgorithmBase {
         return AlgorithmType.MERGE_SORT;
     }
 
-    private int[] mergeParts(int[] data, int partSize) {
-
-        int leftPart = 0, leftStart = 0, rightStart = partSize, rightPart = partSize;
-        int[] sortedElements = new int[data.length];
-        for (int i = 0; i < data.length; i++) {
-            if (leftStart - leftPart == partSize && rightStart - rightPart != partSize) {
-                sortedElements[i] = data[rightStart];
-                rightStart++;
-            } else if ((rightStart - rightPart == partSize || rightStart >= data.length) && leftStart - leftPart < partSize) {
-                sortedElements[i] = data[leftStart];
-                leftStart++;
-            } else if (data[leftStart] < data[rightStart]) {
-                sortedElements[i] = data[leftStart];
-                leftStart++;
-            } else {
-                sortedElements[i] = data[rightStart];
-                rightStart++;
-            }
-            //check if each segmenet's element was compared
-            if (leftStart - leftPart == partSize && rightStart - rightPart == partSize) {
-                leftPart += 2 * partSize;
-                leftStart = leftPart;
-                rightPart += 2 * partSize;
-                rightStart = rightPart;
-            }
+    private void divideIntoParts(int[] dataToSort, int leftIndex, int rightIndex) {
+        if (leftIndex >= rightIndex) {
+            return;
         }
-        return sortedElements;
+
+        int middleIndex = leftIndex + (rightIndex - leftIndex) / 2;
+        divideIntoParts(dataToSort, leftIndex, middleIndex);
+        divideIntoParts(dataToSort, middleIndex + 1, rightIndex);
+        mergeParts(dataToSort, leftIndex, middleIndex, rightIndex);
+    }
+
+    private void mergeParts(int[] dataToSort, int leftIndex, int middleIndex, int rightIndex) {
+        int n1 = middleIndex - leftIndex + 1;
+        int n2 = rightIndex - middleIndex;
+
+        int[] leftPart = new int[n1], rightPart = new int[n2];
+
+        System.arraycopy(dataToSort, leftIndex, leftPart, 0, n1);
+        System.arraycopy(dataToSort, middleIndex + 1, rightPart, 0, n2);
+
+        int i = 0, j = 0, initialIndexOfMergedParts = leftIndex;//NOSONAR
+
+        while (i < n1 && j < n2) {
+            if (leftPart[i] <= rightPart[j]) {
+                dataToSort[initialIndexOfMergedParts] = leftPart[i];
+                i++;
+            } else {
+                dataToSort[initialIndexOfMergedParts] = rightPart[j];
+                j++;
+            }
+            initialIndexOfMergedParts++;
+        }
+
+        while (i < n1) {
+            dataToSort[initialIndexOfMergedParts] = leftPart[i];
+            i++;
+            initialIndexOfMergedParts++;
+        }
+
+        while (j < n2) {
+            dataToSort[initialIndexOfMergedParts] = rightPart[j];
+            j++;
+            initialIndexOfMergedParts++;
+        }
     }
 
     @Override
