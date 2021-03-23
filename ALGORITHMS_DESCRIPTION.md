@@ -289,7 +289,7 @@ pivot. There are many different versions of quickSort that pick pivot in differe
 
 ### Pseudocode
 
-todo
+The pseudocode for the QuickSort implementation used in the project is not available.
 
 ### Performance (additional information not included in the main benchmark table)
 
