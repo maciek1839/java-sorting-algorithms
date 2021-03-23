@@ -1,5 +1,11 @@
 # Java sorting algorithms
 
+## 2.4.0 (23.03.2021)
+
+### Changed
+
+- Update benchmark results and verify remaining algorithms.
+
 ## 2.3.0 (21.03.2021)
 
 ### Changed
