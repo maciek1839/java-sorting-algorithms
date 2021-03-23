@@ -4,8 +4,9 @@ import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmDataGenerator;
 import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmType;
 
 /**
- * This implementation uses the pivot as median.
- * todo: check implementation
+ * This implementation uses a middle element as the pivot and it's preferred one
+ * because the other uses the pivot as the last element causes java.lang.StackOverflowError exception.
+ * Reference: https://www.programcreek.com/2012/11/quicksort-array-in-java/
  */
 public class QuickSort extends AlgorithmBase {
 
@@ -37,13 +38,17 @@ public class QuickSort extends AlgorithmBase {
     private void sortWithPivot(int[] dataToSort, int startIndex, int endIndex) {
 
         int leftIndex = startIndex, rightIndex = endIndex;//NOSONAR
-        int pivot = dataToSort[(startIndex + endIndex) / 2];
+        int pivotValue = dataToSort[(startIndex + endIndex) / 2];
 
         while (leftIndex <= rightIndex) {
-            while (dataToSort[leftIndex] < pivot)
+            while (dataToSort[leftIndex] < pivotValue) {
                 leftIndex++;
-            while (dataToSort[rightIndex] > pivot)
+            }
+
+            while (dataToSort[rightIndex] > pivotValue) {
                 rightIndex--;
+            }
+
             if (leftIndex <= rightIndex) {
                 int tmpValue = dataToSort[leftIndex];
                 dataToSort[leftIndex] = dataToSort[rightIndex];
