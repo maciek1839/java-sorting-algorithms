@@ -4,6 +4,7 @@ import com.showmeyourcode.projects.algorithms.test_util.StaticValueProvider;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -16,9 +17,12 @@ class BenchmarkProcessorIT {
         BenchmarkDataGenerator dataGenerator = new BenchmarkDataGenerator(config);
         BenchmarkProcessor benchmarkProcessor = new BenchmarkProcessor(dataGenerator, config);
 
-        List<BenchmarkResult> result = benchmarkProcessor.getBenchmarkDataReport();
+        List<BenchmarkResultGroup> resultGroups = benchmarkProcessor.getBenchmarkDataReport();
+        List<BenchmarkResult> algorithmResults = new ArrayList<>();
+        resultGroups.forEach(group -> algorithmResults.addAll(group.getResults()));
 
-        assertEquals(27, result.size());
+        assertEquals(27, algorithmResults.size());
+        assertEquals(3, resultGroups.size());
     }
 
     @Test

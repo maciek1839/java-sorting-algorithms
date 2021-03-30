@@ -50,17 +50,17 @@ This relates to the area of deterministic and non-deterministic algorithms.
 Sorting algorithms are deterministic.
 ```
 
-|Verified | Algorithm  | 50000&#160;elements&#160;(ns)   | 100000&#160;elements&#160;(ns)    | 150000&#160;elements&#160;(ns)    | Best&#160;complexity   | Average&#160;complexity   | Worst&#160;complexity   | Space&#160;complexity&#160;(the&#160;worst)   | Stable   | In&#160;place  |
-|:-------:|:--------------------------------|:----------------:|:-----------------:|:-----------------:|:-----------------:|:--------------------:|:------------------:|:------------------------------:|:--------:|:---------:|
-|![green](./docs/check-accept-svgrepo-com.svg)| Bubble&#160;sort                                                                    |  4798103200      |  19440396400      |  36413725800      |     O(n)          |     O(n^2)           |       O(n^2)       |        O(1)                    |   yes    |  yes      |
-|![green](./docs/check-accept-svgrepo-com.svg)| Cocktail&#160;Shaker&#160;sort <br/> (Bidirectional&#160;bubble&#160;sort)          |  1523100         |  1251300          |  1851400          |     O(n)          |     O(n^2)           |   O(n^2)           |      O(1)                      |   ye     |  yes      |
-|![green](./docs/check-accept-svgrepo-com.svg)| Selection&#160;sort                                                                 |  511767600       |  1837690100       |  4932933800       |    O(n^2)         |    O(n^2)            |       O(n^2)       |        O(1)                    |    no    |  yes      |
-|![green](./docs/check-accept-svgrepo-com.svg)| Insertion&#160;sort                                                                 |  1612500         |  1340900          |  302900           |     O(n^2)        |   O(n^2)             | O(n)               |        O(1)                    |   yes    |  yes      |
-|![green](./docs/check-accept-svgrepo-com.svg)| Shell&#160;sort                                                                     |  6342400         |  2567400          |  1560400          |     O(n log n)    |  depends on gap sequence |     O(n^2)     |      O(1)                      |   no     |    yes    |
-|![green](./docs/check-accept-svgrepo-com.svg)| Counting&#160;sort                                                                  |  17475000        |  6601000          |  8051500          |    O(n+k)         |    O(n+k)            |       O(n+k)       |        O(k)                    |  yes/no* |  no/yes*  |
-|![green](./docs/check-accept-svgrepo-com.svg)| Heap&#160;sort                                                                      |  17795900        |  12786000         |  21299200         |    O(n log n)     |    O(n log n)        |   O(n log n)       |      O(1)                      |  no      |  yes      |
-|![green](./docs/check-accept-svgrepo-com.svg)| Merge&#160;sort                                                                     |  12822400        |  7459200          |  21553700         |    O(n log n)     |    O(n log n)        |   O(n log n)       |      O(n)                      |  yes     |  no       |
-|![green](./docs/check-accept-svgrepo-com.svg)| Quick&#160;sort                                                                     |  6310900         |  7701400          |  4326200          |    O(n log n)     |    O(n log n)        |    O(n^2)          |      O(log(n))                 |   no     |  yes      |
+| Algorithm  | 50000&#160;elements&#160;(ns)   | 100000&#160;elements&#160;(ns)    | 150000&#160;elements&#160;(ns)    | Best&#160;complexity   | Average&#160;complexity   | Worst&#160;complexity   | Space&#160;complexity&#160;(the&#160;worst)   | Stable   | In&#160;place  |
+|:--------------------------------|:----------------:|:-----------------:|:-----------------:|:-----------------:|:--------------------:|:------------------:|:------------------------------:|:--------:|:---------:|
+| Bubble&#160;sort |  4721443900  | 20003789100 |  39903566400 |  O(n)  |  O(n^2)  |  O(n^2) |  O(1) |   yes  |  yes  |
+| Cocktail&#160;Shaker&#160;sort <br/> (Bidirectional&#160;bubble&#160;sort)   |  1542900  | 1275400 |  790700 |  O(n)  |  O(n^2)  |  O(n^2) |  O(1) |   yes  |  yes  |
+| Selection&#160;sort |  465527900  | 1831634900 |  4719293600 |  O(n^2)  |  O(n^2)  |  O(n^2) |  O(1) |   no  |  yes  |
+| Insertion&#160;sort   |  1594100  | 1315300 |  162200 |  O(n)  |  O(n^2)  |  O(n^2) |  O(1) |   yes  |  yes  |
+| Shell&#160;sort |  6449900  | 2628200 |  1119000 |  O(n log n)  |  depends on gap sequence  |  O(n^2) |  O(1) |   no  |  yes  |
+| Counting&#160;sort |  17296500  | 6292700 |  9123200 |  O(n+k)  |  O(n+k)  |  O(n+k) |  O(n+k) |   yes/no*  |  no/yes*  |
+| Heap&#160;sort |  11737800  | 25627400 |  15467200 |  O(n log n)  |  O(n log n)  |  O(n log n) |  O(1) |   no  |  yes  |
+| Merge&#160;sort |  13126800  | 7344600 |  16351800 |  O(n log n)  |  O(n log n)  |  O(n log n) |  O(n) |   yes  |  no  |
+| Quick&#160;sort |  15923000  | 2379800 |  3420500 |  O(n log n)  |  O(n log n)  |  O(n^2) |  O(log n) |   no  |  yes  |
 
 Table generated using: <https://www.tablesgenerator.com/markdown_tables#>
 

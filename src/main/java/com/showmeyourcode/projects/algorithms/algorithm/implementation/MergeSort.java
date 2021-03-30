@@ -28,6 +28,19 @@ public class MergeSort extends AlgorithmBase {
         return AlgorithmType.MERGE_SORT;
     }
 
+    @Override
+    public AlgorithmMetadata getMetadata() {
+        return new AlgorithmMetadata(
+                "Merge&#160;sort",
+                AlgorithmComplexityConstant.O_N_LOG_N,
+                AlgorithmComplexityConstant.O_N_LOG_N,
+                AlgorithmComplexityConstant.O_N_LOG_N,
+                AlgorithmComplexityConstant.O_N,
+                "yes",
+                "no"
+        );
+    }
+
     private void divideIntoParts(int[] dataToSort, int leftIndex, int rightIndex) {
         if (leftIndex >= rightIndex) {
             return;
@@ -43,7 +56,7 @@ public class MergeSort extends AlgorithmBase {
         int n1 = middleIndex - leftIndex + 1;
         int n2 = rightIndex - middleIndex;
 
-        int[] leftPart = new int[n1], rightPart = new int[n2];
+        int[] leftPart = new int[n1], rightPart = new int[n2];//NOSONAR
 
         System.arraycopy(dataToSort, leftIndex, leftPart, 0, n1);
         System.arraycopy(dataToSort, middleIndex + 1, rightPart, 0, n2);

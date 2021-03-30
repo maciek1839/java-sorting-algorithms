@@ -42,6 +42,19 @@ public class ShellSort extends AlgorithmBase {
     }
 
     @Override
+    public AlgorithmMetadata getMetadata() {
+        return new AlgorithmMetadata(
+                "Shell&#160;sort",
+                AlgorithmComplexityConstant.O_N_LOG_N,
+                "depends on gap sequence",
+                AlgorithmComplexityConstant.O_N_2,
+                AlgorithmComplexityConstant.O_1,
+                "no",
+                "yes"
+        );
+    }
+
+    @Override
     public String toString() {
         return "Shell Sort";
     }

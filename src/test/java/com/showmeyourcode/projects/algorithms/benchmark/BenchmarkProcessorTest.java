@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -28,8 +29,11 @@ class BenchmarkProcessorTest {
         });
         BenchmarkProcessor benchmarkProcessor = new BenchmarkProcessor(dataGenerator, config);
 
-        List<BenchmarkResult> result = benchmarkProcessor.getBenchmarkDataReport();
+        List<BenchmarkResultGroup> resultGroups = benchmarkProcessor.getBenchmarkDataReport();
+        List<BenchmarkResult> algorithmResults = new ArrayList<>();
+        resultGroups.forEach(group -> algorithmResults.addAll(group.getResults()));
 
-        assertEquals(9, result.size());
+        assertEquals(9, algorithmResults.size());
+        assertEquals(1, resultGroups.size());
     }
 }

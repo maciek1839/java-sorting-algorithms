@@ -43,4 +43,17 @@ public class SelectionSort extends AlgorithmBase {
     public AlgorithmType getType() {
         return AlgorithmType.SELECTION_SORT;
     }
+
+    @Override
+    public AlgorithmMetadata getMetadata() {
+        return new AlgorithmMetadata(
+                "Selection&#160;sort",
+                AlgorithmComplexityConstant.O_N_2,
+                AlgorithmComplexityConstant.O_N_2,
+                AlgorithmComplexityConstant.O_N_2,
+                AlgorithmComplexityConstant.O_1,
+                "no",
+                "yes"
+        );
+    }
 }

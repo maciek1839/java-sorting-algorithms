@@ -26,7 +26,7 @@ public class CountingSort extends AlgorithmBase {
             return new int[]{};
         }
 
-        int theLowest = inputArray[0], theHighest = inputArray[0], listCapacity;
+        int theLowest = inputArray[0], theHighest = inputArray[0];//NOSONAR
 
         for (int arrayNumber : inputArray) {
             if (arrayNumber < theLowest)
@@ -40,7 +40,7 @@ public class CountingSort extends AlgorithmBase {
          *
          * The array stores value from the lowest to the biggest.
          */
-        listCapacity = theHighest - theLowest + 1;
+        int listCapacity = theHighest - theLowest + 1;
 
         List<Tuple2<Integer, Integer>> lowHighValues = new ArrayList<>(listCapacity);
         for (int i = 0; i < listCapacity; i++) {
@@ -73,6 +73,18 @@ public class CountingSort extends AlgorithmBase {
         return AlgorithmType.COUNTING_SORT;
     }
 
+    @Override
+    public AlgorithmMetadata getMetadata() {
+        return new AlgorithmMetadata(
+                "Counting&#160;sort",
+                AlgorithmComplexityConstant.O_N_K,
+                AlgorithmComplexityConstant.O_N_K,
+                AlgorithmComplexityConstant.O_N_K,
+                AlgorithmComplexityConstant.O_N_K,
+                "yes/no*",
+                "no/yes*"
+        );
+    }
 
     @Override
     public String toString() {

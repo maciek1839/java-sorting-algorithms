@@ -42,6 +42,19 @@ public class HeapSort extends AlgorithmBase {
         return AlgorithmType.HEAP_SORT;
     }
 
+    @Override
+    public AlgorithmMetadata getMetadata() {
+        return new AlgorithmMetadata(
+                "Heap&#160;sort",
+                AlgorithmComplexityConstant.O_N_LOG_N,
+                AlgorithmComplexityConstant.O_N_LOG_N,
+                AlgorithmComplexityConstant.O_N_LOG_N,
+                AlgorithmComplexityConstant.O_1,
+                "no",
+                "yes"
+        );
+    }
+
     private void buildMaxHeap(int[] data) {
         int heapSize = data.length - 1;
         for (int i = heapSize / 2; i >= 0; i--) {
@@ -56,7 +69,7 @@ public class HeapSort extends AlgorithmBase {
     }
 
     private void maxHeapify(int[] dataToSort, int index, int heapSize) {
-        int leftIndex = 2 * index + 1, rightIndex = 2 * index + 2, largestValueIndex;
+        int leftIndex = 2 * index + 1, rightIndex = 2 * index + 2, largestValueIndex;//NOSONAR
         if (leftIndex <= heapSize && dataToSort[leftIndex] > dataToSort[index]) {
             largestValueIndex = leftIndex;
         } else {

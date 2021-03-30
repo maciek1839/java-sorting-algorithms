@@ -15,14 +15,14 @@ public class CocktailShakerSort extends AlgorithmBase {
             return new int[]{};
         }
 
-        int valToSwap, tmpArrayIndex = 0;
+        int tmpArrayIndex = 0;
         boolean shouldSortFromTheRight;
 
         do {
             shouldSortFromTheRight = false;
             for (int j = tmpArrayIndex; j < inputArray.length - tmpArrayIndex - 1; j++) {
                 if (inputArray[j] > inputArray[j + 1]) {
-                    valToSwap = inputArray[j];
+                    int valToSwap = inputArray[j];
                     inputArray[j] = inputArray[j + 1];
                     inputArray[j + 1] = valToSwap;
                     shouldSortFromTheRight = true;
@@ -34,7 +34,7 @@ public class CocktailShakerSort extends AlgorithmBase {
             }
             for (int j = inputArray.length - tmpArrayIndex - 1; j > tmpArrayIndex; j--) {
                 if (inputArray[j] < inputArray[j - 1]) {
-                    valToSwap = inputArray[j];
+                    int valToSwap = inputArray[j];
                     inputArray[j] = inputArray[j - 1];
                     inputArray[j - 1] = valToSwap;
                 }
@@ -48,6 +48,19 @@ public class CocktailShakerSort extends AlgorithmBase {
     @Override
     public AlgorithmType getType() {
         return AlgorithmType.COCKTAIL_SHAKER_SORT;
+    }
+
+    @Override
+    public AlgorithmMetadata getMetadata() {
+        return new AlgorithmMetadata(
+                "Cocktail&#160;Shaker&#160;sort <br/> (Bidirectional&#160;bubble&#160;sort)  ",
+                AlgorithmComplexityConstant.O_N,
+                AlgorithmComplexityConstant.O_N_2,
+                AlgorithmComplexityConstant.O_N_2,
+                AlgorithmComplexityConstant.O_1,
+                "yes",
+                "yes"
+        );
     }
 
     @Override

@@ -32,6 +32,19 @@ public class InsertionSort extends AlgorithmBase {
     }
 
     @Override
+    public AlgorithmMetadata getMetadata() {
+        return new AlgorithmMetadata(
+                "Insertion&#160;sort  ",
+                AlgorithmComplexityConstant.O_N,
+                AlgorithmComplexityConstant.O_N_2,
+                AlgorithmComplexityConstant.O_N_2,
+                AlgorithmComplexityConstant.O_1,
+                "yes",
+                "yes"
+        );
+    }
+
+    @Override
     public String toString() {
         return "Insertion sort";
     }

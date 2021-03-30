@@ -2,6 +2,7 @@ package com.showmeyourcode.projects.algorithms.benchmark;
 
 import com.showmeyourcode.projects.algorithms.algorithm.AbstractAlgorithmFactory;
 import com.showmeyourcode.projects.algorithms.algorithm.Algorithm;
+import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmType;
 import com.showmeyourcode.projects.algorithms.algorithm.implementation.AlgorithmFactory;
 import com.showmeyourcode.projects.algorithms.configuration.SortingAppConfiguration;
 import com.showmeyourcode.projects.algorithms.exception.BenchmarkDataNotFoundException;
@@ -32,16 +33,17 @@ public class BenchmarkProcessor {
         appConfiguration = config;
     }
 
-    public List<BenchmarkResult> getBenchmarkDataReport() {
+    public List<BenchmarkResultGroup> getBenchmarkDataReport() {
         final AbstractAlgorithmFactory algorithmFactory = new AlgorithmFactory(appConfiguration);
-        List<BenchmarkResult> tmpResults = new ArrayList<>();
+        List<BenchmarkResultGroup> resultGroups = new ArrayList<>();
         var allAlgorithms = algorithmFactory.creatAllAvailableAlgorithms();
         for (AlgorithmsBenchmarkData benchmarkData : AlgorithmsBenchmarkData.values()) {
             logger.info("Preparing benchmark for {} elements...", benchmarkData.getSize());
             try {
                 final int[] initialData = dataGenerator.loadData(benchmarkData);
+                BenchmarkResultGroup group = new BenchmarkResultGroup(benchmarkData);
                 for (Algorithm algorithm : allAlgorithms) {
-                    logger.debug("Processing {} {}", benchmarkData.getSize(), algorithm.toString());
+                    logger.debug("Processing {} {}", benchmarkData.getSize(), algorithm);
                     final long memoryAtTheBeginning = getCurrentUsedMemoryInBytes();
                     logger.debug("Memory at the beginning: {}", memoryAtTheBeginning);
                     Long start = System.nanoTime();
@@ -50,29 +52,31 @@ public class BenchmarkProcessor {
                     long elapsedNanos = finish - start;
                     final long memoryAtTheEnd = getCurrentUsedMemoryInBytes();
                     logger.debug("Memory at the end: {}", memoryAtTheEnd);
-                    tmpResults.add(
+                    group.getResults().add(
                             new BenchmarkResult(
                                     algorithm.getType(),
                                     benchmarkData.getSize(),
                                     elapsedNanos,
                                     memoryAtTheBeginning,
-                                    memoryAtTheEnd
+                                    memoryAtTheEnd,
+                                    algorithm.getMetadata()
                             )
                     );
                 }
+                resultGroups.add(group);
             } catch (IOException | BenchmarkDataNotFoundException e) {
                 logger.error("Cannot load data for benchmark from the path: {}", benchmarkData.getPath(), e);
             }
         }
 
-        return tmpResults;
+        return resultGroups;
     }
 
     private long getCurrentUsedMemoryInBytes() {
         return Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
     }
 
-    public void saveResults(List<BenchmarkResult> results) throws CannotCreateReportResultsFileException {
+    public void saveResults(List<BenchmarkResultGroup> results) throws CannotCreateReportResultsFileException {
         final String reportResultFilePath = "src/main/resources/benchmark/results.txt";
         File benchmarkResults = new File(reportResultFilePath);
 
@@ -88,25 +92,72 @@ public class BenchmarkProcessor {
                     formatter.format(instant),
                     newLine
             ));
-            for (BenchmarkResult partialResult : results) {
-                logger.info(partialResult.toString());
-                contentBuilder.append(
-                        String.format(
-                                resultAlgorithmEntry,
-                                partialResult.getDatasetSize(),
-                                partialResult.getAlgorithmType(),
-                                partialResult.getTimeElapsedInNanoSeconds(),
-                                partialResult.getMemoryUsedAtTheBeginningInBytes(),
-                                partialResult.getMemoryUsedAtTheEndInBytes(),
-                                partialResult.getMemoryRuntimeDifference(),
-                                newLine
-                        ));
+            for (BenchmarkResultGroup partialResultGroup : results) {
+                logger.info("Processing group: {}", partialResultGroup.getBenchmarkData().getSize());
+                for (BenchmarkResult partialResult : partialResultGroup.getResults()) {
+                    contentBuilder.append(
+                            String.format(
+                                    resultAlgorithmEntry,
+                                    partialResult.getDatasetSize(),
+                                    partialResult.getAlgorithmType(),
+                                    partialResult.getTimeElapsedInNanoSeconds(),
+                                    partialResult.getMemoryUsedAtTheBeginningInBytes(),
+                                    partialResult.getMemoryUsedAtTheEndInBytes(),
+                                    partialResult.getMemoryRuntimeDifference(),
+                                    newLine
+                            ));
+                }
+            }
+
+            logger.info("Preparing the benchmark table in Markdown format...");
+            contentBuilder.append(newLine);
+            contentBuilder.append(newLine);
+            contentBuilder.append(newLine);
+            contentBuilder.append(newLine);
+            contentBuilder.append(newLine);
+
+            final String benchmarkTableEntry = "| %s |  %d  | %d |  %d |  %s  |  %s  |  %s |  %s |   %s  |  %s  |%s";
+
+
+            contentBuilder.append("| Algorithm  | 50000&#160;elements&#160;(ns)   | 100000&#160;elements&#160;(ns)    | 150000&#160;elements&#160;(ns)    | Best&#160;complexity   | Average&#160;complexity   | Worst&#160;complexity   | Space&#160;complexity&#160;(the&#160;worst)   | Stable   | In&#160;place  |\n");
+            contentBuilder.append("|:--------------------------------|:----------------:|:-----------------:|:-----------------:|:-----------------:|:--------------------:|:------------------:|:------------------------------:|:--------:|:---------:|\n");
+            for (AlgorithmType type : AlgorithmType.values()) {
+                BenchmarkResult elements50k = getBenchmarkResultForDataSize(results, type, 50000);
+                BenchmarkResult elements100k = getBenchmarkResultForDataSize(results, type, 100000);
+                BenchmarkResult elements150k = getBenchmarkResultForDataSize(results, type, 150000);
+                Algorithm.AlgorithmMetadata metadata = elements50k.getMetadata();
+                contentBuilder.append(String.format(
+                        benchmarkTableEntry,
+                        metadata.getNameInMarkdownFormat(),
+                        elements50k.getTimeElapsedInNanoSeconds(),
+                        elements100k.getTimeElapsedInNanoSeconds(),
+                        elements150k.getTimeElapsedInNanoSeconds(),
+                        metadata.getTheBestComplexity(),
+                        metadata.getAverageComplexity(),
+                        metadata.getWorstComplexity(),
+                        metadata.getTheWorstSpaceComplexity(),
+                        metadata.getStable(),
+                        metadata.getInPlace(),
+                        newLine
+                ));
             }
 
             outStream.write(contentBuilder.toString().getBytes(StandardCharsets.UTF_8));
         } catch (IOException e) {
             logger.error("Cannot write benchmark results! ", e);
         }
+    }
+
+    private BenchmarkResult getBenchmarkResultForDataSize(List<BenchmarkResultGroup> results, AlgorithmType type, int dataSize) {
+        return results.stream()
+                .filter(brg -> brg.getBenchmarkData().getSize() == dataSize)
+                .findAny()
+                .get()
+                .getResults()
+                .stream()
+                .filter(br -> br.getAlgorithmType().equals(type))
+                .findAny()
+                .get();
     }
 
     private void createResultsFile(File benchmarkResults) throws CannotCreateReportResultsFileException {

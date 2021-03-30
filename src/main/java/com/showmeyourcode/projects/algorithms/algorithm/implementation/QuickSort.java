@@ -35,6 +35,19 @@ public class QuickSort extends AlgorithmBase {
         return AlgorithmType.QUICK_SORT;
     }
 
+    @Override
+    public AlgorithmMetadata getMetadata() {
+        return new AlgorithmMetadata(
+                "Quick&#160;sort",
+                AlgorithmComplexityConstant.O_N_LOG_N,
+                AlgorithmComplexityConstant.O_N_LOG_N,
+                AlgorithmComplexityConstant.O_N_2,
+                AlgorithmComplexityConstant.O_LOG_N,
+                "no",
+                "yes"
+        );
+    }
+
     private void sortWithPivot(int[] dataToSort, int startIndex, int endIndex) {
 
         int leftIndex = startIndex, rightIndex = endIndex;//NOSONAR
