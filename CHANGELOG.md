@@ -1,5 +1,20 @@
 # Java sorting algorithms
 
+## 2.5.0 (02.04.2021)
+
+### Added
+
+- Unify the generated benchmark report with the benchmark table in README.md. Thanks to this change, it is possible to copy the generated
+  result directly to Markdown file.
+
+### Changed
+
+- Use an executor service instead creating a new thread each time for the waiting mechanism.
+
+### Fixed
+
+- Sonar warnings
+
 ## 2.4.0 (23.03.2021)
 
 ### Changed
