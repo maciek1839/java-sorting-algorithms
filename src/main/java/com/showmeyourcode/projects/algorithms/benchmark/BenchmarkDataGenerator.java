@@ -37,11 +37,9 @@ public class BenchmarkDataGenerator extends BaseDataGenerator {
     public void generateNewDataset(int datasetSize) throws IOException {
         final String newDatasetPath = String.format("src/main/resources/benchmark/%d.txt", datasetSize);
         final File newDatasetFile = new File(newDatasetPath);
-        if (newDatasetFile.exists()) {
+        if (!newDatasetFile.createNewFile()) {
             throw new FileAlreadyExistsException("A dataset already exists! Path: " + newDatasetPath);
         }
-
-        newDatasetFile.createNewFile();
 
         final int[] datasetContent = generateIntData(datasetSize, 10000);
 

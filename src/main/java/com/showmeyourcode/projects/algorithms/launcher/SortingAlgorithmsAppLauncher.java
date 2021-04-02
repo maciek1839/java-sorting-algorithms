@@ -12,25 +12,25 @@ public class SortingAlgorithmsAppLauncher {
 
     static final Logger logger = LoggerFactory.getLogger(SortingAlgorithmsAppLauncher.class);
 
-    private static String PROPERTIES_FILENAME = "application.properties";
-    private static InputStream DEFAULT_INPUT_STREAM = System.in;
+    private static InputStream defaultInputStream = System.in;
+    private static String propertiesFilename = "application.properties";
 
     public static void main(String[] args) throws CannotLoadAppPropertiesException {
         logger.info("\nWelcome to The Sorting Algorithms program.");
         startApp();
     }
 
-    static void setPropertiesFilename(String newFileName) {
-        PROPERTIES_FILENAME = newFileName;
+    static void setDefaultInputStream(InputStream inputStream) {
+        defaultInputStream = inputStream;
     }
 
-    static void setDefaultInputStream(InputStream inputStream) {
-        DEFAULT_INPUT_STREAM = inputStream;
+    static void setPropertiesFilename(String newFileName) {
+        propertiesFilename = newFileName;
     }
 
     static void startApp() throws CannotLoadAppPropertiesException {
-        final SortingAppConfigurationLoader configLoader = new SortingAppConfigurationLoader(PROPERTIES_FILENAME);
+        final SortingAppConfigurationLoader configLoader = new SortingAppConfigurationLoader(propertiesFilename);
         final UserInputInterceptor inputInterceptor = new UserInputInterceptor(configLoader.getConfig());
-        inputInterceptor.startListening(DEFAULT_INPUT_STREAM);
+        inputInterceptor.startListening(defaultInputStream);
     }
 }

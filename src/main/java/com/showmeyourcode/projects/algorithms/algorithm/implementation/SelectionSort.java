@@ -15,7 +15,7 @@ public class SelectionSort extends AlgorithmBase {
             return new int[]{};
         }
 
-        int indexOfTheLowestNumber, tmpSwappedValue;
+        int indexOfTheLowestNumber, tmpSwappedValue;//NOSONAR
 
         for (int i = 0; i < inputArray.length; i++) {
             indexOfTheLowestNumber = i;

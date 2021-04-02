@@ -21,6 +21,7 @@ import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class BenchmarkProcessor {
 
@@ -122,24 +123,26 @@ public class BenchmarkProcessor {
             contentBuilder.append("| Algorithm  | 50000&#160;elements&#160;(ns)   | 100000&#160;elements&#160;(ns)    | 150000&#160;elements&#160;(ns)    | Best&#160;complexity   | Average&#160;complexity   | Worst&#160;complexity   | Space&#160;complexity&#160;(the&#160;worst)   | Stable   | In&#160;place  |\n");
             contentBuilder.append("|:--------------------------------|:----------------:|:-----------------:|:-----------------:|:-----------------:|:--------------------:|:------------------:|:------------------------------:|:--------:|:---------:|\n");
             for (AlgorithmType type : AlgorithmType.values()) {
-                BenchmarkResult elements50k = getBenchmarkResultForDataSize(results, type, 50000);
-                BenchmarkResult elements100k = getBenchmarkResultForDataSize(results, type, 100000);
-                BenchmarkResult elements150k = getBenchmarkResultForDataSize(results, type, 150000);
-                Algorithm.AlgorithmMetadata metadata = elements50k.getMetadata();
-                contentBuilder.append(String.format(
-                        benchmarkTableEntry,
-                        metadata.getNameInMarkdownFormat(),
-                        elements50k.getTimeElapsedInNanoSeconds(),
-                        elements100k.getTimeElapsedInNanoSeconds(),
-                        elements150k.getTimeElapsedInNanoSeconds(),
-                        metadata.getTheBestComplexity(),
-                        metadata.getAverageComplexity(),
-                        metadata.getWorstComplexity(),
-                        metadata.getTheWorstSpaceComplexity(),
-                        metadata.getStable(),
-                        metadata.getInPlace(),
-                        newLine
-                ));
+                Optional<BenchmarkResult> elements50k = getBenchmarkResultForDataSize(results, type, 50000);
+                Optional<BenchmarkResult> elements100k = getBenchmarkResultForDataSize(results, type, 100000);
+                Optional<BenchmarkResult> elements150k = getBenchmarkResultForDataSize(results, type, 150000);
+                if (elements50k.isPresent() && elements100k.isPresent() && elements150k.isPresent()) {
+                    Algorithm.AlgorithmMetadata metadata = elements50k.get().getMetadata();
+                    contentBuilder.append(String.format(
+                            benchmarkTableEntry,
+                            metadata.getNameInMarkdownFormat(),
+                            elements50k.get().getTimeElapsedInNanoSeconds(),
+                            elements100k.get().getTimeElapsedInNanoSeconds(),
+                            elements150k.get().getTimeElapsedInNanoSeconds(),
+                            metadata.getTheBestComplexity(),
+                            metadata.getAverageComplexity(),
+                            metadata.getWorstComplexity(),
+                            metadata.getTheWorstSpaceComplexity(),
+                            metadata.getStable(),
+                            metadata.getInPlace(),
+                            newLine
+                    ));
+                }
             }
 
             outStream.write(contentBuilder.toString().getBytes(StandardCharsets.UTF_8));
@@ -148,28 +151,33 @@ public class BenchmarkProcessor {
         }
     }
 
-    private BenchmarkResult getBenchmarkResultForDataSize(List<BenchmarkResultGroup> results, AlgorithmType type, int dataSize) {
-        return results.stream()
-                .filter(brg -> brg.getBenchmarkData().getSize() == dataSize)
-                .findAny()
-                .get()
-                .getResults()
-                .stream()
-                .filter(br -> br.getAlgorithmType().equals(type))
-                .findAny()
-                .get();
-    }
-
     private void createResultsFile(File benchmarkResults) throws CannotCreateReportResultsFileException {
         try {
-            if (benchmarkResults.exists()) {
+            if (benchmarkResults.createNewFile()) {
                 logger.debug("The benchmark results file already exists: {}", benchmarkResults.getPath());
             } else {
-                benchmarkResults.createNewFile();
                 logger.debug("Created the benchmark results file: {}", benchmarkResults.getPath());
             }
         } catch (IOException e) {
             throw new CannotCreateReportResultsFileException(e);
+        }
+    }
+
+    private Optional<BenchmarkResult> getBenchmarkResultForDataSize(List<BenchmarkResultGroup> results,
+                                                                    AlgorithmType type,
+                                                                    int dataSize) {
+        Optional<BenchmarkResultGroup> resultGroup = results.stream()
+                .filter(brg -> brg.getBenchmarkData().getSize() == dataSize)
+                .findAny();
+
+        if (resultGroup.isEmpty()) {
+            return Optional.empty();
+        } else {
+            return resultGroup.get()
+                    .getResults()
+                    .stream()
+                    .filter(br -> br.getAlgorithmType().equals(type))
+                    .findAny();
         }
     }
 }

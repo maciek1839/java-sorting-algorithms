@@ -45,7 +45,7 @@ public class AlgorithmFactory implements AbstractAlgorithmFactory {
 
     @Override
     public List<Algorithm> creatAllAvailableAlgorithms() {
-        List<Algorithm> resultList = new ArrayList();
+        List<Algorithm> resultList = new ArrayList<>();
         for (AlgorithmType type : AlgorithmType.values()) {
             resultList.add(createAlgorithm(type));
         }

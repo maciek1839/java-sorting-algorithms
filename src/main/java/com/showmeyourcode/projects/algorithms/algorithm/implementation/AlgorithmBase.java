@@ -16,7 +16,7 @@ public abstract class AlgorithmBase implements Algorithm {
     @Override
     public long showUsage() {
         var randomData = dataGenerator.generateIntData();
-        long timeStarted = 0, timeFinished = 0;
+        long timeStarted = 0, timeFinished = 0;//NOSONAR
         timeStarted = System.currentTimeMillis();
         sortData(randomData);
         timeFinished = System.currentTimeMillis();
