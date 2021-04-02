@@ -20,6 +20,7 @@ public class UserInputProcessor {
     private final SortingAppConfiguration appConfiguration;
     private final BenchmarkProcessor benchmarkProcessor;
     private final BenchmarkDataGenerator benchmarkDataGenerator;
+    private final WaitingExecutorService waitingExecutorService;
 
     private final BubbleSort bubbleSort;
     private final CountingSort countingSort;
@@ -30,10 +31,11 @@ public class UserInputProcessor {
     private final SelectionSort selectionSort;
     private final CocktailShakerSort cocktailShakerSort;
     private final ShellSort shellSort;
-    private Waiting printPoint = new Waiting();
+    private Waiting printPoint;
 
     public UserInputProcessor(SortingAppConfiguration config) {
         appConfiguration = config;
+        waitingExecutorService = new WaitingExecutorService();
         benchmarkDataGenerator = new BenchmarkDataGenerator(config);
         benchmarkProcessor = new BenchmarkProcessor(benchmarkDataGenerator, config);
         final AbstractAlgorithmFactory algorithmFactory = new AlgorithmFactory(config);
@@ -118,7 +120,7 @@ public class UserInputProcessor {
     }
 
     void startWaiting() {
-        printPoint.start();
+        waitingExecutorService.execute(printPoint);
     }
 
     void stopWaiting() {

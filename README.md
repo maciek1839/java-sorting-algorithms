@@ -52,15 +52,15 @@ Sorting algorithms are deterministic.
 
 | Algorithm  | 50000&#160;elements&#160;(ns)   | 100000&#160;elements&#160;(ns)    | 150000&#160;elements&#160;(ns)    | Best&#160;complexity   | Average&#160;complexity   | Worst&#160;complexity   | Space&#160;complexity&#160;(the&#160;worst)   | Stable   | In&#160;place  |
 |:--------------------------------|:----------------:|:-----------------:|:-----------------:|:-----------------:|:--------------------:|:------------------:|:------------------------------:|:--------:|:---------:|
-| Bubble&#160;sort |  4721443900  | 20003789100 |  39903566400 |  O(n)  |  O(n^2)  |  O(n^2) |  O(1) |   yes  |  yes  |
-| Cocktail&#160;Shaker&#160;sort <br/> (Bidirectional&#160;bubble&#160;sort)   |  1542900  | 1275400 |  790700 |  O(n)  |  O(n^2)  |  O(n^2) |  O(1) |   yes  |  yes  |
-| Selection&#160;sort |  465527900  | 1831634900 |  4719293600 |  O(n^2)  |  O(n^2)  |  O(n^2) |  O(1) |   no  |  yes  |
-| Insertion&#160;sort   |  1594100  | 1315300 |  162200 |  O(n)  |  O(n^2)  |  O(n^2) |  O(1) |   yes  |  yes  |
-| Shell&#160;sort |  6449900  | 2628200 |  1119000 |  O(n log n)  |  depends on gap sequence  |  O(n^2) |  O(1) |   no  |  yes  |
-| Counting&#160;sort |  17296500  | 6292700 |  9123200 |  O(n+k)  |  O(n+k)  |  O(n+k) |  O(n+k) |   yes/no*  |  no/yes*  |
-| Heap&#160;sort |  11737800  | 25627400 |  15467200 |  O(n log n)  |  O(n log n)  |  O(n log n) |  O(1) |   no  |  yes  |
-| Merge&#160;sort |  13126800  | 7344600 |  16351800 |  O(n log n)  |  O(n log n)  |  O(n log n) |  O(n) |   yes  |  no  |
-| Quick&#160;sort |  15923000  | 2379800 |  3420500 |  O(n log n)  |  O(n log n)  |  O(n^2) |  O(log n) |   no  |  yes  |
+| Bubble&#160;sort |  4928230700  | 20074524300 |  37438477400 |  O(n)  |  O(n^2)  |  O(n^2) |  O(1) |   yes  |  yes  |
+| Cocktail&#160;Shaker&#160;sort <br/> (Bidirectional&#160;bubble&#160;sort)   |  1622600  | 1603300 |  1278200 |  O(n)  |  O(n^2)  |  O(n^2) |  O(1) |   yes  |  yes  |
+| Selection&#160;sort |  469744400  | 1834796800 |  4116949900 |  O(n^2)  |  O(n^2)  |  O(n^2) |  O(1) |   no  |  yes  |
+| Insertion&#160;sort   |  1595300  | 1352000 |  208500 |  O(n)  |  O(n^2)  |  O(n^2) |  O(1) |   yes  |  yes  |
+| Shell&#160;sort |  6446800  | 2566500 |  1116300 |  O(n log n)  |  depends on gap sequence  |  O(n^2) |  O(1) |   no  |  yes  |
+| Counting&#160;sort |  16629700  | 6919800 |  7940500 |  O(n+k)  |  O(n+k)  |  O(n+k) |  O(n+k) |   yes/no*  |  no/yes*  |
+| Heap&#160;sort |  11219900  | 33287900 |  16133000 |  O(n log n)  |  O(n log n)  |  O(n log n) |  O(1) |   no  |  yes  |
+| Merge&#160;sort |  11539000  | 8662800 |  18594200 |  O(n log n)  |  O(n log n)  |  O(n log n) |  O(n) |   yes  |  no  |
+| Quick&#160;sort |  4743300  | 2344100 |  3392600 |  O(n log n)  |  O(n log n)  |  O(n^2) |  O(log n) |   no  |  yes  |
 
 Table generated using: <https://www.tablesgenerator.com/markdown_tables#>
 

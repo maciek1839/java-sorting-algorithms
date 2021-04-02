@@ -3,7 +3,7 @@ package com.showmeyourcode.projects.algorithms.console;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Waiting extends Thread {
+public class Waiting implements Runnable {
 
     private static final long WAITING_PRINT_PERIOD = 100000000L;
     private volatile boolean isDone;

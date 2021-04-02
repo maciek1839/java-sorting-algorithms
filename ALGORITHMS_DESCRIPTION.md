@@ -2,6 +2,8 @@
 
 Here you can find more detailed information about particular algorithms.
 
+A very good algorithm animations: <https://www.toptal.com/developers/sorting-algorithms>
+
 1. [Bubble sort](#bubble-sort)
 1. [Cocktail Shaker sort](#shaker-sort)
 1. [Selection sort](#selection-sort)
