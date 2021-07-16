@@ -23,8 +23,6 @@
 - Maven
 - Java 11 (AWS Corretto)
 - Lombok
-- vavr
-  - https://github.com/vavr-io/vavr
 - SonarCloud
   - https://sonarcloud.io/
   - https://sonarcloud.io/organizations/showmeyourcodeyoutube/projects

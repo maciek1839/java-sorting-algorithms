@@ -3,7 +3,7 @@ package com.showmeyourcode.projects.algorithms.algorithm.implementation;
 
 import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmDataGenerator;
 import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmType;
-import io.vavr.Tuple2;
+import org.javatuples.Pair;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,24 +42,24 @@ public class CountingSort extends AlgorithmBase {
          */
         int listCapacity = theHighest - theLowest + 1;
 
-        List<Tuple2<Integer, Integer>> lowHighValues = new ArrayList<>(listCapacity);
+        List<Pair<Integer, Integer>> lowHighValues = new ArrayList<>(listCapacity);
         for (int i = 0; i < listCapacity; i++) {
-            lowHighValues.add(i, new Tuple2<>(theLowest + i, 0));
+            lowHighValues.add(i, new Pair<>(theLowest + i, 0));
         }
 
         for (int singleNumberToSort : inputArray) {
             int arrayIndex = singleNumberToSort - theLowest;
-            Tuple2<Integer, Integer> currentNumberCount = lowHighValues.get(arrayIndex);
-            lowHighValues.set(arrayIndex, new Tuple2<>(currentNumberCount._1, currentNumberCount._2() + 1));
+            Pair<Integer, Integer> currentNumberCount = lowHighValues.get(arrayIndex);
+            lowHighValues.set(arrayIndex, new Pair<>(currentNumberCount.getValue0(), currentNumberCount.getValue1() + 1));
         }
 
         int inputArrayIndex = 0;
         for (int i = 0; inputArrayIndex < inputArray.length && i < listCapacity; i++) {
-            Tuple2<Integer, Integer> numberCount = lowHighValues.get(i);
-            int singleNumberCount = numberCount._2();
+            Pair<Integer, Integer> numberCount = lowHighValues.get(i);
+            int singleNumberCount = numberCount.getValue1();
             if (singleNumberCount > 0) {
                 while (singleNumberCount > 0) {
-                    inputArray[inputArrayIndex] = numberCount._1();
+                    inputArray[inputArrayIndex] = numberCount.getValue0();
                     singleNumberCount -= 1;
                     inputArrayIndex += 1;
                 }
