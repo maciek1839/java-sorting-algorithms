@@ -26,6 +26,7 @@ import java.util.Optional;
 public class BenchmarkProcessor {
 
     static final Logger logger = LoggerFactory.getLogger(BenchmarkProcessor.class);
+    static private String reportResultFilePath = "src/main/resources/benchmark/results.txt";
     private final BenchmarkDataGenerator dataGenerator;
     private final SortingAppConfiguration appConfiguration;
 
@@ -73,12 +74,7 @@ public class BenchmarkProcessor {
         return resultGroups;
     }
 
-    private long getCurrentUsedMemoryInBytes() {
-        return Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-    }
-
     public void saveResults(List<BenchmarkResultGroup> results) throws CannotCreateReportResultsFileException {
-        final String reportResultFilePath = "src/main/resources/benchmark/results.txt";
         File benchmarkResults = new File(reportResultFilePath);
 
         createResultsFile(benchmarkResults);
@@ -149,6 +145,15 @@ public class BenchmarkProcessor {
         } catch (IOException e) {
             logger.error("Cannot write benchmark results! ", e);
         }
+    }
+
+    void setResultsPath(String newPath){
+        reportResultFilePath = newPath;
+        logger.warn("A new path for the result file is set: {}", newPath);
+    }
+
+    private long getCurrentUsedMemoryInBytes() {
+        return Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
     }
 
     private void createResultsFile(File benchmarkResults) throws CannotCreateReportResultsFileException {

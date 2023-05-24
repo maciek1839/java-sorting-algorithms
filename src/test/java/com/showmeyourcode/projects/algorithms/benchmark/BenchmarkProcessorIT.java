@@ -1,13 +1,19 @@
 package com.showmeyourcode.projects.algorithms.benchmark;
 
+import com.showmeyourcode.projects.algorithms.exception.CannotCreateReportResultsFileException;
 import com.showmeyourcode.projects.algorithms.test_util.StaticValueProvider;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class BenchmarkProcessorIT {
 
@@ -26,14 +32,20 @@ class BenchmarkProcessorIT {
     }
 
     @Test
-    @Disabled
-    void should_saveReportResult_when_resultListIsNotEmpty() {
+    void should_saveReportResult_when_resultIsAvailable() throws CannotCreateReportResultsFileException {
+        var tmpFile = String.format("/benchmark/test-results-%d.txt", Instant.now().getEpochSecond());
+        var tmpResultPath = "src/main/resources"+tmpFile;
+        assertFalse(new File(tmpResultPath).exists());
+        var config = StaticValueProvider.getConfig();
+        BenchmarkDataGenerator dataGenerator = new BenchmarkDataGenerator(config);
+        BenchmarkProcessor benchmarkProcessor = new BenchmarkProcessor(dataGenerator, config);
 
-    }
+        List<BenchmarkResultGroup> resultGroups = benchmarkProcessor.getBenchmarkDataReport();
+        benchmarkProcessor.setResultsPath(tmpResultPath);
+        benchmarkProcessor.saveResults(resultGroups);
 
-    @Test
-    @Disabled
-    void should_createResultsFile_when_itDoesNotExist() {
-
+        var newReportFile = new File(tmpResultPath);
+        assertNotNull(newReportFile);
+        assertTrue(newReportFile.delete());
     }
 }

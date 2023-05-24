@@ -2,8 +2,6 @@ package com.showmeyourcode.projects.algorithms.console;
 
 import com.showmeyourcode.projects.algorithms.test_util.StaticValueProvider;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -66,11 +64,4 @@ class UserInputInterceptorTest {
         assertTrue(result.isPresent());
         assertEquals(UserMenuChoice.BAD_USER_INPUT, result.get());
     }
-
-    @Test
-    @Disabled
-    void should_notPrintAnything_when_inputIsBad() {
-
-    }
-
 }
