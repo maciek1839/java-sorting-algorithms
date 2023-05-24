@@ -1,5 +1,9 @@
 # Contributing rules
 
+## Git commits
+
+- Follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+
 ## Test naming convention
 
 ````
