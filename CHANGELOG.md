@@ -1,6 +1,6 @@
 # Java sorting algorithms
 
-## 2.5.0 (02.04.2021)
+## 2.5.0 (2021-04-02)
 
 ### Added
 
@@ -15,13 +15,13 @@
 
 - Sonar warnings
 
-## 2.4.0 (23.03.2021)
+## 2.4.0 (2021-03-23)
 
 ### Changed
 
 - Update benchmark results and verify remaining algorithms.
 
-## 2.3.0 (21.03.2021)
+## 2.3.0 (2021-03-21)
 
 ### Changed
 
@@ -31,7 +31,7 @@
 
 - The benchmark table formatting.
 
-## 2.2.0 (16.03.2021)
+## 2.2.0 (2021-03-16)
 
 ### Added
 
@@ -46,7 +46,7 @@
 - Change milliseconds to nanoseconds as a default time execution unit.
 - Refactor a part of algorithms: Bubble Sort, Insertion Sort, Counting Sort, Selection Sort.
 
-## 2.1.0 (05.03.2021)
+## 2.1.0 (2021-03-05)
 
 ### Added
 
@@ -59,13 +59,13 @@
 - Adjust packages structure.
 - Adjust Logback configuration to not show redundant information.
 
-## 2.0.1 (25.02.2021)
+## 2.0.1 (2021-02-25)
 
 ## Added
 
 - Display code coverage as a badge on Gitlab using Jacoco plugin
 
-## 2.0.0 (20.02.2021)
+## 2.0.0 (2021-02-20)
 
 ## Added
 

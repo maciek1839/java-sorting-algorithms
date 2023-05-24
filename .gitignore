@@ -14,3 +14,7 @@
 # Maven
 log/
 target/
+
+# Maven release plugin
+/pom.xml.releaseBackup
+/release.properties

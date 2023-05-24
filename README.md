@@ -76,3 +76,14 @@ Remarks:
 - *The counting sort can be implemented as:
   - not in-place: stable, O(N) space complexity.
   - in-place: none stable, O(1) space complexity.
+
+## Release a new version
+
+Run Maven commands using Maven Release plugin:
+- mvn release:prepare,
+- push changes to Gitlab repository.
+
+If you want to only update versions, use below command:
+```
+mvn release:update-versions -DautoVersionSubmodules=true
+```
