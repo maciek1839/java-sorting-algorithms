@@ -1,5 +1,11 @@
 image: maven:3-jdk-11
 
+# Static Application Security Testing (SAST) is a frequently used Application Security (AppSec) tool,
+# which scans an application’s source, binary, or byte code.
+# https://www.microfocus.com/en-us/what-is/sast
+include:
+  - template: Security/SAST.gitlab-ci.yml
+
 variables:
   SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"  # Defines the location of the analysis task cache
   GIT_DEPTH: "0"  # Tells git to fetch all the branches of the project, required by the analysis task
