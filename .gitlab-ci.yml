@@ -53,7 +53,7 @@ pages:
     - echo 'Cleaning old pages'
     - rm -rf public
     - ls -la
-    - mkdir -p public && cp -r target/site/jacoco/* public
+    - mkdir -p public/test-report && cp -r target/site/jacoco/* public/test-report
     - ls -la ./public
   artifacts:
     paths:

@@ -97,7 +97,7 @@ case complexity are of Ο(n2) where n is the number of items.
 
 ### Pseudocode
 
-![Bubble sort pseudocode](docs/bubblesort-pseudocode.svg)
+![Bubble sort pseudocode](docs/bubblesort-pseudocode.png)
 
 ### Performance (additional information not included in the main benchmark table)
 
@@ -206,7 +206,7 @@ out-of-place elements into position faster than a simple nearest neighbor exchan
 
 ### Pseudocode
 
-![Shell Sort pseudocode](./docs/Shell-Sort-Pseudocode.jpg)
+![Shell Sort pseudocode](./docs/shell-sort-pseudocode.jpg)
 
 ### Performance (additional information not included in the main benchmark table)
 

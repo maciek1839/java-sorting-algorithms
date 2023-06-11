@@ -12,7 +12,7 @@ environments.
 <https://docs.oracle.com/javacomponents/jmc-5-4/jfr-runtime-guide/about.htm#JFRUH170>  
 <https://www.baeldung.com/java-flight-recorder-monitoring>
 
-![jconsole example](./docs/jconsole-screenshot.PNG)
+![jconsole example](./docs/jconsole-screenshot.png)
 
 ## When should you use a Java profiler?
 
