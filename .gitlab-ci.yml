@@ -1,4 +1,10 @@
-image: maven:3-jdk-11
+default:
+  image: amazoncorretto:11.0.7
+  before_script:
+    - ': before_script'
+    - chmod +x mvnw
+    - export MAVEN_OPTS="-Dmaven.repo.local=${CI_PROJECT_DIR}/.m2/"
+
 
 # Static Application Security Testing (SAST) is a frequently used Application Security (AppSec) tool,
 # which scans an application’s source, binary, or byte code.
@@ -9,25 +15,23 @@ include:
 variables:
   SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"  # Defines the location of the analysis task cache
   GIT_DEPTH: "0"  # Tells git to fetch all the branches of the project, required by the analysis task
+  SAST_JAVA_VERSION: "11" # Required by SAST scanning
 
 stages:
-  - build
   - test
+  - build
   - analysis
   - deploy
 
 build:
   stage: build
   script:
-    - mvn clean package -DskipTests
-  artifacts:
-    paths:
-      - target/*.jar
+    - ./mvnw clean package -DskipTests $MAVEN_OPTS
 
 test:
   stage: test
   script:
-    - mvn verify
+    - ./mvnw verify $MAVEN_OPTS
     - cat target/site/jacoco/index.html | grep -o '<tfoot>.*</tfoot>'
   coverage: '/Total.*?([0-9]{1,3})%/'
   artifacts:
@@ -47,7 +51,7 @@ sonarcloud-check:
     paths:
       - .sonar/cache
   script:
-    - mvn verify sonar:sonar -Dsonar.projectKey=ShowMeYourCodeYouTube_java-sorting-algorithms
+    - ./mvnw verify sonar:sonar -Dsonar.projectKey=ShowMeYourCodeYouTube_java-sorting-algorithms
   only:
     - merge_requests
     - master

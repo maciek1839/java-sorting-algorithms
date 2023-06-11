@@ -33,7 +33,7 @@ public class UserInputInterceptor {
         Optional<UserMenuChoice> result;
         if (String.valueOf(UserMenuChoice.EXIT.getUserChoice()).equals(uChoice)) {
             result = Optional.of(UserMenuChoice.EXIT);
-        } else if (uChoice.matches("^[0-9]+$") &&
+        } else if (uChoice.matches("^\\d+$") &&
                 Integer.parseInt(uChoice) <= UserMenuChoice.getHighestAvailableUserChoice()) {
             result = UserMenuChoice.of(Integer.parseInt(uChoice));
         } else {

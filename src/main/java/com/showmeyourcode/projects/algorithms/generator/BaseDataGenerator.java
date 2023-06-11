@@ -6,7 +6,7 @@ import java.util.Random;
 
 public abstract class BaseDataGenerator {
     protected final Random randomGenerator = new Random();
-    private SortingAppConfiguration appConfiguration;
+    protected final SortingAppConfiguration appConfiguration;
 
     protected BaseDataGenerator(SortingAppConfiguration appConfiguration) {
         this.appConfiguration = appConfiguration;

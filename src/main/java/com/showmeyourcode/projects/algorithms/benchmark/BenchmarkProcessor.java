@@ -26,9 +26,9 @@ import java.util.Optional;
 public class BenchmarkProcessor {
 
     static final Logger logger = LoggerFactory.getLogger(BenchmarkProcessor.class);
-    static private String reportResultFilePath = "src/main/resources/benchmark/results.txt";
     private final BenchmarkDataGenerator dataGenerator;
     private final SortingAppConfiguration appConfiguration;
+    private String reportResultFilePath = "src/main/resources/benchmark/results.txt";
 
     public BenchmarkProcessor(BenchmarkDataGenerator dataGenerator, SortingAppConfiguration config) {
         this.dataGenerator = dataGenerator;

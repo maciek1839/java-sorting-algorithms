@@ -38,6 +38,7 @@ public class UserInputProcessor {
         waitingExecutorService = new WaitingExecutorService();
         benchmarkDataGenerator = new BenchmarkDataGenerator(config);
         benchmarkProcessor = new BenchmarkProcessor(benchmarkDataGenerator, config);
+
         final AbstractAlgorithmFactory algorithmFactory = new AlgorithmFactory(config);
         bubbleSort = (BubbleSort) algorithmFactory.createAlgorithm(AlgorithmType.BUBBLE_SORT);
         countingSort = (CountingSort) algorithmFactory.createAlgorithm(AlgorithmType.COUNTING_SORT);
