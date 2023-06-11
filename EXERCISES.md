@@ -3,9 +3,13 @@
 ## Exercises
 
 - Count Sort, Bucket Sort, Radix Sort (Non-Comparison Sorting)
-  - Refernce: CSE 2320 – Algorithms and Data Structures / University of Texas at Arlington
+  - Reference: CSE 2320 – Algorithms and Data Structures / University of Texas at Arlington
 
-<embed src="exercises/count-bucket-radix-sort.pdf" style="width:100%;height:50rem" type="application/pdf">
+<object data="exercises/count-bucket-radix-sort.pdf" type="application/pdf" width="700px" height="700px">
+    <embed src="exercises/count-bucket-radix-sort.pdf">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="exercises/count-bucket-radix-sort.pdf">Download PDF</a>.</p>
+    </embed>
+</object>
 
 - Counting sort
 
@@ -17,4 +21,8 @@
   - Reference: International Research Journal of Engineering and Technology (IRJET)
   - Date: 04 Issue: 01 | Jan‐2017
 
-<embed src="exercises/irjet-v4i1249-comparative-study-of-sorting-algorithms.pdf" style="width:100%;height:50rem" type="application/pdf">
+<object data="exercises/irjet-v4i1249-comparative-study-of-sorting-algorithms.pdf" type="application/pdf" width="700px" height="700px">
+    <embed src="exercises/count-bucket-radix-sort.pdf">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="exercises/irjet-v4i1249-comparative-study-of-sorting-algorithms.pdf">Download PDF</a>.</p>
+    </embed>
+</object>
