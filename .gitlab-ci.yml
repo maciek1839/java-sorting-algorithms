@@ -43,7 +43,6 @@ test:
         - "**/target/failsafe-reports/TEST-*.xml"
     expire_in: 1 hour
 
-
 sonarcloud-check:
   stage: analysis
   cache:

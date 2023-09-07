@@ -18,7 +18,10 @@ A very good algorithm animations: <https://www.toptal.com/developers/sorting-alg
 
 ### Measurement
 
-**All of them are based on Big-O Notation.**
+All of them are based on **Big-O Notation**.   
+> Big O notation is a mathematical notation that describes the limiting behavior of a function 
+when the argument tends towards a particular value or infinity.   
+It's usually used to describe the time and memory complexity of algorithms.
 
 - Time (Time complexity)
     - time is measured in nanoseconds,
@@ -35,14 +38,9 @@ A very good algorithm animations: <https://www.toptal.com/developers/sorting-alg
         - Worst
             - This is the upper bound on running time of an algorithm. We must know the case that causes the maximum number of operations to
               be executed.
-
-Reference: <https://www.bigocheatsheet.com/> and <https://afteracademy.com/blog/time-and-space-complexity-analysis-of-algorithm>
-
 - Memory (Space complexity)
     - used memory is measured in bytes just to prove the Big-O notation,
     - this metric shows how much memory is required by the algorithm to sort an array
-
-Reference: <https://www.baeldung.com/cs/space-complexity>
 
 | Symbol         | Description                         | Explanation (based on space complexity)                                                                                                     | 
 |----------------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------|
@@ -52,13 +50,18 @@ Reference: <https://www.baeldung.com/cs/space-complexity>
 | O(n log n)     | log-linear/quasilinear complexity   | also called “linearithmic”, its space complexity grows proportionally to the input size and a logarithmic factor  |
 | O(n^2)         | square/polynomial complexity        | space complexity grows proportionally to the square of the input size                                             |
 
-### Consideration
+References:
+- <https://www.bigocheatsheet.com/>
+- <https://afteracademy.com/blog/time-and-space-complexity-analysis-of-algorithm>
+- <https://www.baeldung.com/cs/space-complexity>
+
+### To consider
 
 - Stability
     - A sorting algorithm is said to be stable if two objects with equal keys appear in the same order in sorted output as they appear in
       the input array to be sorted.
     - Reference
-        - https://www.baeldung.com/cs/stable-sorting-algorithms#:~:text=Stable%20sorting%20algorithms%20preserve%20the,unstable%20sorting%20algorithms%20don't.&text=Stable%20sorting%20maintains%20the%20order,order%20of%20the%20two%208s
+        - https://www.baeldung.com/cs/stable-sorting-algorithms
         - https://stackoverflow.com/questions/48913820/why-selection-sort-is-unstable
 
 ```
