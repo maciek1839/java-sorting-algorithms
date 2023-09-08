@@ -2,7 +2,7 @@
 
 *Java console application that solves a **sorting problem** which is defined as a total number of item to be sorted.*
 
-| Branch |                                                                                               Pipeline                                                                                               |                                                                                            Code coverage                                                                                             |                                     Test report                                     |                                 SonarCloud                                 |
+| Branch |                                                                                               Pipeline                                                                                               |                                                                                            Code coverage                                                                                             |                                 Jacoco test report                                  |                                 SonarCloud                                 |
 |:------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------:|:--------------------------------------------------------------------------:|
 | master | [![pipeline status](https://gitlab.com/ShowMeYourCodeYouTube/java-sorting-algorithms/badges/master/pipeline.svg)](https://gitlab.com/ShowMeYourCodeYouTube/java-sorting-algorithms/-/commits/master) | [![coverage report](https://gitlab.com/ShowMeYourCodeYouTube/java-sorting-algorithms/badges/master/coverage.svg)](https://gitlab.com/ShowMeYourCodeYouTube/java-sorting-algorithms/-/commits/master) | [link](https://showmeyourcodeyoutube.gitlab.io/java-sorting-algorithms/test-report) | [link](https://sonarcloud.io/organizations/showmeyourcodeyoutube/projects) |
 
@@ -17,10 +17,10 @@
 
 ## Technology stack
 
+- Java (AWS Corretto)
 - Maven
-- Java 11 (AWS Corretto)
 - Lombok
-- JUnit 5
+- JUnit
 - Mockito
 - LogCaptor
 
