@@ -5,7 +5,7 @@ import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmType;
 
 public class SelectionSort extends AlgorithmBase {
 
-    SelectionSort(AlgorithmDataGenerator dataGenerator) {
+    public SelectionSort(AlgorithmDataGenerator dataGenerator) {
         super(dataGenerator);
     }
 

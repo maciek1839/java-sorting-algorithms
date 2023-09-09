@@ -5,7 +5,7 @@ import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmType;
 
 public class ShellSort extends AlgorithmBase {
 
-    ShellSort(AlgorithmDataGenerator dataGenerator) {
+    public ShellSort(AlgorithmDataGenerator dataGenerator) {
         super(dataGenerator);
     }
 

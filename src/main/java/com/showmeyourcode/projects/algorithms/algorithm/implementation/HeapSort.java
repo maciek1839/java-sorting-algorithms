@@ -10,7 +10,7 @@ import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmType;
  */
 public class HeapSort extends AlgorithmBase {
 
-    HeapSort(AlgorithmDataGenerator dataGenerator) {
+    public HeapSort(AlgorithmDataGenerator dataGenerator) {
         super(dataGenerator);
     }
 

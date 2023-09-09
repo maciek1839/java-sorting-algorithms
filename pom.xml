@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.showmeyourcode.algorithms</groupId>
-    <artifactId>sorting</artifactId>
+    <artifactId>sorting-demo</artifactId>
     <packaging>jar</packaging>
     <name>Java sorting algorithms</name>
 
@@ -14,6 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
+        <jmh.version>1.36</jmh.version>
         <logback.version>1.2.3</logback.version>
         <javatuples.version>1.2</javatuples.version>
         <slf4j.version>1.7.30</slf4j.version>
@@ -28,9 +29,11 @@
         <maven-test-plugin.version>2.22.2</maven-test-plugin.version>
 
         <sonar.organization>showmeyourcodeyoutube</sonar.organization>
-        <sonar.exclusions>**/launcher/SortingAlgorithmsAppLauncher*</sonar.exclusions>
+        <sonar.exclusions>**/launcher/SortingAlgorithmsAppLauncher*, **/launcher/AlgorithmsMicrobenchmark*, **/launcher/jmh_generated/*</sonar.exclusions>
 
         <jacoco.launcher.exclusion>**/launcher/SortingAlgorithmsAppLauncher*</jacoco.launcher.exclusion>
+        <jacoco.jmh-launcher.exclusion>**/launcher/AlgorithmsMicrobenchmark*</jacoco.jmh-launcher.exclusion>
+        <jacoco.jmh-generated.exclusion>**/launcher/jmh_generated/*</jacoco.jmh-generated.exclusion>
     </properties>
 
     <dependencies>
@@ -55,6 +58,17 @@
             <artifactId>javatuples</artifactId>
             <version>${javatuples.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-core</artifactId>
+            <version>${jmh.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-generator-annprocess</artifactId>
+            <version>${jmh.version}</version>
+        </dependency>
+
         <!--    Testing -->
         <dependency>
             <groupId>io.github.hakky54</groupId>
@@ -109,12 +123,38 @@
                 <version>${maven-compiler-plugin.version}</version>
             </plugin>
             <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <archive>
+                        <manifest>
+                            <mainClass>
+                                com.showmeyourcode.projects.algorithms.launcher.SortingAlgorithmsAppLauncher
+                            </mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>assemble-all</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>${jacoco.version}</version>
                 <configuration>
                     <excludes>
                         <exclude>${jacoco.launcher.exclusion}</exclude>
+                        <exclude>${jacoco.jmh-launcher.exclusion}</exclude>
+                        <exclude>${jacoco.jmh-generated.exclusion}</exclude>
                     </excludes>
                 </configuration>
                 <executions>

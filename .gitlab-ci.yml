@@ -5,7 +5,6 @@ default:
     - chmod +x mvnw
     - export MAVEN_OPTS="-Dmaven.repo.local=${CI_PROJECT_DIR}/.m2/"
 
-
 # Static Application Security Testing (SAST) is a frequently used Application Security (AppSec) tool,
 # which scans an application’s source, binary, or byte code.
 # https://www.microfocus.com/en-us/what-is/sast
@@ -23,11 +22,6 @@ stages:
   - analysis
   - deploy
 
-build:
-  stage: build
-  script:
-    - ./mvnw clean package -DskipTests $MAVEN_OPTS
-
 test:
   stage: test
   script:
@@ -43,6 +37,15 @@ test:
         - "**/target/failsafe-reports/TEST-*.xml"
     expire_in: 1 hour
 
+build:
+  stage: build
+  script:
+    - ./mvnw clean package -DskipTests $MAVEN_OPTS
+  artifacts:
+    paths:
+      - target/*.jar
+    expire_in: 1 hour
+
 sonarcloud-check:
   stage: analysis
   cache:
@@ -55,6 +58,12 @@ sonarcloud-check:
     - merge_requests
     - master
     - develop
+
+jmh-benchmark:
+  stage: analysis
+  script:
+    - cp target/*-jar-with-dependencies.jar target/jmh-benchmark.jar
+    - java -cp target/jmh-benchmark.jar com.showmeyourcode.projects.algorithms.launcher.AlgorithmsMicrobenchmark
 
 pages:
   stage: deploy

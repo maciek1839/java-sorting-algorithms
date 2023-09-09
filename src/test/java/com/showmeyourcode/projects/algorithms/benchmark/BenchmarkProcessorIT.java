@@ -27,8 +27,8 @@ class BenchmarkProcessorIT {
         List<BenchmarkResult> algorithmResults = new ArrayList<>();
         resultGroups.forEach(group -> algorithmResults.addAll(group.getResults()));
 
-        assertEquals(27, algorithmResults.size());
-        assertEquals(3, resultGroups.size());
+        assertEquals(36, algorithmResults.size());
+        assertEquals(4, resultGroups.size());
     }
 
     @Test

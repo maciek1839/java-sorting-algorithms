@@ -8,7 +8,7 @@ import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmType;
  */
 public class MergeSort extends AlgorithmBase {
 
-    MergeSort(AlgorithmDataGenerator dataGenerator) {
+    public MergeSort(AlgorithmDataGenerator dataGenerator) {
         super(dataGenerator);
     }
 

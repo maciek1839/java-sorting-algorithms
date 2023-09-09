@@ -20,6 +20,8 @@
 - Java (AWS Corretto)
 - Maven
 - Lombok
+- Java Microbenchmark Harness (JMH)
+  - https://github.com/openjdk/jmh
 - JUnit
 - Mockito
 - LogCaptor
@@ -33,6 +35,13 @@
 
 ```
 SortingAlgorithmsAppLauncher
+```
+
+---
+
+In order to run JMH, run the main method of:
+```
+AlgorithmsMicrobenchmark
 ```
 
 ## Algorithms benchmark

@@ -5,7 +5,7 @@ import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmType;
 
 public class CocktailShakerSort extends AlgorithmBase {
 
-    CocktailShakerSort(AlgorithmDataGenerator dataGenerator) {
+    public CocktailShakerSort(AlgorithmDataGenerator dataGenerator) {
         super(dataGenerator);
     }
 

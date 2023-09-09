@@ -5,7 +5,7 @@ import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmType;
 
 public class InsertionSort extends AlgorithmBase {
 
-    InsertionSort(AlgorithmDataGenerator dataGenerator) {
+    public InsertionSort(AlgorithmDataGenerator dataGenerator) {
         super(dataGenerator);
     }
 

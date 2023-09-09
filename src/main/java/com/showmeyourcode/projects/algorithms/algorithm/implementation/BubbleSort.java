@@ -5,7 +5,7 @@ import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmType;
 
 public class BubbleSort extends AlgorithmBase {
 
-    BubbleSort(AlgorithmDataGenerator dataGenerator) {
+    public BubbleSort(AlgorithmDataGenerator dataGenerator) {
         super(dataGenerator);
     }
 

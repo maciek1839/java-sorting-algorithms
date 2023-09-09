@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class CountingSort extends AlgorithmBase {
 
-    CountingSort(AlgorithmDataGenerator dataGenerator) {
+    public CountingSort(AlgorithmDataGenerator dataGenerator) {
         super(dataGenerator);
     }
 

@@ -10,7 +10,7 @@ import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmType;
  */
 public class QuickSort extends AlgorithmBase {
 
-    QuickSort(AlgorithmDataGenerator dataGenerator) {
+    public QuickSort(AlgorithmDataGenerator dataGenerator) {
         super(dataGenerator);
     }
 
