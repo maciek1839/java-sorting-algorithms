@@ -1,7 +1,7 @@
 package com.showmeyourcode.projects.algorithms.benchmark;
 
 import com.showmeyourcode.projects.algorithms.exception.BenchmarkDataNotFoundException;
-import com.showmeyourcode.projects.algorithms.test_util.StaticValueProvider;
+import com.showmeyourcode.projects.algorithms.test_util.DefaultComponentsProvider;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -16,7 +16,7 @@ class BenchmarkProcessorTest {
 
     @Test
     void should_generateReportForValidAlgorithms_when_restOfAlgorithmsThrowException() throws BenchmarkDataNotFoundException, IOException {
-        var config = StaticValueProvider.getConfig();
+        var config = DefaultComponentsProvider.getConfig();
         BenchmarkDataGenerator dataGenerator = Mockito.mock(BenchmarkDataGenerator.class);
         Mockito.when(dataGenerator.loadData(any())).then(invocation -> {
             Object[] args = invocation.getArguments();

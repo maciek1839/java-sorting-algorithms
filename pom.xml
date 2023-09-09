@@ -27,9 +27,9 @@
         <maven-test-plugin.version>2.22.2</maven-test-plugin.version>
 
         <sonar.organization>showmeyourcodeyoutube</sonar.organization>
-        <sonar.exclusions>**/launcher/**</sonar.exclusions>
+        <sonar.exclusions>**/launcher/SortingAlgorithmsAppLauncher*</sonar.exclusions>
 
-        <jacoco.launcher.exclusion>**/launcher/**</jacoco.launcher.exclusion>
+        <jacoco.launcher.exclusion>**/launcher/SortingAlgorithmsAppLauncher*</jacoco.launcher.exclusion>
     </properties>
 
     <dependencies>

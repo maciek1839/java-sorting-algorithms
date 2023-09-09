@@ -1,6 +1,6 @@
 package com.showmeyourcode.projects.algorithms.console;
 
-import com.showmeyourcode.projects.algorithms.test_util.StaticValueProvider;
+import com.showmeyourcode.projects.algorithms.test_util.DefaultComponentsProvider;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -12,7 +12,7 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class UserInputInterceptorTest {
+class UserInputInterceptorTest extends DefaultComponentsProvider {
 
     private UserInputInterceptor classUnderTest;
 
@@ -46,7 +46,10 @@ class UserInputInterceptorTest {
 
     @BeforeEach
     void setup() {
-        classUnderTest = new UserInputInterceptor(StaticValueProvider.getConfig());
+        classUnderTest = new UserInputInterceptor(
+                sortingAppConfiguration,
+                userInputProcessor
+        );
     }
 
     @ParameterizedTest

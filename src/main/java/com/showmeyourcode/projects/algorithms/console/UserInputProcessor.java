@@ -33,13 +33,16 @@ public class UserInputProcessor {
     private final ShellSort shellSort;
     private Waiting printPoint;
 
-    public UserInputProcessor(SortingAppConfiguration config) {
-        appConfiguration = config;
+    public UserInputProcessor(SortingAppConfiguration appConfiguration,
+                              BenchmarkDataGenerator benchmarkDataGenerator,
+                              BenchmarkProcessor benchmarkProcessor,
+                              AlgorithmFactory algorithmFactory) {
         waitingExecutorService = new WaitingExecutorService();
-        benchmarkDataGenerator = new BenchmarkDataGenerator(config);
-        benchmarkProcessor = new BenchmarkProcessor(benchmarkDataGenerator, config);
+        this.appConfiguration = appConfiguration;
 
-        final AbstractAlgorithmFactory algorithmFactory = new AlgorithmFactory(config);
+        this.benchmarkDataGenerator = benchmarkDataGenerator;//new BenchmarkDataGenerator(config);
+        this.benchmarkProcessor = benchmarkProcessor;//new BenchmarkProcessor(benchmarkDataGenerator, config);
+
         bubbleSort = (BubbleSort) algorithmFactory.createAlgorithm(AlgorithmType.BUBBLE_SORT);
         countingSort = (CountingSort) algorithmFactory.createAlgorithm(AlgorithmType.COUNTING_SORT);
         heapSort = (HeapSort) algorithmFactory.createAlgorithm(AlgorithmType.HEAP_SORT);
@@ -87,16 +90,12 @@ public class UserInputProcessor {
                 try {
                     benchmarkProcessor.saveResults(benchMarkReport);
                 } catch (CannotCreateReportResultsFileException e) {
-                    logger.error("Sorry, cannot save benchmark results! ", e);
+                    logger.error("Cannot save benchmark results. ", e);
                 }
                 stopWaiting();
                 break;
             case GENERATE_DATASET:
-                try {
-                    benchmarkDataGenerator.generateNewDataset(150000);
-                } catch (IOException e) {
-                    logger.error("Sorry, cannot generate a new dataset! ", e);
-                }
+                generateNewDataset();
                 break;
             case EXIT:
                 logger.info("Thank you and see you again!");
@@ -113,11 +112,19 @@ public class UserInputProcessor {
         stopWaiting();
     }
 
+    void generateNewDataset() {
+        try {
+            benchmarkDataGenerator.generateNewDataset(appConfiguration.defaultGeneratedDatasetSize());
+        } catch (IOException e) {
+            logger.error("Cannot generate a new dataset. ", e);
+        }
+    }
+
     void runAlgorithm(Algorithm algorithm) {
         logger.info("Name: {} Time: {} s", algorithm, algorithm.showUsage());
         logger.info("Number of elements: {} Max element value: {}",
-                appConfiguration.getDataSize(),
-                appConfiguration.getMaxRange());
+                appConfiguration.dataSize(),
+                appConfiguration.maxRange());
     }
 
     void startWaiting() {

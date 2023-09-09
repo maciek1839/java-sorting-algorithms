@@ -1,9 +1,8 @@
 package com.showmeyourcode.projects.algorithms.configuration;
 
-import lombok.Data;
-
-@Data
-public class SortingAppConfiguration {
-    private final int dataSize;
-    private final int maxRange;
+public record SortingAppConfiguration(
+        int dataSize,
+        int maxRange,
+        int defaultGeneratedDatasetSize
+) {
 }

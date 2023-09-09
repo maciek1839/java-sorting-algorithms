@@ -1,6 +1,6 @@
 package com.showmeyourcode.projects.algorithms.algorithm;
 
-import com.showmeyourcode.projects.algorithms.test_util.StaticValueProvider;
+import com.showmeyourcode.projects.algorithms.test_util.DefaultComponentsProvider;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -20,18 +20,18 @@ class AlgorithmDataGeneratorTest {
 
     @BeforeEach
     void setup() {
-        classUnderTest = new AlgorithmDataGenerator(StaticValueProvider.getConfig());
+        classUnderTest = new AlgorithmDataGenerator(DefaultComponentsProvider.getConfig());
     }
 
     @Test
     void should_generateIntegerData_when_sizeIsKnown() {
         int[] generatedData = classUnderTest.generateIntData();
 
-        assertEquals(StaticValueProvider.dataSize(), generatedData.length);
-        Assertions.assertFalse(java.util.Arrays.equals(new int[StaticValueProvider.dataSize()], generatedData));
+        assertEquals(DefaultComponentsProvider.dataSize(), generatedData.length);
+        Assertions.assertFalse(java.util.Arrays.equals(new int[DefaultComponentsProvider.dataSize()], generatedData));
         final int highestValue = getHighestArrayValue(generatedData);
         System.out.println(Arrays.toString(generatedData));
         System.out.println("The highest value is: " + highestValue);
-        assertTrue(highestValue <= StaticValueProvider.dataMaxRange());
+        assertTrue(highestValue <= DefaultComponentsProvider.dataMaxRange());
     }
 }

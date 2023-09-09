@@ -13,14 +13,16 @@ import java.nio.charset.StandardCharsets;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-class SortingAlgorithmsAppLauncherIT {
+class SortingAlgorithmsApplicationIT {
 
     @Test
     void should_throwException_when_cannotLoadProperties() {
-        SortingAlgorithmsAppLauncher.setPropertiesFilename("bad-file.properties");
-        assertThrows(CannotLoadAppPropertiesException.class, () -> {
-            SortingAlgorithmsAppLauncher.main(new String[0]);
-        });
+        var classUnderTest = new SortingAlgorithmsApplication(
+                "bad-file.properties",
+                SortingAlgorithmsApplication.DEFAULT_INPUT_STREAM
+        );
+
+        assertThrows(CannotLoadAppPropertiesException.class, classUnderTest::startApp);
     }
 
     @Test
@@ -28,9 +30,13 @@ class SortingAlgorithmsAppLauncherIT {
         LogCaptor logCaptor = LogCaptor.forClass(UserInputProcessor.class);
         String exitOption = String.valueOf(UserMenuChoice.EXIT.getUserChoice());
         ByteArrayInputStream testInputStream = new ByteArrayInputStream(exitOption.getBytes());
+        var classUnderTest = new SortingAlgorithmsApplication(
+                SortingAlgorithmsApplication.DEFAULT_PROPERTIES_FILE,
+                testInputStream
+        );
 
-        SortingAlgorithmsAppLauncher.setDefaultInputStream(testInputStream);
-        SortingAlgorithmsAppLauncher.main(new String[0]);
+        classUnderTest.startApp();
+
         assertEquals(1, logCaptor.getLogs().size());
         assertEquals("Thank you and see you again!", logCaptor.getLogs().get(0));
     }
@@ -39,15 +45,16 @@ class SortingAlgorithmsAppLauncherIT {
     @Test
     void should_ignoreBadInput_when_nonDigitsAreWritten() throws CannotLoadAppPropertiesException {
         LogCaptor logCaptor = LogCaptor.forClass(UserInputProcessor.class);
-
-
         String exitOption = String.valueOf(UserMenuChoice.EXIT.getUserChoice());
         ByteArrayInputStream testInputStream = new ByteArrayInputStream(
                 String.format("%s\n%s\n","abc", exitOption).getBytes(StandardCharsets.UTF_8)
         );
-        SortingAlgorithmsAppLauncher.setDefaultInputStream(testInputStream);
+        var classUnderTest = new SortingAlgorithmsApplication(
+                SortingAlgorithmsApplication.DEFAULT_PROPERTIES_FILE,
+                testInputStream
+        );
 
-        SortingAlgorithmsAppLauncher.main(new String[0]);
+        classUnderTest.startApp();
 
         assertEquals(1, logCaptor.getLogs().size());
         assertEquals("Thank you and see you again!", logCaptor.getLogs().get(0));
@@ -62,9 +69,12 @@ class SortingAlgorithmsAppLauncherIT {
         ByteArrayInputStream testInputStream = new ByteArrayInputStream(
                 String.format("%s\n%s\n",option1, exitOption).getBytes(StandardCharsets.UTF_8)
         );
-        SortingAlgorithmsAppLauncher.setDefaultInputStream(testInputStream);
+        var classUnderTest = new SortingAlgorithmsApplication(
+                SortingAlgorithmsApplication.DEFAULT_PROPERTIES_FILE,
+                testInputStream
+        );
 
-        SortingAlgorithmsAppLauncher.main(new String[0]);
+        classUnderTest.startApp();
 
         assertEquals(3, logCaptor.getLogs().size());
         assertEquals("Name: Bubble Sort Time: 0 s", logCaptor.getLogs().get(0));

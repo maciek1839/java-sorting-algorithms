@@ -12,9 +12,11 @@ public class UserInputInterceptor {
     private static final Logger logger = LoggerFactory.getLogger(UserInputInterceptor.class);
     private final Menu menu = new Menu();
     private final UserInputProcessor userInputProcessor;
+    private final SortingAppConfiguration appConfiguration;
 
-    public UserInputInterceptor(SortingAppConfiguration appConfiguration) {
-        userInputProcessor = new UserInputProcessor(appConfiguration);
+    public UserInputInterceptor(SortingAppConfiguration appConfiguration, UserInputProcessor userInputProcessor) {
+        this.userInputProcessor = userInputProcessor;
+        this.appConfiguration = appConfiguration;
     }
 
     public void startListening(InputStream inputStream) {
@@ -22,7 +24,7 @@ public class UserInputInterceptor {
         Optional<UserMenuChoice> currentUserChoice = Optional.empty();
         do {
             if (currentUserChoice.isEmpty() || UserMenuChoice.BAD_USER_INPUT != currentUserChoice.get()) {
-                logger.info(menu.createMenuToDisplay());
+                logger.info(menu.createMenuToDisplay(appConfiguration.defaultGeneratedDatasetSize()));
             }
             currentUserChoice = userChoice(scannerChoice.next());
             userInputProcessor.processUserInput(currentUserChoice.orElse(UserMenuChoice.BAD_USER_INPUT));

@@ -1,7 +1,7 @@
 package com.showmeyourcode.projects.algorithms.benchmark;
 
 import com.showmeyourcode.projects.algorithms.exception.CannotCreateReportResultsFileException;
-import com.showmeyourcode.projects.algorithms.test_util.StaticValueProvider;
+import com.showmeyourcode.projects.algorithms.test_util.DefaultComponentsProvider;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -19,7 +19,7 @@ class BenchmarkProcessorIT {
 
     @Test
     void should_generateReport_when_allAlgorithmsLoadData() {
-        var config = StaticValueProvider.getConfig();
+        var config = DefaultComponentsProvider.getConfig();
         BenchmarkDataGenerator dataGenerator = new BenchmarkDataGenerator(config);
         BenchmarkProcessor benchmarkProcessor = new BenchmarkProcessor(dataGenerator, config);
 
@@ -36,7 +36,8 @@ class BenchmarkProcessorIT {
         var tmpFile = String.format("/benchmark/test-results-%d.txt", Instant.now().getEpochSecond());
         var tmpResultPath = "src/main/resources"+tmpFile;
         assertFalse(new File(tmpResultPath).exists());
-        var config = StaticValueProvider.getConfig();
+
+        var config = DefaultComponentsProvider.getConfig();
         BenchmarkDataGenerator dataGenerator = new BenchmarkDataGenerator(config);
         BenchmarkProcessor benchmarkProcessor = new BenchmarkProcessor(dataGenerator, config);
 

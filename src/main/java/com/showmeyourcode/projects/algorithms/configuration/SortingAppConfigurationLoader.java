@@ -52,7 +52,8 @@ public class SortingAppConfigurationLoader {
 
         return new SortingAppConfiguration(
                 Integer.parseInt(loadedAppProperties.getProperty(PropertyKey.DATA_SIZE)),
-                Integer.parseInt(loadedAppProperties.getProperty(PropertyKey.DATA_RANGE_MAX))
+                Integer.parseInt(loadedAppProperties.getProperty(PropertyKey.DATA_RANGE_MAX)),
+                Integer.parseInt(loadedAppProperties.getProperty(PropertyKey.GENERATED_DATASET_SIZE))
         );
     }
 }

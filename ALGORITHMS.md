@@ -4,15 +4,21 @@ Here you can find more detailed information about particular algorithms.
 
 A very good algorithm animations: <https://www.toptal.com/developers/sorting-algorithms>
 
-1. [Bubble sort](#bubble-sort)
-1. [Cocktail Shaker sort](#shaker-sort)
-1. [Selection sort](#selection-sort)
-1. [Insertion sort](#insertion-sort)
-1. [Shell sort](#shell-sort)
-1. [Counting sort](#counting-sort)
-1. [Heap sort](#heap-sort)
-1. [Merge sort](#merge-sort)
-1. [Quick sort](#quick-sort)
+---
+
+**Table of Contents:**
+
+1. [What is measured and considered](#what-is-measured-and-considered)
+2. [Bubble sort](#bubble-sort)
+3. [Cocktail Shaker sort](#cocktail-shaker-sort)
+4. [Selection sort](#selection-sort)
+5. [Insertion sort](#insertion-sort)
+6. [Shell sort](#shell-sort)
+7. [Counting sort](#counting-sort)
+8. [Heap sort](#heap-sort)
+9. [Merge sort](#merge-sort)
+10. [Quick sort](#quick-sort)
+11. [Papers](#papers)
 
 ## What is measured and considered?
 
@@ -42,13 +48,13 @@ It's usually used to describe the time and memory complexity of algorithms.
     - used memory is measured in bytes just to prove the Big-O notation,
     - this metric shows how much memory is required by the algorithm to sort an array
 
-| Symbol         | Description                         | Explanation (based on space complexity)                                                                                                     | 
-|----------------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| O(1)           | constant complexity                 | takes the same amount of space regardless of the input size                                                       |
-| O(log n)       | logarithmic complexity              | takes space proportional to the log of the input size                                                             |
-| O(n)           | linear complexity                   | takes space directly proportional to the input size                                                               |
-| O(n log n)     | log-linear/quasilinear complexity   | also called “linearithmic”, its space complexity grows proportionally to the input size and a logarithmic factor  |
-| O(n^2)         | square/polynomial complexity        | space complexity grows proportionally to the square of the input size                                             |
+| Symbol     | Description                       | Explanation (based on space complexity)                                                                          | 
+|------------|-----------------------------------|------------------------------------------------------------------------------------------------------------------|
+| O(1)       | constant complexity               | takes the same amount of space regardless of the input size                                                      |
+| O(log n)   | logarithmic complexity            | takes space proportional to the log of the input size                                                            |
+| O(n)       | linear complexity                 | takes space directly proportional to the input size                                                              |
+| O(n log n) | log-linear/quasilinear complexity | also called “linearithmic”, its space complexity grows proportionally to the input size and a logarithmic factor |
+| O(n^2)     | square/polynomial complexity      | space complexity grows proportionally to the square of the input size                                            |
 
 References:
 - <https://www.bigocheatsheet.com/>
@@ -303,3 +309,14 @@ The pseudocode for the QuickSort implementation used in the project is not avail
 - https://en.wikipedia.org/wiki/Quicksort
 - https://www.geeksforgeeks.org/quick-sort/
 
+## Papers
+
+- A comparative Study of Sorting Algorithms / Comb, Cocktail and Counting Sorting
+    - Reference: International Research Journal of Engineering and Technology (IRJET)
+    - Date: 04 Issue: 01 | Jan‐2017
+
+<object data="docs/papers/irjet-v4i1249-comparative-study-of-sorting-algorithms.pdf" type="application/pdf" width="700px" height="700px">
+    <embed src="exercises/count-bucket-radix-sort.pdf">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="docs/papers/irjet-v4i1249-comparative-study-of-sorting-algorithms.pdf">Download PDF</a>.</p>
+    </embed>
+</object>

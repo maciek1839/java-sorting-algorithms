@@ -35,7 +35,7 @@ public class BenchmarkDataGenerator extends BaseDataGenerator {
     }
 
     public void generateNewDataset(int datasetSize) throws IOException {
-        final String newDatasetPath = String.format("src/main/resources/benchmark/%d.txt", datasetSize);
+        final String newDatasetPath = getDatasetPath(datasetSize);
         final File newDatasetFile = new File(newDatasetPath);
         if (!newDatasetFile.createNewFile()) {
             throw new FileAlreadyExistsException("A dataset already exists! Path: " + newDatasetPath);
@@ -47,5 +47,17 @@ public class BenchmarkDataGenerator extends BaseDataGenerator {
             String datasetAsString = Arrays.toString(datasetContent);
             outStream.write(datasetAsString.substring(1, datasetAsString.length() - 1).getBytes(StandardCharsets.UTF_8));
         }
+    }
+
+    public boolean isDatasetAvailable(int datasetSize){
+        return new File(getDatasetPath(datasetSize)).exists();
+    }
+
+    public boolean deleteDataset(int datasetSize){
+        return new File(getDatasetPath(datasetSize)).delete();
+    }
+
+    private String getDatasetPath(int datasetSize) {
+        return String.format("src/main/resources/benchmark/%d.txt", datasetSize);
     }
 }

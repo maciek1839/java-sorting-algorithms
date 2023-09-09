@@ -13,8 +13,8 @@ public abstract class BaseDataGenerator {
     }
 
     public int[] generateIntData() {
-        var dataSize = appConfiguration.getDataSize();
-        var maxRange = appConfiguration.getMaxRange();
+        var dataSize = appConfiguration.dataSize();
+        var maxRange = appConfiguration.maxRange();
         return this.generateIntData(dataSize, maxRange);
     }
 
