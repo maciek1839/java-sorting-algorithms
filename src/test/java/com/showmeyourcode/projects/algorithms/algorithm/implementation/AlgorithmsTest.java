@@ -22,7 +22,7 @@ class AlgorithmsTest {
 
     @ParameterizedTest
     @MethodSource("getNameAndPerformanceAndAlgorithms")
-    void shouldReturnProperPerformanceAndNameForAlgorithm(String expectedName, Algorithm algorithm) {
+    void should_returnProperAlgorithmName_when_InvokingToString(String expectedName, Algorithm algorithm) {
         assertEquals(expectedName.trim(), algorithm.toString().trim());
     }
 }

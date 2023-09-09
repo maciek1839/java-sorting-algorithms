@@ -21,7 +21,7 @@ class AlgorithmsBenchmarkDataGeneratorTest {
     }
 
     @Test
-    void should_throwAnException_when_fileDoesNotExist() {
+    void should_failLoadingData_when_fileDoesNotExist() {
         var benchmarkDataGenerator = new BenchmarkDataGenerator(DefaultComponentsProvider.getConfig());
 
         Assertions.assertThrows(BenchmarkDataNotFoundException.class, () -> {

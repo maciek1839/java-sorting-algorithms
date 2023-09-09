@@ -23,6 +23,7 @@
 - JUnit
 - Mockito
 - LogCaptor
+- Java Faker
 
 ## Getting started
 

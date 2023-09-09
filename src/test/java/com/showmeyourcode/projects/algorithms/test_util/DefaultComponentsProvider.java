@@ -12,6 +12,8 @@ import lombok.SneakyThrows;
 
 abstract public class DefaultComponentsProvider {
 
+    public final static String TEST_PROPERTIES_FILE = "application-test.properties";
+
     private final static int DATA_MAX_RANGE = 10000;
     private final static int DATA_SIZE = 10000;
     private final static int GENERATED_DATASET_SIZE = 150000;
@@ -25,7 +27,7 @@ abstract public class DefaultComponentsProvider {
 
     @SneakyThrows
     protected DefaultComponentsProvider() {
-        configLoader = new SortingAppConfigurationLoader(SortingAlgorithmsApplication.DEFAULT_PROPERTIES_FILE);
+        configLoader = new SortingAppConfigurationLoader(TEST_PROPERTIES_FILE);
         sortingAppConfiguration = configLoader.getConfig();
         benchmarkDataGenerator = new BenchmarkDataGenerator(sortingAppConfiguration);
         benchmarkProcessor = new BenchmarkProcessor(benchmarkDataGenerator, sortingAppConfiguration);

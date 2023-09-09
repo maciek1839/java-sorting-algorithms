@@ -91,12 +91,4 @@ class UserInputProcessorTest extends DefaultComponentsProvider {
         verify(classUnderTest, never()).startWaiting();
         verify(classUnderTest, never()).stopWaiting();
     }
-
-    @Test
-    void should_exit_when_properDigitIsChosen() {
-        classUnderTest.processUserInput(UserMenuChoice.EXIT);
-        verify(classUnderTest, never()).runAlgorithm(any());
-        verify(classUnderTest, never()).startWaiting();
-        verify(classUnderTest, never()).stopWaiting();
-    }
 }

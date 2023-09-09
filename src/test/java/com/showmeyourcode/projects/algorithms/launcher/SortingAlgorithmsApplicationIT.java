@@ -3,6 +3,7 @@ package com.showmeyourcode.projects.algorithms.launcher;
 import com.showmeyourcode.projects.algorithms.console.UserInputProcessor;
 import com.showmeyourcode.projects.algorithms.console.UserMenuChoice;
 import com.showmeyourcode.projects.algorithms.exception.CannotLoadAppPropertiesException;
+import com.showmeyourcode.projects.algorithms.test_util.DefaultComponentsProvider;
 import nl.altindag.log.LogCaptor;
 
 import org.junit.jupiter.api.Test;
@@ -31,7 +32,7 @@ class SortingAlgorithmsApplicationIT {
         String exitOption = String.valueOf(UserMenuChoice.EXIT.getUserChoice());
         ByteArrayInputStream testInputStream = new ByteArrayInputStream(exitOption.getBytes());
         var classUnderTest = new SortingAlgorithmsApplication(
-                SortingAlgorithmsApplication.DEFAULT_PROPERTIES_FILE,
+                DefaultComponentsProvider.TEST_PROPERTIES_FILE,
                 testInputStream
         );
 
@@ -50,7 +51,7 @@ class SortingAlgorithmsApplicationIT {
                 String.format("%s\n%s\n","abc", exitOption).getBytes(StandardCharsets.UTF_8)
         );
         var classUnderTest = new SortingAlgorithmsApplication(
-                SortingAlgorithmsApplication.DEFAULT_PROPERTIES_FILE,
+                DefaultComponentsProvider.TEST_PROPERTIES_FILE,
                 testInputStream
         );
 
@@ -70,7 +71,7 @@ class SortingAlgorithmsApplicationIT {
                 String.format("%s\n%s\n",option1, exitOption).getBytes(StandardCharsets.UTF_8)
         );
         var classUnderTest = new SortingAlgorithmsApplication(
-                SortingAlgorithmsApplication.DEFAULT_PROPERTIES_FILE,
+                DefaultComponentsProvider.TEST_PROPERTIES_FILE,
                 testInputStream
         );
 
@@ -78,7 +79,7 @@ class SortingAlgorithmsApplicationIT {
 
         assertEquals(3, logCaptor.getLogs().size());
         assertEquals("Name: Bubble Sort Time: 0 s", logCaptor.getLogs().get(0));
-        assertEquals("Number of elements: 10000 Max element value: 10000", logCaptor.getLogs().get(1));
+        assertEquals("Number of elements: 1000 Max element value: 1000", logCaptor.getLogs().get(1));
         assertEquals("Thank you and see you again!", logCaptor.getLogs().get(2));
     }
 }
