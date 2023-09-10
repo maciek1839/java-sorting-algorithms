@@ -4,19 +4,12 @@
 
 - Follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
 
-## Test naming convention
-
-````
-Should_ExpectedBehavior_When_StateUnderTest
-````
-
-Examples:
-
-- Should_ThrowException_When_AgeLessThan18
-- Should_FailToWithdrawMoney_ForInvalidAccount
-- Should_FailToAdmit_IfMandatoryFieldsAreMissing
+## Tests
 
 Remember about:
 
 - using `IT` suffix for integration tests
 - using`Test` suffix for unit tests
+
+If you want to run some tests from your IDE,   
+you might need to add `--add-opens java.base/java.lang=ALL-UNNAMED` JVM param (some tests require it).

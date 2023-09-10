@@ -48,8 +48,8 @@ public class UserInputProcessor {
         waitingExecutorService = new WaitingExecutorService();
         this.appConfiguration = appConfiguration;
 
-        this.benchmarkDataGenerator = benchmarkDataGenerator;//new BenchmarkDataGenerator(config);
-        this.benchmarkProcessor = benchmarkProcessor;//new BenchmarkProcessor(benchmarkDataGenerator, config);
+        this.benchmarkDataGenerator = benchmarkDataGenerator;
+        this.benchmarkProcessor = benchmarkProcessor;
 
         bubbleSort = (BubbleSort) algorithmFactory.createAlgorithm(AlgorithmType.BUBBLE_SORT);
         countingSort = (CountingSort) algorithmFactory.createAlgorithm(AlgorithmType.COUNTING_SORT);

@@ -9,24 +9,27 @@
     <version>2.6.1-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
 
         <jmh.version>1.36</jmh.version>
         <logback.version>1.2.3</logback.version>
         <javatuples.version>1.2</javatuples.version>
         <slf4j.version>1.7.30</slf4j.version>
-        <junit-params.version>5.7.0</junit-params.version>
-        <mockito.version>3.12.4</mockito.version>
-        <mockito-junit-jupiter.version>3.12.4</mockito-junit-jupiter.version>
         <javafaker.version>1.0.2</javafaker.version>
         <logcaptor.version>2.9.0</logcaptor.version>
         <jacoco.version>0.8.10</jacoco.version>
         <lombok.version>1.18.22</lombok.version>
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
         <maven-test-plugin.version>2.22.2</maven-test-plugin.version>
+        <gmavenplus-plugin.version>1.13.1</gmavenplus-plugin.version>
+        <groovy.version>3.0.9</groovy.version>
+        <spock.version>2.0-groovy-3.0</spock.version>
+        <spring-test.version>5.3.16</spring-test.version>
+        <gclib.version>3.3.0</gclib.version>
 
         <sonar.organization>showmeyourcodeyoutube</sonar.organization>
         <sonar.exclusions>**/launcher/SortingAlgorithmsAppLauncher*, **/launcher/AlgorithmsMicrobenchmark*, **/launcher/jmh_generated/*</sonar.exclusions>
@@ -69,7 +72,7 @@
             <version>${jmh.version}</version>
         </dependency>
 
-        <!--    Testing -->
+        <!--  Testing  -->
         <dependency>
             <groupId>io.github.hakky54</groupId>
             <artifactId>logcaptor</artifactId>
@@ -77,33 +80,34 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>${junit-params.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-params</artifactId>
-            <version>${junit-params.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <version>${mockito.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-junit-jupiter</artifactId>
-            <version>${mockito-junit-jupiter.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>com.github.javafaker</groupId>
             <artifactId>javafaker</artifactId>
             <version>${javafaker.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!--  Testing/Spock  -->
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib-nodep</artifactId>
+            <version>${gclib.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.spockframework</groupId>
+            <artifactId>spock-core</artifactId>
+            <version>${spock.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.spockframework</groupId>
+            <artifactId>spock-spring</artifactId>
+            <version>${spock.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring-test.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -202,11 +206,23 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-test-plugin.version}</version>
+                <configuration>
+                    <argLine>
+                        @{argLine}
+                        --add-opens java.base/java.lang=ALL-UNNAMED
+                    </argLine>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <version>${maven-test-plugin.version}</version>
+                <configuration>
+                    <argLine>
+                        @{argLine}
+                        --add-opens java.base/java.lang=ALL-UNNAMED
+                    </argLine>
+                </configuration>
                 <executions>
                     <execution>
                         <goals>
@@ -215,6 +231,27 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.gmavenplus</groupId>
+                <artifactId>gmavenplus-plugin</artifactId>
+                <version>${gmavenplus-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>addTestSources</goal>
+                            <goal>compileTests</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.codehaus.groovy</groupId>
+                        <artifactId>groovy</artifactId>
+                        <version>${groovy.version}</version>
+                        <scope>runtime</scope>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>

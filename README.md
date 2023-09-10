@@ -22,8 +22,9 @@
 - Lombok
 - Java Microbenchmark Harness (JMH)
   - https://github.com/openjdk/jmh
-- JUnit
-- Mockito
+- Spock & cglib
+  - A good explanation how tests can be simplified using Spock: [link](https://blog.codepipes.com/testing/spock-for-java.html)
+  - cglib is required for mocking non-interface types
 - LogCaptor
 - Java Faker
 
