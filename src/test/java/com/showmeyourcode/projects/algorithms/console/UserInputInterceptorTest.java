@@ -47,7 +47,7 @@ class UserInputInterceptorTest extends DefaultComponentsProvider {
     @BeforeEach
     void setup() {
         classUnderTest = new UserInputInterceptor(
-                sortingAppConfiguration,
+                applicationConfiguration,
                 userInputProcessor
         );
     }

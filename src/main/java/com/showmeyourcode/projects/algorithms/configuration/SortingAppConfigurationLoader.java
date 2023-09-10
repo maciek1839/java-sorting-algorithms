@@ -7,22 +7,23 @@ import org.slf4j.LoggerFactory;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.Properties;
 
 public class SortingAppConfigurationLoader {
 
     private static final Logger logger = LoggerFactory.getLogger(SortingAppConfigurationLoader.class);
-    private final SortingAppConfiguration config;
+    private final SortingAppConfiguration configuration;
     private final String propsFileName;
 
     public SortingAppConfigurationLoader(String applicationPropertiesFileName) throws CannotLoadAppPropertiesException {
         propsFileName = applicationPropertiesFileName;
-        config = loadDefaultConfiguration();
+        configuration = loadDefaultConfiguration();
     }
 
-    public SortingAppConfiguration getConfig() {
-        return config;
+    public SortingAppConfiguration getConfiguration() {
+        return configuration;
     }
 
     private SortingAppConfiguration loadDefaultConfiguration() throws CannotLoadAppPropertiesException {
@@ -53,7 +54,9 @@ public class SortingAppConfigurationLoader {
         return new SortingAppConfiguration(
                 Integer.parseInt(loadedAppProperties.getProperty(PropertyKey.DATA_SIZE)),
                 Integer.parseInt(loadedAppProperties.getProperty(PropertyKey.DATA_RANGE_MAX)),
-                Integer.parseInt(loadedAppProperties.getProperty(PropertyKey.GENERATED_DATASET_SIZE))
+                Integer.parseInt(loadedAppProperties.getProperty(PropertyKey.GENERATED_DATASET_SIZE)),
+                loadedAppProperties.getProperty(PropertyKey.BENCHMARK_RESULTS_FILE),
+                Arrays.stream(loadedAppProperties.getProperty(PropertyKey.BENCHMARK_DATASET_SIZES).split(",")).map(Integer::parseInt).toList()
         );
     }
 }

@@ -1,10 +1,10 @@
 package com.showmeyourcode.projects.algorithms.benchmark;
 
 public enum AlgorithmsBenchmarkData implements BenchmarkData {
-    TEN_THOUSANDS("benchmark/10000.txt", 1500),
-    FIFTY_THOUSANDS("benchmark/50000.txt", 50000),
-    ONE_HUNDRED_THOUSAND("benchmark/100000.txt", 100000),
-    ONE_HUNDRED_FIFTY_THOUSAND("benchmark/150000.txt", 150000);
+    TEN_THOUSAND("benchmark/10000.txt", 10_000),
+    FIFTY_THOUSAND("benchmark/50000.txt", 50_000),
+    ONE_HUNDRED_THOUSAND("benchmark/100000.txt", 100_000),
+    ONE_HUNDRED_FIFTY_THOUSAND("benchmark/150000.txt", 150_000);
 
     private final String path;
     private final int size;

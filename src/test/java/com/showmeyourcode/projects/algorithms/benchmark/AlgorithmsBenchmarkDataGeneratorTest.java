@@ -9,20 +9,20 @@ import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class AlgorithmsBenchmarkDataGeneratorTest {
+class AlgorithmsBenchmarkDataGeneratorTest extends DefaultComponentsProvider {
 
     @Test
     void should_loadBenchmarkData_when_fileExists() throws BenchmarkDataNotFoundException, IOException {
-        var benchmarkDataGenerator = new BenchmarkDataGenerator(DefaultComponentsProvider.getConfig());
+        var benchmarkDataGenerator = new BenchmarkDataGenerator(applicationConfiguration);
 
-        int[] loadedData = benchmarkDataGenerator.loadData(AlgorithmsBenchmarkData.FIFTY_THOUSANDS);
+        int[] loadedData = benchmarkDataGenerator.loadData(AlgorithmsBenchmarkData.FIFTY_THOUSAND);
 
         assertEquals(50000, loadedData.length);
     }
 
     @Test
     void should_failLoadingData_when_fileDoesNotExist() {
-        var benchmarkDataGenerator = new BenchmarkDataGenerator(DefaultComponentsProvider.getConfig());
+        var benchmarkDataGenerator = new BenchmarkDataGenerator(applicationConfiguration);
 
         Assertions.assertThrows(BenchmarkDataNotFoundException.class, () -> {
             benchmarkDataGenerator.loadData(TestBenchmarkData.BROKEN_BENCHMARK_DATA);

@@ -10,13 +10,14 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class AlgorithmsTest {
-    static Stream<Arguments> getNameAndPerformanceAndAlgorithms() {
+class AlgorithmsTest extends DefaultComponentsProvider {
+
+    private static Stream<Arguments> getNameAndPerformanceAndAlgorithms() {
         return Stream.of(
-                Arguments.of("Bubble Sort ", new BubbleSort(DefaultComponentsProvider.getDataGenerator())),
-                Arguments.of("Counting Sort ", new CountingSort(DefaultComponentsProvider.getDataGenerator())),
-                Arguments.of("Insertion sort ", new InsertionSort(DefaultComponentsProvider.getDataGenerator())),
-                Arguments.of("Merge sort ", new MergeSort(DefaultComponentsProvider.getDataGenerator()))
+                Arguments.of("Bubble Sort ", new BubbleSort(algorithmDataGenerator)),
+                Arguments.of("Counting Sort ", new CountingSort(algorithmDataGenerator)),
+                Arguments.of("Insertion sort ", new InsertionSort(algorithmDataGenerator)),
+                Arguments.of("Merge sort ", new MergeSort(algorithmDataGenerator))
         );
     }
 

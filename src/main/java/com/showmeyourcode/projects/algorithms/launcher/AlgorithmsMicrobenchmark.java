@@ -86,12 +86,12 @@ public class AlgorithmsMicrobenchmark {
 
     @Setup
     public void setup() throws BenchmarkDataNotFoundException, IOException, CannotLoadAppPropertiesException {
-        var appConfiguration = new SortingAppConfigurationLoader(SortingAlgorithmsApplication.DEFAULT_PROPERTIES_FILE).getConfig();
+        var appConfiguration = new SortingAppConfigurationLoader(SortingAlgorithmsApplication.DEFAULT_PROPERTIES_FILE).getConfiguration();
         dataGenerator = new AlgorithmDataGenerator(appConfiguration);
 
         var benchmarkDataGenerator = new BenchmarkDataGenerator(appConfiguration);
         // here you can change dataset size
-        loadedData = benchmarkDataGenerator.loadData(AlgorithmsBenchmarkData.TEN_THOUSANDS);
+        loadedData = benchmarkDataGenerator.loadData(AlgorithmsBenchmarkData.TEN_THOUSAND);
     }
 
     @Benchmark

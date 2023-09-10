@@ -29,7 +29,7 @@ public class SortingAlgorithmsApplication {
 
     void startApp() throws CannotLoadAppPropertiesException {
         final SortingAppConfigurationLoader configLoader = new SortingAppConfigurationLoader(propertiesFilename);
-        final SortingAppConfiguration sortingAppConfiguration = configLoader.getConfig();
+        final SortingAppConfiguration sortingAppConfiguration = configLoader.getConfiguration();
         final BenchmarkDataGenerator benchmarkDataGenerator = new BenchmarkDataGenerator(sortingAppConfiguration);
         final BenchmarkProcessor benchmarkProcessor = new BenchmarkProcessor(benchmarkDataGenerator, sortingAppConfiguration);
         final AlgorithmFactory algorithmFactory = new AlgorithmFactory(sortingAppConfiguration);

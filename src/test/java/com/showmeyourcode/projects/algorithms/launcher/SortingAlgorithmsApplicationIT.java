@@ -1,11 +1,11 @@
 package com.showmeyourcode.projects.algorithms.launcher;
 
+import com.showmeyourcode.projects.algorithms.benchmark.BenchmarkProcessor;
 import com.showmeyourcode.projects.algorithms.console.UserInputProcessor;
 import com.showmeyourcode.projects.algorithms.console.UserMenuChoice;
 import com.showmeyourcode.projects.algorithms.exception.CannotLoadAppPropertiesException;
 import com.showmeyourcode.projects.algorithms.test_util.DefaultComponentsProvider;
 import nl.altindag.log.LogCaptor;
-
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
@@ -13,6 +13,7 @@ import java.nio.charset.StandardCharsets;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class SortingAlgorithmsApplicationIT {
 
@@ -81,5 +82,24 @@ class SortingAlgorithmsApplicationIT {
         assertEquals("Name: Bubble Sort Time: 0 s", logCaptor.getLogs().get(0));
         assertEquals("Number of elements: 1000 Max element value: 1000", logCaptor.getLogs().get(1));
         assertEquals("Thank you and see you again!", logCaptor.getLogs().get(2));
+    }
+
+    @Test
+    void should_doBenchmark_when_properOptionIsChosen() throws CannotLoadAppPropertiesException {
+        LogCaptor logCaptor = LogCaptor.forClass(BenchmarkProcessor.class);
+
+        String option1 = String.valueOf(UserMenuChoice.BENCHMARK.getUserChoice());
+        String exitOption = String.valueOf(UserMenuChoice.EXIT.getUserChoice());
+        ByteArrayInputStream testInputStream = new ByteArrayInputStream(
+                String.format("%s\n%s\n",option1, exitOption).getBytes(StandardCharsets.UTF_8)
+        );
+        var classUnderTest = new SortingAlgorithmsApplication(
+                DefaultComponentsProvider.TEST_PROPERTIES_FILE,
+                testInputStream
+        );
+
+        classUnderTest.startApp();
+
+        assertTrue(logCaptor.getLogs().contains("Preparing the benchmark table in Markdown format..."));
     }
 }

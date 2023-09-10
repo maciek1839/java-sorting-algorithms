@@ -1,7 +1,15 @@
 package com.showmeyourcode.projects.algorithms.console;
 
 import com.showmeyourcode.projects.algorithms.algorithm.Algorithm;
-import com.showmeyourcode.projects.algorithms.algorithm.implementation.*;
+import com.showmeyourcode.projects.algorithms.algorithm.implementation.BubbleSort;
+import com.showmeyourcode.projects.algorithms.algorithm.implementation.CocktailShakerSort;
+import com.showmeyourcode.projects.algorithms.algorithm.implementation.CountingSort;
+import com.showmeyourcode.projects.algorithms.algorithm.implementation.HeapSort;
+import com.showmeyourcode.projects.algorithms.algorithm.implementation.InsertionSort;
+import com.showmeyourcode.projects.algorithms.algorithm.implementation.MergeSort;
+import com.showmeyourcode.projects.algorithms.algorithm.implementation.QuickSort;
+import com.showmeyourcode.projects.algorithms.algorithm.implementation.SelectionSort;
+import com.showmeyourcode.projects.algorithms.algorithm.implementation.ShellSort;
 import com.showmeyourcode.projects.algorithms.configuration.SortingAppConfiguration;
 import com.showmeyourcode.projects.algorithms.test_util.DefaultComponentsProvider;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,6 +19,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.mockito.Mockito;
 
+import java.util.Collections;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -43,7 +52,7 @@ class UserInputProcessorTest extends DefaultComponentsProvider {
     void setup() {
         classUnderTest = Mockito.spy(
                 new UserInputProcessor(
-              sortingAppConfiguration,
+                        applicationConfiguration,
               benchmarkDataGenerator,
               benchmarkProcessor,
               algorithmFactory
@@ -64,7 +73,7 @@ class UserInputProcessorTest extends DefaultComponentsProvider {
     void should_generateNewDataset_when_properDigitIsChosenAndDatasetDoesNotExist() {
         int newDatasetSize = 1234;
         UserInputProcessor userInputProcessor = Mockito.spy(new UserInputProcessor(
-                new SortingAppConfiguration(100, 2000, newDatasetSize),
+                new SortingAppConfiguration(100, 2000, newDatasetSize, "tmp-file.txt", Collections.emptyList()),
                 benchmarkDataGenerator,
                 benchmarkProcessor,
                 algorithmFactory

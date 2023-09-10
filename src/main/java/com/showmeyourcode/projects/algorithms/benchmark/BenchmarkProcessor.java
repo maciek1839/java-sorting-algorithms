@@ -28,7 +28,7 @@ public class BenchmarkProcessor {
     static final Logger logger = LoggerFactory.getLogger(BenchmarkProcessor.class);
     private final BenchmarkDataGenerator dataGenerator;
     private final SortingAppConfiguration appConfiguration;
-    private String reportResultFilePath = "src/main/resources/benchmark/results.txt";
+    private String reportResultFilePath = "src/main/resources/benchmark/%s";
 
     public BenchmarkProcessor(BenchmarkDataGenerator dataGenerator, SortingAppConfiguration config) {
         this.dataGenerator = dataGenerator;
@@ -40,42 +40,45 @@ public class BenchmarkProcessor {
         List<BenchmarkResultGroup> resultGroups = new ArrayList<>();
         var allAlgorithms = algorithmFactory.creatAllAvailableAlgorithms();
         for (AlgorithmsBenchmarkData benchmarkData : AlgorithmsBenchmarkData.values()) {
-            logger.info("Preparing benchmark for {} elements...", benchmarkData.getSize());
-            try {
-                final int[] initialData = dataGenerator.loadData(benchmarkData);
-                BenchmarkResultGroup group = new BenchmarkResultGroup(benchmarkData);
-                for (Algorithm algorithm : allAlgorithms) {
-                    logger.debug("Processing {} {}", benchmarkData.getSize(), algorithm);
-                    final long memoryAtTheBeginning = getCurrentUsedMemoryInBytes();
-                    logger.debug("Memory at the beginning: {}", memoryAtTheBeginning);
-                    Long start = System.nanoTime();
-                    algorithm.sortData(initialData);
-                    Long finish = System.nanoTime();
-                    long elapsedNanos = finish - start;
-                    final long memoryAtTheEnd = getCurrentUsedMemoryInBytes();
-                    logger.debug("Memory at the end: {}", memoryAtTheEnd);
-                    group.getResults().add(
-                            new BenchmarkResult(
-                                    algorithm.getType(),
-                                    benchmarkData.getSize(),
-                                    elapsedNanos,
-                                    memoryAtTheBeginning,
-                                    memoryAtTheEnd,
-                                    algorithm.getMetadata()
-                            )
-                    );
+            if (appConfiguration.datasetSizesForBenchmark().contains(benchmarkData.getSize())) {
+                logger.info("Preparing benchmark for {} elements...", benchmarkData.getSize());
+                try {
+                    final int[] initialData = dataGenerator.loadData(benchmarkData);
+                    BenchmarkResultGroup group = new BenchmarkResultGroup(benchmarkData);
+                    for (Algorithm algorithm : allAlgorithms) {
+                        logger.debug("Processing {} {}", benchmarkData.getSize(), algorithm);
+                        final long memoryAtTheBeginning = getCurrentUsedMemoryInBytes();
+                        logger.debug("Memory at the beginning: {}", memoryAtTheBeginning);
+                        Long start = System.nanoTime();
+                        algorithm.sortData(initialData);
+                        Long finish = System.nanoTime();
+                        long elapsedNanos = finish - start;
+                        final long memoryAtTheEnd = getCurrentUsedMemoryInBytes();
+                        logger.debug("Memory at the end: {}", memoryAtTheEnd);
+                        group.getResults().add(
+                                new BenchmarkResult(
+                                        algorithm.getType(),
+                                        benchmarkData.getSize(),
+                                        elapsedNanos,
+                                        memoryAtTheBeginning,
+                                        memoryAtTheEnd,
+                                        algorithm.getMetadata()
+                                )
+                        );
+                    }
+                    resultGroups.add(group);
+                } catch (IOException | BenchmarkDataNotFoundException e) {
+                    logger.error("Cannot load data for benchmark from the path: {}", benchmarkData.getPath(), e);
                 }
-                resultGroups.add(group);
-            } catch (IOException | BenchmarkDataNotFoundException e) {
-                logger.error("Cannot load data for benchmark from the path: {}", benchmarkData.getPath(), e);
+            } else {
+                logger.warn("Skipping benchmark for {} elements...", benchmarkData.getSize());
             }
         }
-
         return resultGroups;
     }
 
     public void saveResults(List<BenchmarkResultGroup> results) throws CannotCreateReportResultsFileException {
-        File benchmarkResults = new File(reportResultFilePath);
+        File benchmarkResults = new File(String.format(reportResultFilePath,appConfiguration.benchmarkResultsFile()));
 
         createResultsFile(benchmarkResults);
 
@@ -142,6 +145,7 @@ public class BenchmarkProcessor {
             }
 
             outStream.write(contentBuilder.toString().getBytes(StandardCharsets.UTF_8));
+
         } catch (IOException e) {
             logger.error("Cannot write benchmark results! ", e);
         }

@@ -12,22 +12,21 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Matchers.any;
 
-class BenchmarkProcessorTest {
+class BenchmarkProcessorTest extends DefaultComponentsProvider {
 
     @Test
     void should_generateReportForValidAlgorithms_when_restOfAlgorithmsThrowException() throws BenchmarkDataNotFoundException, IOException {
-        var config = DefaultComponentsProvider.getConfig();
         BenchmarkDataGenerator dataGenerator = Mockito.mock(BenchmarkDataGenerator.class);
         Mockito.when(dataGenerator.loadData(any())).then(invocation -> {
             Object[] args = invocation.getArguments();
             AlgorithmsBenchmarkData data = (AlgorithmsBenchmarkData) args[0];
-            if (data == AlgorithmsBenchmarkData.FIFTY_THOUSANDS) {
+            if (data == AlgorithmsBenchmarkData.FIFTY_THOUSAND) {
                 return new int[]{5, 32, 4, 21, 7};
             } else {
                 throw new BenchmarkDataNotFoundException(data);
             }
         });
-        BenchmarkProcessor benchmarkProcessor = new BenchmarkProcessor(dataGenerator, config);
+        BenchmarkProcessor benchmarkProcessor = new BenchmarkProcessor(dataGenerator, applicationConfiguration);
 
         List<BenchmarkResultGroup> resultGroups = benchmarkProcessor.getBenchmarkDataReport();
         List<BenchmarkResult> algorithmResults = new ArrayList<>();

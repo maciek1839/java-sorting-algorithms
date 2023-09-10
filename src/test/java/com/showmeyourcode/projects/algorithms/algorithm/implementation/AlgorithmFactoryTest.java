@@ -3,7 +3,6 @@ package com.showmeyourcode.projects.algorithms.algorithm.implementation;
 import com.showmeyourcode.projects.algorithms.algorithm.Algorithm;
 import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmType;
 import com.showmeyourcode.projects.algorithms.test_util.DefaultComponentsProvider;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -14,32 +13,27 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
-class AlgorithmFactoryTest {
-
-    AlgorithmFactory algorithmFactory;
+class AlgorithmFactoryTest extends DefaultComponentsProvider {
 
     static Stream<Arguments> getAlgorithmTypeAndInstance() {
         return Stream.of(
-                Arguments.of(AlgorithmType.BUBBLE_SORT, new BubbleSort(DefaultComponentsProvider.getDataGenerator())),
-                Arguments.of(AlgorithmType.COUNTING_SORT, new CountingSort(DefaultComponentsProvider.getDataGenerator())),
-                Arguments.of(AlgorithmType.HEAP_SORT, new HeapSort(DefaultComponentsProvider.getDataGenerator())),
-                Arguments.of(AlgorithmType.INSERTION_SORT, new InsertionSort(DefaultComponentsProvider.getDataGenerator())),
-                Arguments.of(AlgorithmType.MERGE_SORT, new MergeSort(DefaultComponentsProvider.getDataGenerator())),
-                Arguments.of(AlgorithmType.QUICK_SORT, new QuickSort(DefaultComponentsProvider.getDataGenerator())),
-                Arguments.of(AlgorithmType.SELECTION_SORT, new SelectionSort(DefaultComponentsProvider.getDataGenerator())),
-                Arguments.of(AlgorithmType.COCKTAIL_SHAKER_SORT, new CocktailShakerSort(DefaultComponentsProvider.getDataGenerator())),
-                Arguments.of(AlgorithmType.SHELL_SORT, new ShellSort(DefaultComponentsProvider.getDataGenerator()))
+                Arguments.of(AlgorithmType.BUBBLE_SORT, new BubbleSort(algorithmDataGenerator)),
+                Arguments.of(AlgorithmType.COUNTING_SORT, new CountingSort(algorithmDataGenerator)),
+                Arguments.of(AlgorithmType.HEAP_SORT, new HeapSort(algorithmDataGenerator)),
+                Arguments.of(AlgorithmType.INSERTION_SORT, new InsertionSort(algorithmDataGenerator)),
+                Arguments.of(AlgorithmType.MERGE_SORT, new MergeSort(algorithmDataGenerator)),
+                Arguments.of(AlgorithmType.QUICK_SORT, new QuickSort(algorithmDataGenerator)),
+                Arguments.of(AlgorithmType.SELECTION_SORT, new SelectionSort(algorithmDataGenerator)),
+                Arguments.of(AlgorithmType.COCKTAIL_SHAKER_SORT, new CocktailShakerSort(algorithmDataGenerator)),
+                Arguments.of(AlgorithmType.SHELL_SORT, new ShellSort(algorithmDataGenerator))
         );
     }
 
+    protected AlgorithmFactory algorithmFactory;
+
     @BeforeEach
     void setUp() {
-        algorithmFactory = new AlgorithmFactory(DefaultComponentsProvider.getConfig());
-    }
-
-    @AfterEach
-    void tearDown() {
-        algorithmFactory = null;
+        algorithmFactory = new AlgorithmFactory(applicationConfiguration);
     }
 
     @ParameterizedTest

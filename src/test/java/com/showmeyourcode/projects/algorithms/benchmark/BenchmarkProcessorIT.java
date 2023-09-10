@@ -12,14 +12,13 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class BenchmarkProcessorIT {
+class BenchmarkProcessorIT extends DefaultComponentsProvider {
 
     @Test
     void should_generateReport_when_allAlgorithmsLoadData() {
-        var config = DefaultComponentsProvider.getConfig();
+        var config = applicationConfiguration;
         BenchmarkDataGenerator dataGenerator = new BenchmarkDataGenerator(config);
         BenchmarkProcessor benchmarkProcessor = new BenchmarkProcessor(dataGenerator, config);
 
@@ -27,8 +26,8 @@ class BenchmarkProcessorIT {
         List<BenchmarkResult> algorithmResults = new ArrayList<>();
         resultGroups.forEach(group -> algorithmResults.addAll(group.getResults()));
 
-        assertEquals(36, algorithmResults.size());
-        assertEquals(4, resultGroups.size());
+        assertEquals(18, algorithmResults.size());
+        assertEquals(2, resultGroups.size());
     }
 
     @Test
@@ -37,7 +36,7 @@ class BenchmarkProcessorIT {
         var tmpResultPath = "src/main/resources"+tmpFile;
         assertFalse(new File(tmpResultPath).exists());
 
-        var config = DefaultComponentsProvider.getConfig();
+        var config = applicationConfiguration;
         BenchmarkDataGenerator dataGenerator = new BenchmarkDataGenerator(config);
         BenchmarkProcessor benchmarkProcessor = new BenchmarkProcessor(dataGenerator, config);
 

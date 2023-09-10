@@ -84,6 +84,10 @@ Big O Notation reference: https://www.bigocheatsheet.com/
 
 ![Big-O Complexity Chart](./docs/BigOCheatSheetPoster.png)
 
+## Java Memory Model (JMM)
+
+TODO
+
 ## Release a new version
 
 Run Maven commands using Maven Release plugin.
