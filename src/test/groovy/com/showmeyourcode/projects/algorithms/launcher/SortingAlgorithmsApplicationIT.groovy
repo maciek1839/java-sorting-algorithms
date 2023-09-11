@@ -15,7 +15,6 @@ import com.showmeyourcode.projects.algorithms.console.UserMenuChoice
 import com.showmeyourcode.projects.algorithms.exception.CannotLoadAppPropertiesException
 import com.showmeyourcode.projects.algorithms.test_util.TestBase
 import nl.altindag.log.LogCaptor
-import spock.lang.Specification
 
 import java.nio.charset.StandardCharsets
 
@@ -41,7 +40,7 @@ class SortingAlgorithmsApplicationIT extends TestBase {
         def exitOption = String.valueOf(UserMenuChoice.EXIT.getUserChoice())
         def testInputStream = new ByteArrayInputStream(exitOption.getBytes())
         def application = new SortingAlgorithmsApplication(
-                TestBase.TEST_PROPERTIES_FILE,
+                TEST_PROPERTIES_FILE,
                 testInputStream
         )
 
@@ -62,7 +61,7 @@ class SortingAlgorithmsApplicationIT extends TestBase {
                 String.format("%s\n%s\n", "abc", exitOption).getBytes(StandardCharsets.UTF_8)
         )
         def application = new SortingAlgorithmsApplication(
-                TestBase.TEST_PROPERTIES_FILE,
+                TEST_PROPERTIES_FILE,
                 testInputStream
         )
 
@@ -122,7 +121,7 @@ class SortingAlgorithmsApplicationIT extends TestBase {
                 String.format("%s\n%s\n", option1, exitOption).getBytes(StandardCharsets.UTF_8)
         )
         def application = new SortingAlgorithmsApplication(
-                TestBase.TEST_PROPERTIES_FILE,
+                TEST_PROPERTIES_FILE,
                 testInputStream
         )
 

@@ -19,28 +19,18 @@ public class AlgorithmFactory implements AbstractAlgorithmFactory {
 
     @Override
     public Algorithm createAlgorithm(AlgorithmType enumVal) {
-        switch (enumVal) {
-            case BUBBLE_SORT:
-                return new BubbleSort(dataGenerator);
-            case COUNTING_SORT:
-                return new CountingSort(dataGenerator);
-            case HEAP_SORT:
-                return new HeapSort(dataGenerator);
-            case INSERTION_SORT:
-                return new InsertionSort(dataGenerator);
-            case MERGE_SORT:
-                return new MergeSort(dataGenerator);
-            case QUICK_SORT:
-                return new QuickSort(dataGenerator);
-            case SELECTION_SORT:
-                return new SelectionSort(dataGenerator);
-            case COCKTAIL_SHAKER_SORT:
-                return new CocktailShakerSort(dataGenerator);
-            case SHELL_SORT:
-                return new ShellSort(dataGenerator);
-            default:
-                throw new UnsupportedOperationException(String.format("The algorithm %s is not implemented!", enumVal.toString()));
-        }
+        return switch (enumVal) {
+            case BUBBLE_SORT -> new BubbleSort(dataGenerator);
+            case COUNTING_SORT -> new CountingSort(dataGenerator);
+            case HEAP_SORT -> new HeapSort(dataGenerator);
+            case INSERTION_SORT -> new InsertionSort(dataGenerator);
+            case MERGE_SORT -> new MergeSort(dataGenerator);
+            case QUICK_SORT -> new QuickSort(dataGenerator);
+            case SELECTION_SORT -> new SelectionSort(dataGenerator);
+            case COCKTAIL_SHAKER_SORT -> new CocktailShakerSort(dataGenerator);
+            case SHELL_SORT -> new ShellSort(dataGenerator);
+            default -> throw new UnsupportedOperationException(String.format("The algorithm %s is not implemented!", enumVal.toString()));
+        };
     }
 
     @Override

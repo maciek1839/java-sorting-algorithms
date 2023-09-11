@@ -31,10 +31,6 @@ public enum UserMenuChoice {
         this.userChoice = userChoice;
     }
 
-    public static Map<Integer, UserMenuChoice> getAllKeysAndUserChoices() {
-        return enumMap;
-    }
-
     public static int getHighestAvailableUserChoice() {
         return enumMap.values().stream().map(UserMenuChoice::getUserChoice).max(Integer::compareTo).get();//NOSONAR
     }

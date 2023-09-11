@@ -1,6 +1,7 @@
 package com.showmeyourcode.projects.algorithms.configuration;
 
 import com.showmeyourcode.projects.algorithms.exception.CannotLoadAppPropertiesException;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,9 +12,9 @@ import java.util.Arrays;
 import java.util.Objects;
 import java.util.Properties;
 
+@Slf4j
 public class SortingAppConfigurationLoader {
 
-    private static final Logger logger = LoggerFactory.getLogger(SortingAppConfigurationLoader.class);
     private final SortingAppConfiguration configuration;
     private final String propsFileName;
 
@@ -27,7 +28,7 @@ public class SortingAppConfigurationLoader {
     }
 
     private SortingAppConfiguration loadDefaultConfiguration() throws CannotLoadAppPropertiesException {
-        logger.info("Loading application configuration from file: {}", propsFileName);
+        log.info("Loading application configuration from file: {}", propsFileName);
         Properties loadedAppProperties;
         InputStream inputStream = null;
         try {
@@ -46,7 +47,7 @@ public class SortingAppConfigurationLoader {
                 try {
                     inputStream.close();
                 } catch (IOException e) {
-                    logger.error("Cannot close a resource stream! ", e);
+                    log.error("Cannot close a resource stream! ", e);
                 }
             }
         }

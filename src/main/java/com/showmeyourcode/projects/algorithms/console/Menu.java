@@ -16,7 +16,7 @@ public class Menu {
                 .append("10. Benchmark\n")
                 .append(String.format("11. Generate dataset (if does not exist) | Size: %d%n",generatedDatasetSize))
                 .append("12. Exit program\n")
-                .append("What would you like to try?\tPlease choose one option:\n")
+                .append("What would you like to do?\tPlease choose one option:\n")
                 .toString();
     }
 }

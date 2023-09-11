@@ -14,16 +14,16 @@ class BenchmarkProcessorIT extends TestBase {
         def benchmarkProcessor = new BenchmarkProcessor(dataGenerator, config)
 
         when:
-        def resultGroups = benchmarkProcessor.getBenchmarkDataReport()
+        def report = benchmarkProcessor.getBenchmarkDataReport()
 
         then:
-        resultGroups.size() == 2
-        resultGroups.stream().mapToInt(group -> group.results.size()).sum() == 18
+        report.partialResults().size() == 2
+        report.partialResults().stream().mapToInt(group -> group.results.size()).sum() == 18
     }
 
     def "should save a report result when results are available"() {
         given:
-        def tmpFile = "/benchmark/test-results-${Instant.now().getEpochSecond()}.txt"
+        def tmpFile = "/benchmark/test-partialResults-${Instant.now().getEpochSecond()}.txt"
         def tmpResultPath = "src/main/resources/${tmpFile}"
 
         assert !new File(tmpResultPath).exists()

@@ -3,6 +3,7 @@ package com.showmeyourcode.projects.algorithms.console;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
+// todo: delete
 /**
  * See more: https://www.baeldung.com/thread-pool-java-and-guava
  */

@@ -16,14 +16,14 @@ import com.showmeyourcode.projects.algorithms.benchmark.BenchmarkDataGenerator;
 import com.showmeyourcode.projects.algorithms.benchmark.BenchmarkProcessor;
 import com.showmeyourcode.projects.algorithms.configuration.SortingAppConfiguration;
 import com.showmeyourcode.projects.algorithms.exception.CannotCreateReportResultsFileException;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
+@Slf4j
 public class UserInputProcessor {
-
-    private static final Logger logger = LoggerFactory.getLogger(UserInputProcessor.class);
 
     private final SortingAppConfiguration appConfiguration;
     private final BenchmarkProcessor benchmarkProcessor;
@@ -39,7 +39,7 @@ public class UserInputProcessor {
     private final SelectionSort selectionSort;
     private final CocktailShakerSort cocktailShakerSort;
     private final ShellSort shellSort;
-    private Waiting printPoint;
+    private WaitingRunnable printPoint;
 
     public UserInputProcessor(SortingAppConfiguration appConfiguration,
                               BenchmarkDataGenerator benchmarkDataGenerator,
@@ -92,13 +92,13 @@ public class UserInputProcessor {
                 startAlgorithm(shellSort);
                 break;
             case BENCHMARK:
-                printPoint = new Waiting();
+                printPoint = new WaitingRunnable();
                 startWaiting();
-                var benchMarkReport = benchmarkProcessor.getBenchmarkDataReport();
+                var report = benchmarkProcessor.getBenchmarkDataReport();
                 try {
-                    benchmarkProcessor.saveResults(benchMarkReport);
+                    benchmarkProcessor.saveResults(report);
                 } catch (CannotCreateReportResultsFileException e) {
-                    logger.error("Cannot save benchmark results. ", e);
+                    log.error("Cannot save benchmark partialResults. ", e);
                 }
                 stopWaiting();
                 break;
@@ -106,7 +106,7 @@ public class UserInputProcessor {
                 generateNewDataset();
                 break;
             case EXIT:
-                logger.info("Thank you and see you again!");
+                log.info("Thank you and see you again!");
                 break;
             case BAD_USER_INPUT:
                 break;
@@ -114,7 +114,7 @@ public class UserInputProcessor {
     }
 
     private void startAlgorithm(Algorithm algorithm) {
-        printPoint = new Waiting();
+        printPoint = new WaitingRunnable();
         startWaiting();
         runAlgorithm(algorithm);
         stopWaiting();
@@ -124,13 +124,13 @@ public class UserInputProcessor {
         try {
             benchmarkDataGenerator.generateNewDataset(appConfiguration.defaultGeneratedDatasetSize());
         } catch (IOException e) {
-            logger.error("Cannot generate a new dataset. ", e);
+            log.error("Cannot generate a new dataset. ", e);
         }
     }
 
     void runAlgorithm(Algorithm algorithm) {
-        logger.info("Name: {} Time: {} s", algorithm, algorithm.showUsage());
-        logger.info("Number of elements: {} Max element value: {}",
+        log.info("Name: {} Time: {} s", algorithm, algorithm.showUsage());
+        log.info("Number of elements: {} Max element value: {}",
                 appConfiguration.dataSize(),
                 appConfiguration.maxRange());
     }

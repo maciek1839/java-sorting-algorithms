@@ -88,6 +88,6 @@ public class CountingSort extends AlgorithmBase {
 
     @Override
     public String toString() {
-        return "Counting Sort ";
+        return "Counting Sort";
     }
 }

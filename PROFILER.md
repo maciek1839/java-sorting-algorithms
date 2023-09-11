@@ -6,9 +6,9 @@ include object creation, iterative executions (including recursive calls), metho
 
 ## Java Flight Recorder (JFR)
 
-Java Flight Recorder (JFR) is a tool for collecting diagnostic and profiling data about a running Java application. It is integrated into
-the Java Virtual Machine (JVM) and causes almost no performance overhead, so it can be used even in heavily loaded production
-environments.  
+Java Flight Recorder (JFR) is a tool for collecting diagnostic and profiling data about a running Java application. 
+It is integrated into the Java Virtual Machine (JVM) and causes almost no performance overhead, 
+so it can be used even in heavily loaded production environments.  
 <https://docs.oracle.com/javacomponents/jmc-5-4/jfr-runtime-guide/about.htm#JFRUH170>  
 <https://www.baeldung.com/java-flight-recorder-monitoring>
 

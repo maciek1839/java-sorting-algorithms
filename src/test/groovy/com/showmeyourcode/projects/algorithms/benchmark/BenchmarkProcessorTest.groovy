@@ -18,11 +18,11 @@ class BenchmarkProcessorTest extends TestBase {
         def benchmarkProcessor = new BenchmarkProcessor(dataGenerator, applicationConfiguration)
 
         when:
-        def resultGroups = benchmarkProcessor.getBenchmarkDataReport()
+        def report = benchmarkProcessor.getBenchmarkDataReport()
 
         then:
-        resultGroups.size() == 1
+        report.partialResults().size() == 1
         and:
-        resultGroups.stream().mapToInt(group -> group.results.size()).sum() == 9
+        report.partialResults().stream().mapToInt(group -> group.results.size()).sum() == 9
     }
 }
