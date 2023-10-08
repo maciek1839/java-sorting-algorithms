@@ -1,14 +1,6 @@
 package com.showmeyourcode.projects.algorithms.launcher
 
-import com.showmeyourcode.projects.algorithms.algorithm.implementation.BubbleSort
-import com.showmeyourcode.projects.algorithms.algorithm.implementation.CocktailShakerSort
-import com.showmeyourcode.projects.algorithms.algorithm.implementation.CountingSort
-import com.showmeyourcode.projects.algorithms.algorithm.implementation.HeapSort
-import com.showmeyourcode.projects.algorithms.algorithm.implementation.InsertionSort
-import com.showmeyourcode.projects.algorithms.algorithm.implementation.MergeSort
-import com.showmeyourcode.projects.algorithms.algorithm.implementation.QuickSort
-import com.showmeyourcode.projects.algorithms.algorithm.implementation.SelectionSort
-import com.showmeyourcode.projects.algorithms.algorithm.implementation.ShellSort
+import com.showmeyourcode.projects.algorithms.algorithm.implementation.*
 import com.showmeyourcode.projects.algorithms.benchmark.BenchmarkProcessor
 import com.showmeyourcode.projects.algorithms.console.UserInputProcessor
 import com.showmeyourcode.projects.algorithms.console.UserMenuChoice

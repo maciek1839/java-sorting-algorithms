@@ -2,7 +2,6 @@ package com.showmeyourcode.projects.algorithms.console
 
 import com.showmeyourcode.projects.algorithms.configuration.SortingAppConfiguration
 import com.showmeyourcode.projects.algorithms.test_util.TestBase
-import nl.altindag.log.LogCaptor
 import spock.lang.Ignore
 
 class UserInputProcessorTest extends TestBase {

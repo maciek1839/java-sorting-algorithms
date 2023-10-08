@@ -1,7 +1,6 @@
 package com.showmeyourcode.projects.algorithms.algorithm.implementation;
 
 import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmDataGenerator;
-import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmType;
 
 /**
  * Another implementation of Insertion Sort.

@@ -10,8 +10,6 @@ import com.showmeyourcode.projects.algorithms.console.UserInputProcessor;
 import com.showmeyourcode.projects.algorithms.exception.CannotLoadAppPropertiesException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.InputStream;
 

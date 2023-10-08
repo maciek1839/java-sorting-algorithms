@@ -26,7 +26,7 @@
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
         <maven-test-plugin.version>2.22.2</maven-test-plugin.version>
         <gmavenplus-plugin.version>1.13.1</gmavenplus-plugin.version>
-        <groovy.version>3.0.9</groovy.version>
+        <groovy.version>3.0.19</groovy.version>
         <spock.version>2.0-groovy-3.0</spock.version>
         <spring-test.version>5.3.16</spring-test.version>
         <gclib.version>3.3.0</gclib.version>
