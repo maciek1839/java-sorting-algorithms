@@ -21,15 +21,54 @@ public class HeapSort extends AlgorithmBase {
         }
 
         buildMaxHeap(inputArray);
-        int heapSize = inputArray.length - 1;
-        for (int i = heapSize; i > 0; i--) {
-            int lowestHeapIndex = 0;
-            exchange(inputArray, lowestHeapIndex, i);
-            heapSize -= 1;
-            maxHeapify(inputArray, lowestHeapIndex, heapSize);
+
+        int lastElementIdx = inputArray.length - 1;
+        int rootHeapIdx = 0;
+
+        for (int i = lastElementIdx; i > 0; i--) {
+            exchange(inputArray, rootHeapIdx, i);
+            lastElementIdx -= 1;
+            heapify(inputArray, rootHeapIdx, lastElementIdx);
         }
 
         return inputArray;
+    }
+
+    // A max-heap is a complete binary tree in which
+    // the value in each internal node is greater than or equal
+    // to the values in the children of that node.
+    //
+    // index of last non-leaf node = floor of (number of nodes)/2 - 1.
+    // Ref: https://builtin.com/software-engineering-perspectives/heapify-heap-tree-cpp
+    private void buildMaxHeap(int[] data) {
+        for (int i = data.length / 2 - 1; i >= 0; i--) {
+            int lastIdx = data.length - 1;
+            heapify(data, i, lastIdx);
+        }
+    }
+
+    private void exchange(int[] dataToSort, int index1, int index2) {
+        int tmpValue = dataToSort[index1];
+        dataToSort[index1] = dataToSort[index2];
+        dataToSort[index2] = tmpValue;
+    }
+
+    private void heapify(int[] dataToSort, int currentIdx, int lastHeapIdx) {
+        int leftIndex = 2 * currentIdx + 1, rightIndex = 2 * currentIdx + 2, largestValueIndex;//NOSONAR
+        if (leftIndex <= lastHeapIdx && dataToSort[leftIndex] > dataToSort[currentIdx]) {
+            largestValueIndex = leftIndex;
+        } else {
+            largestValueIndex = currentIdx;
+        }
+
+        if (rightIndex <= lastHeapIdx && dataToSort[rightIndex] > dataToSort[largestValueIndex]) {
+            largestValueIndex = rightIndex;
+        }
+
+        if (largestValueIndex != currentIdx) {
+            exchange(dataToSort, currentIdx, largestValueIndex);
+            heapify(dataToSort, largestValueIndex, lastHeapIdx);
+        }
     }
 
     @Override
@@ -50,39 +89,8 @@ public class HeapSort extends AlgorithmBase {
                 AlgorithmComplexityConstant.O_N_LOG_N,
                 AlgorithmComplexityConstant.O_N_LOG_N,
                 AlgorithmComplexityConstant.O_1,
-                "no",
-                "yes"
+                NO,
+                YES
         );
-    }
-
-    private void buildMaxHeap(int[] data) {
-        int heapSize = data.length - 1;
-        for (int i = heapSize / 2; i >= 0; i--) {
-            maxHeapify(data, i, heapSize);
-        }
-    }
-
-    private void exchange(int[] dataToSort, int index1, int index2) {
-        int tmpValue = dataToSort[index1];
-        dataToSort[index1] = dataToSort[index2];
-        dataToSort[index2] = tmpValue;
-    }
-
-    private void maxHeapify(int[] dataToSort, int index, int heapSize) {
-        int leftIndex = 2 * index + 1, rightIndex = 2 * index + 2, largestValueIndex;//NOSONAR
-        if (leftIndex <= heapSize && dataToSort[leftIndex] > dataToSort[index]) {
-            largestValueIndex = leftIndex;
-        } else {
-            largestValueIndex = index;
-        }
-
-        if (rightIndex <= heapSize && dataToSort[rightIndex] > dataToSort[largestValueIndex]) {
-            largestValueIndex = rightIndex;
-        }
-
-        if (largestValueIndex != index) {
-            exchange(dataToSort, index, largestValueIndex);
-            maxHeapify(dataToSort, largestValueIndex, heapSize);
-        }
     }
 }

@@ -18,46 +18,30 @@ public class MergeSort extends AlgorithmBase {
             return new int[]{};
         }
 
-        divideIntoParts(inputArray, 0, inputArray.length - 1);
+        divide(inputArray, 0, inputArray.length - 1);
 
         return inputArray;
     }
 
-    @Override
-    public AlgorithmType getType() {
-        return AlgorithmType.MERGE_SORT;
-    }
 
-    @Override
-    public AlgorithmMetadata getMetadata() {
-        return new AlgorithmMetadata(
-                "Merge&#160;sort",
-                AlgorithmComplexityConstant.O_N_LOG_N,
-                AlgorithmComplexityConstant.O_N_LOG_N,
-                AlgorithmComplexityConstant.O_N_LOG_N,
-                AlgorithmComplexityConstant.O_N,
-                "yes",
-                "no"
-        );
-    }
-
-    private void divideIntoParts(int[] dataToSort, int leftIndex, int rightIndex) {
+    private void divide(int[] dataToSort, int leftIndex, int rightIndex) {
         if (leftIndex >= rightIndex) {
             return;
         }
 
         int middleIndex = leftIndex + (rightIndex - leftIndex) / 2;
-        divideIntoParts(dataToSort, leftIndex, middleIndex);
-        divideIntoParts(dataToSort, middleIndex + 1, rightIndex);
-        mergeParts(dataToSort, leftIndex, middleIndex, rightIndex);
+        divide(dataToSort, leftIndex, middleIndex);
+        divide(dataToSort, middleIndex + 1, rightIndex);
+        merge(dataToSort, leftIndex, middleIndex, rightIndex);
     }
 
-    private void mergeParts(int[] dataToSort, int leftIndex, int middleIndex, int rightIndex) {
+    private void merge(int[] dataToSort, int leftIndex, int middleIndex, int rightIndex) {
         int n1 = middleIndex - leftIndex + 1;
         int n2 = rightIndex - middleIndex;
 
         int[] leftPart = new int[n1], rightPart = new int[n2];//NOSONAR
 
+        // https://stackoverflow.com/questions/2589741/what-is-more-efficient-system-arraycopy-or-arrays-copyof
         System.arraycopy(dataToSort, leftIndex, leftPart, 0, n1);
         System.arraycopy(dataToSort, middleIndex + 1, rightPart, 0, n2);
 
@@ -90,5 +74,23 @@ public class MergeSort extends AlgorithmBase {
     @Override
     public String toString() {
         return "Merge sort";
+    }
+
+    @Override
+    public AlgorithmType getType() {
+        return AlgorithmType.MERGE_SORT;
+    }
+
+    @Override
+    public AlgorithmMetadata getMetadata() {
+        return new AlgorithmMetadata(
+                "Merge&#160;sort",
+                AlgorithmComplexityConstant.O_N_LOG_N,
+                AlgorithmComplexityConstant.O_N_LOG_N,
+                AlgorithmComplexityConstant.O_N_LOG_N,
+                AlgorithmComplexityConstant.O_N,
+                YES,
+                NO
+        );
     }
 }

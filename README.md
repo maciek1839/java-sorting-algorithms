@@ -72,16 +72,15 @@ Ref: https://saturncloud.io/blog/is-the-benchmarking-of-my-algorithms-right/
 
 | Algorithm  | 50000&#160;elements&#160;(ms)   | 100000&#160;elements&#160;(ms)    | 150000&#160;elements&#160;(ms)    | Best&#160;complexity   | Average&#160;complexity   | Worst&#160;complexity   | Space&#160;complexity&#160;(the&#160;worst)   | Stable   | In&#160;place  |
 |:--------------------------------|:----------------:|:-----------------:|:-----------------:|:-----------------:|:--------------------:|:------------------:|:------------------------------:|:--------:|:---------:|
-| Bubble&#160;sort |  8306  | 23689 |  43970 |  O(n)  |  O(n^2)  |  O(n^2) |  O(1) |   yes  |  yes  |
-| Cocktail&#160;Shaker&#160;sort <br/> (Bidirectional&#160;bubble&#160;sort)   |  5464  | 19673 |  35717 |  O(n)  |  O(n^2)  |  O(n^2) |  O(1) |   yes  |  yes  |
-| Selection&#160;sort |  2991  | 6072 |  15647 |  O(n^2)  |  O(n^2)  |  O(n^2) |  O(1) |   no  |  yes  |
-| Insertion&#160;sort   |  1135  | 3135 |  7381 |  O(n)  |  O(n^2)  |  O(n^2) |  O(1) |   yes  |  yes  |
-| Shell&#160;sort |  12  | 26 |  38 |  O(n log n)  |  depends on gap sequence  |  O(n^2) |  O(1) |   no  |  yes  |
-| Counting&#160;sort |  10  | 11 |  26 |  O(n+k)  |  O(n+k)  |  O(n+k) |  O(n+k) |   yes/no*  |  no/yes*  |
-| Heap&#160;sort |  15  | 23 |  35 |  O(n log n)  |  O(n log n)  |  O(n log n) |  O(1) |   no  |  yes  |
-| Merge&#160;sort |  12  | 29 |  68 |  O(n log n)  |  O(n log n)  |  O(n log n) |  O(n) |   yes  |  no  |
-| Quick&#160;sort |  6  | 12 |  43 |  O(n log n)  |  O(n log n)  |  O(n^2) |  O(log n) |   no  |  yes  |
-
+| Bubble&#160;sort |  4708  | 14287 |  29547 |  O(n)  |  O(n^2)  |  O(n^2) |  O(1) |   yes  |  yes  |
+| Cocktail&#160;Shaker&#160;sort <br/> (Bidirectional&#160;bubble&#160;sort)   |  3068  | 10609 |  21491 |  O(n)  |  O(n^2)  |  O(n^2) |  O(1) |   yes  |  yes  |
+| Selection&#160;sort |  1677  | 4515 |  9840 |  O(n^2)  |  O(n^2)  |  O(n^2) |  O(1) |   no  |  yes  |
+| Insertion&#160;sort   |  297  | 1504 |  3422 |  O(n)  |  O(n^2)  |  O(n^2) |  O(1) |   yes  |  yes  |
+| Shell&#160;sort |  7  | 17 |  25 |  O(n log n)  |  depends on gap sequence  |  O(n^2) |  O(1) |   no  |  yes  |
+| Counting&#160;sort |  7  | 13 |  9 |  O(n+k)  |  O(n+k)  |  O(n+k) |  O(n+k) |   yes/no*  |  no/yes*  |
+| Heap&#160;sort |  10  | 17 |  23 |  O(n log n)  |  O(n log n)  |  O(n log n) |  O(1) |   no  |  yes  |
+| Merge&#160;sort |  6  | 18 |  41 |  O(n log n)  |  O(n log n)  |  O(n log n) |  O(n) |   yes  |  no  |
+| Quick&#160;sort |  3  | 34 |  15 |  O(n log n)  |  O(n log n)  |  O(n^2) |  O(log n) |   no  |  yes  |
 
 *ms - milliseconds, B - bytes, n - number of elements in an array, k - the dataset/array elements range*  
 *The table is auto generated using the app. Choose `10` to generate new results and copy the table from `resources`.*
