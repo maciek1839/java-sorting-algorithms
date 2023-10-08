@@ -24,11 +24,11 @@
         <jacoco.version>0.8.10</jacoco.version>
         <lombok.version>1.18.30</lombok.version>
         <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
-        <maven-test-plugin.version>2.22.2</maven-test-plugin.version>
-        <gmavenplus-plugin.version>1.13.1</gmavenplus-plugin.version>
+        <maven-test-plugin.version>3.1.2</maven-test-plugin.version>
+        <gmavenplus-plugin.version>3.0.2</gmavenplus-plugin.version>
         <groovy.version>3.0.19</groovy.version>
         <spock.version>2.3-groovy-4.0</spock.version>
-        <spring-test.version>5.3.30</spring-test.version>
+        <spring-test.version>6.0.12</spring-test.version>
         <gclib.version>3.3.0</gclib.version>
 
         <sonar.organization>showmeyourcodeyoutube</sonar.organization>
