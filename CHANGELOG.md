@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## Added
 
+- Introduce Renovate bot to manage dependencies
 - Use Fork/Join Framework (ForkJoinPool)
 - Introduce new benchmark settings to application.properties
 - Use Java Microbenchmark Harness (JMH) to measure algorithms performance
