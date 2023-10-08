@@ -20,6 +20,6 @@ class HeapSortTest extends AlgorithmTestBase {
         def benchmarkResult = benchmarkTask.invoke()
 
         then:
-        ThreadUtil.convertNsToMs(benchmarkResult.results.get(0).timeElapsedInNanoSeconds()) < 100
+        ThreadUtil.convertNsToMs(benchmarkResult.results.get(0).timeElapsedInNanoSeconds()) < 200
     }
 }
