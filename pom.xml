@@ -243,6 +243,11 @@
                         <version>1.2.1</version>
                     </dependency>
                 </dependencies>
+                <configuration>
+                    <targetTests>
+                        <param>com.showmeyourcode.projects.algorithms.algorithm*</param>
+                    </targetTests>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.gmavenplus</groupId>
