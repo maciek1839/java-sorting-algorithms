@@ -30,6 +30,8 @@
         <spock.version>2.3-groovy-4.0</spock.version>
         <spring-test.version>6.0.12</spring-test.version>
         <gclib.version>3.3.0</gclib.version>
+        <pitest-maven.version>1.15.3</pitest-maven.version>
+        <pitest-junit5-plugin.version>1.2.1</pitest-junit5-plugin.version>
 
         <sonar.organization>showmeyourcodeyoutube</sonar.organization>
         <sonar.exclusions>**/launcher/SortingAlgorithmsAppLauncher*, **/launcher/AlgorithmsMicrobenchmark*, **/launcher/jmh_generated/*</sonar.exclusions>
@@ -235,12 +237,12 @@
             <plugin>
                 <groupId>org.pitest</groupId>
                 <artifactId>pitest-maven</artifactId>
-                <version>1.15.3</version>
+                <version>${pitest-maven.version}</version>
                 <dependencies>
                     <dependency>
                         <groupId>org.pitest</groupId>
                         <artifactId>pitest-junit5-plugin</artifactId>
-                        <version>1.2.1</version>
+                        <version>${pitest-junit5-plugin.version}</version>
                     </dependency>
                 </dependencies>
                 <configuration>
