@@ -37,6 +37,20 @@ test:
         - "**/target/failsafe-reports/TEST-*.xml"
     expire_in: 1 hour
 
+mutation-test:
+  stage: test
+  script:
+    - ./mvnw test-compile org.pitest:pitest-maven:mutationCoverage $MAVEN_OPTS
+#  coverage: '/Total.*?([0-9]{1,3})%/'
+#  artifacts:
+#    paths:
+#      - target/site/jacoco/*
+#    reports:
+#      junit:
+#        - "**/target/surefire-reports/TEST-*.xml"
+#        - "**/target/failsafe-reports/TEST-*.xml"
+#    expire_in: 1 hour
+
 build:
   stage: build
   script:
