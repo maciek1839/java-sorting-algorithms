@@ -20,6 +20,10 @@ A very good algorithm animations: <https://www.toptal.com/developers/sorting-alg
 10. [Quick sort](#quick-sort)
 11. [Papers](#papers)
 
+
+![img](docs/soritng-visualization.gif)
+[Reference](https://medium.com/@miles.pucarelli/lets-build-sorting-algorithms-in-javascript-b00d04e4a8de)
+
 ## What is measured and considered?
 
 ### Measurement
