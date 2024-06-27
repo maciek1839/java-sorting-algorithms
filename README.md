@@ -12,8 +12,6 @@
   - <https://www.youtube.com/watch?v=nrs-DjTRwkk>
 - All algorithms' details and the benchmark explanation
   - [ALGORITHMS](./ALGORITHMS.md)
-- Sorting algorithms exercises found on the Internet
-  - [EXERCISES](./EXERCISES.md)
 
 ## Technology stack
 
@@ -208,9 +206,10 @@ One thread running on the left CPU copies the shared object into its CPU cache, 
 - https://www.digitalocean.com/community/tutorials/java-jvm-memory-model-memory-management-in-java
 - https://jenkov.com/tutorials/java-concurrency/java-memory-model.html
 
-## Release a new version
+## Exercises
 
-Run Maven commands using Maven Release plugin.
-```text
-mvn release:prepare
-```
+Online testing platforms:
+- https://www.hackerrank.com/domains/algorithms/arrays-and-sorting/page/7
+- https://www.hackerrank.com/domains/algorithms?filters%5Bsubdomains%5D%5B%5D=arrays-and-sorting
+- https://www.codewars.com/collections/sorting
+- https://www.w3resource.com/java-exercises/sorting/index.php

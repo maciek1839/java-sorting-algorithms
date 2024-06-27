@@ -4,7 +4,7 @@ import com.showmeyourcode.projects.algorithms.test_util.TestBase
 
 class UserInputInterceptorTest extends TestBase {
 
-    def "should properly parse an options when input is known"() {
+    def "should properly parse options when input is known"() {
         given:
         def userInputInterceptor = new UserInputInterceptor(
                 applicationConfiguration,

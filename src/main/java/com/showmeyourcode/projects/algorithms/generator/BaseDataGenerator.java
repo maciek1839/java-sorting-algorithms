@@ -2,6 +2,7 @@ package com.showmeyourcode.projects.algorithms.generator;
 
 import com.showmeyourcode.projects.algorithms.configuration.SortingAppConfiguration;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public abstract class BaseDataGenerator {
@@ -24,5 +25,9 @@ public abstract class BaseDataGenerator {
             result[i] = randomGenerator.nextInt(maxRange);
         }
         return result;
+    }
+
+    public Integer[] mapIntArray(int[] arr){
+        return Arrays.stream(arr).boxed().toArray(Integer[]::new);
     }
 }

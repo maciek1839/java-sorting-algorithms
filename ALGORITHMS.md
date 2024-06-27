@@ -22,6 +22,7 @@ A very good algorithm animations: <https://www.toptal.com/developers/sorting-alg
 
 
 ![img](docs/soritng-visualization.gif)
+
 [Reference](https://medium.com/@miles.pucarelli/lets-build-sorting-algorithms-in-javascript-b00d04e4a8de)
 
 ## What is measured and considered?
@@ -490,15 +491,15 @@ are sorted and merges the two sorted sub-arrays into one.
 
 ```text
 mergeSort(arr)
-    if ( arr.length == 1 ) return arr
+    if (arr.length <= 1) return arr
     
        var l1 as array = arr[0] ... arr[n/2]
        var l2 as array = arr[n/2] ... arr[n]
     
-       l1 = mergesort( l1 )
-       l2 = mergesort( l2 )
+       l1 = mergesort(l1)
+       l2 = mergesort(l2)
     
-       return merge( l1, l2 )
+       return merge(l1, l2)
 
 merge(a, b)
     var c as array
