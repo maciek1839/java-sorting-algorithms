@@ -8,8 +8,6 @@
 
 ---
 
-- Code coverage badge on Gitlab using Maven and JaCoCo plugin | Java | JVM (YouTube video)
-  - <https://www.youtube.com/watch?v=nrs-DjTRwkk>
 - All algorithms' details and the benchmark explanation
   - [ALGORITHMS](./ALGORITHMS.md)
 
