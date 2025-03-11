@@ -20,18 +20,18 @@
         <javatuples.version>1.2</javatuples.version>
         <slf4j.version>2.0.17</slf4j.version>
         <javafaker.version>1.0.2</javafaker.version>
-        <logcaptor.version>2.9.0</logcaptor.version>
-        <jacoco.version>0.8.10</jacoco.version>
-        <lombok.version>1.18.30</lombok.version>
-        <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
-        <maven-test-plugin.version>3.1.2</maven-test-plugin.version>
+        <logcaptor.version>2.10.1</logcaptor.version>
+        <jacoco.version>0.8.12</jacoco.version>
+        <lombok.version>1.18.36</lombok.version>
+        <maven-compiler-plugin.version>3.14.0</maven-compiler-plugin.version>
+        <maven-test-plugin.version>3.5.2</maven-test-plugin.version>
         <gmavenplus-plugin.version>3.0.2</gmavenplus-plugin.version>
         <groovy.version>3.0.24</groovy.version>
         <spock.version>2.3-groovy-4.0</spock.version>
         <spring-test.version>6.2.3</spring-test.version>
         <gclib.version>3.3.0</gclib.version>
-        <pitest-maven.version>1.16.1</pitest-maven.version>
-        <pitest-junit5-plugin.version>1.2.1</pitest-junit5-plugin.version>
+        <pitest-maven.version>1.18.2</pitest-maven.version>
+        <pitest-junit5-plugin.version>1.2.2</pitest-junit5-plugin.version>
 
         <sonar.organization>showmeyourcodeyoutube</sonar.organization>
         <sonar.exclusions>**/launcher/SortingAlgorithmsAppLauncher*, **/launcher/AlgorithmsMicrobenchmark*, **/launcher/jmh_generated/*</sonar.exclusions>
