@@ -3,8 +3,10 @@ package com.showmeyourcode.projects.algorithms.algorithm.implementation;
 import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmDataGenerator;
 import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmType;
 
+import java.util.Objects;
+
 /**
- * Reference: https://www.geeksforgeeks.org/merge-sort/
+ * Reference: https://javachallengers.com/merge-sort-with-java/
  */
 public class MergeSort extends AlgorithmBase {
 
@@ -14,13 +16,49 @@ public class MergeSort extends AlgorithmBase {
 
     @Override
     public int[] sortData(int[] inputArray) {
-        if (isArrayEmpty(inputArray)) {
-            return new int[]{};
+        if (inputArray == null || inputArray.length <= 1) {
+            return Objects.isNull(inputArray) ? new int[0] : inputArray;
         }
 
-        divideIntoParts(inputArray, 0, inputArray.length - 1);
+        int mid = inputArray.length / 2;
+        int[] leftArray = new int[mid];
+        int[] rightArray = new int[inputArray.length - mid];
+
+        // System.arraycopy() is C code, it operates directly on your array, it does not return any values,
+        // and because of that it should operate much faster than Array.copyOf().
+        // Use System.arraycopy() because of performance. Use Array.copyOf() for cleaner code.
+        // https://stackoverflow.com/questions/2589741/what-is-more-efficient-system-arraycopy-or-arrays-copyof
+        System.arraycopy(inputArray, 0, leftArray, 0, mid);
+        System.arraycopy(inputArray, mid, rightArray, 0, inputArray.length - mid);
+
+        sortData(leftArray);
+        sortData(rightArray);
+        merge(leftArray, rightArray, inputArray);
 
         return inputArray;
+    }
+
+    void merge(int[] leftArray, int[] rightArray, int[] array) {
+        int i = 0, j = 0, k = 0; //NOSONAR
+
+        while (i < leftArray.length && j < rightArray.length) {
+            if (leftArray[i] <= rightArray[j]) {
+                array[k++] = leftArray[i++];
+            } else {
+                array[k++] = rightArray[j++];
+            }
+        }
+        while (i < leftArray.length) {
+            array[k++] = leftArray[i++];
+        }
+        while (j < rightArray.length) {
+            array[k++] = rightArray[j++];
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Merge sort";
     }
 
     @Override
@@ -36,59 +74,8 @@ public class MergeSort extends AlgorithmBase {
                 AlgorithmComplexityConstant.O_N_LOG_N,
                 AlgorithmComplexityConstant.O_N_LOG_N,
                 AlgorithmComplexityConstant.O_N,
-                "yes",
-                "no"
+                YES,
+                NO
         );
-    }
-
-    private void divideIntoParts(int[] dataToSort, int leftIndex, int rightIndex) {
-        if (leftIndex >= rightIndex) {
-            return;
-        }
-
-        int middleIndex = leftIndex + (rightIndex - leftIndex) / 2;
-        divideIntoParts(dataToSort, leftIndex, middleIndex);
-        divideIntoParts(dataToSort, middleIndex + 1, rightIndex);
-        mergeParts(dataToSort, leftIndex, middleIndex, rightIndex);
-    }
-
-    private void mergeParts(int[] dataToSort, int leftIndex, int middleIndex, int rightIndex) {
-        int n1 = middleIndex - leftIndex + 1;
-        int n2 = rightIndex - middleIndex;
-
-        int[] leftPart = new int[n1], rightPart = new int[n2];//NOSONAR
-
-        System.arraycopy(dataToSort, leftIndex, leftPart, 0, n1);
-        System.arraycopy(dataToSort, middleIndex + 1, rightPart, 0, n2);
-
-        int i = 0, j = 0, initialIndexOfMergedParts = leftIndex;//NOSONAR
-
-        while (i < n1 && j < n2) {
-            if (leftPart[i] <= rightPart[j]) {
-                dataToSort[initialIndexOfMergedParts] = leftPart[i];
-                i++;
-            } else {
-                dataToSort[initialIndexOfMergedParts] = rightPart[j];
-                j++;
-            }
-            initialIndexOfMergedParts++;
-        }
-
-        while (i < n1) {
-            dataToSort[initialIndexOfMergedParts] = leftPart[i];
-            i++;
-            initialIndexOfMergedParts++;
-        }
-
-        while (j < n2) {
-            dataToSort[initialIndexOfMergedParts] = rightPart[j];
-            j++;
-            initialIndexOfMergedParts++;
-        }
-    }
-
-    @Override
-    public String toString() {
-        return "Merge sort";
     }
 }

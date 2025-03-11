@@ -4,9 +4,7 @@ import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmDataGenerator;
 import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmType;
 
 /**
- * This implementation uses a middle element as the pivot and it's preferred one
- * because the other uses the pivot as the last element causes java.lang.StackOverflowError exception.
- * Reference: https://www.programcreek.com/2012/11/quicksort-array-in-java/
+ * Reference: https://www.programiz.com/dsa/quick-sort
  */
 public class QuickSort extends AlgorithmBase {
 
@@ -15,19 +13,70 @@ public class QuickSort extends AlgorithmBase {
     }
 
     @Override
-    public String toString() {
-        return "Quick sort";
-    }
-
-    @Override
     public int[] sortData(int[] arrayToSort) {
         if (isArrayEmpty(arrayToSort)) {
             return new int[]{};
         }
 
-        sortWithPivot(arrayToSort, 0, arrayToSort.length - 1);
+        quickSort(arrayToSort, 0, arrayToSort.length - 1);
 
         return arrayToSort;
+    }
+
+    private void quickSort(int[] array, int leftIdx, int rightIdx) {
+        if (leftIdx < rightIdx) {
+
+            // find pivot element such that
+            // elements smaller than pivot are on the left
+            // elements greater than pivot are on the right
+            int pivotIdx = partition(array, leftIdx, rightIdx);
+
+            // recursive call on the left of pivot
+            quickSort(array, leftIdx, pivotIdx - 1);
+
+            // recursive call on the right of pivot
+            quickSort(array, pivotIdx + 1, rightIdx);
+        }
+    }
+
+    private int partition(int[] array, int leftIdx, int rightIdx) {
+
+        // choose the rightmost element as pivot
+        int pivot = array[rightIdx];
+
+        // pointer for greater element
+        int i = (leftIdx - 1);
+
+        // traverse through all elements
+        // compare each element with pivot
+        for (int j = leftIdx; j < rightIdx; j++) {
+            if (array[j] <= pivot) {
+
+                // if element smaller than pivot is found
+                // swap it with the greater element pointed by i
+                i++;
+
+                // swapping element at i with element at j
+                swap(array, j, i);
+            }
+        }
+
+        // swap the pivot element with the greater element specified by i
+        swap(array, i + 1, rightIdx);
+
+        // return the position from where partition is done
+        return (i + 1);
+    }
+
+    private void swap(int[] arr, int idx1, int idx2) {
+        int temp = arr[idx1];
+        arr[idx1] = arr[idx2];
+        arr[idx2] = temp;
+    }
+
+    @Override
+    public String toString() {
+        return "Quick sort";
     }
 
     @Override
@@ -43,39 +92,8 @@ public class QuickSort extends AlgorithmBase {
                 AlgorithmComplexityConstant.O_N_LOG_N,
                 AlgorithmComplexityConstant.O_N_2,
                 AlgorithmComplexityConstant.O_LOG_N,
-                "no",
-                "yes"
+                NO,
+                YES
         );
-    }
-
-    private void sortWithPivot(int[] dataToSort, int startIndex, int endIndex) {
-
-        int leftIndex = startIndex, rightIndex = endIndex;//NOSONAR
-        int pivotValue = dataToSort[(startIndex + endIndex) / 2];
-
-        while (leftIndex <= rightIndex) {
-            while (dataToSort[leftIndex] < pivotValue) {
-                leftIndex++;
-            }
-
-            while (dataToSort[rightIndex] > pivotValue) {
-                rightIndex--;
-            }
-
-            if (leftIndex <= rightIndex) {
-                int tmpValue = dataToSort[leftIndex];
-                dataToSort[leftIndex] = dataToSort[rightIndex];
-                dataToSort[rightIndex] = tmpValue;
-                leftIndex++;
-                rightIndex--;
-            }
-        }
-        if (startIndex < rightIndex) {
-            sortWithPivot(dataToSort, startIndex, rightIndex);
-        }
-
-        if (leftIndex < endIndex) {
-            sortWithPivot(dataToSort, leftIndex, endIndex);
-        }
     }
 }

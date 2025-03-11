@@ -4,6 +4,26 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0 (2025-03-11)](https://gitlab.com/ShowMeYourCodeYouTube/java-sorting-algorithms/-/compare/v2.6.0...3.0.0)
+
+## Added
+
+- Introduce Renovate bot to manage dependencies
+- Use Fork/Join Framework (ForkJoinPool)
+- Introduce new benchmark settings to application.properties
+- Use Java Microbenchmark Harness (JMH) to measure algorithms performance
+
+## Changed
+
+- Replace JUnit with Spock
+- Use Java Faker to generate random test data
+- Migrate from JDK 11 to JDK 17
+
+## Fixed
+
+- Include integration tests in JaCoCo code coverage
+- Remove "v" from the release configuration (Git tags) to follow Semantic Versioning 2.0.0
+
 ## [2.6.0 (2023-06-11)](https://gitlab.com/ShowMeYourCodeYouTube/java-sorting-algorithms/-/compare/java-sorting-2.5.0...java-sorting-2.6.0)
 
 ### Added
@@ -22,7 +42,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Fixed
 
-- Code coverage displayed on Gitlab
+- Code coverage displayed on GitLab
 - SonarCloud integration (configure it again accordingly to an official guide)
 
 ## [2.5.0 (2021-04-02)](https://gitlab.com/ShowMeYourCodeYouTube/java-sorting-algorithms/-/compare/java-sorting-2.4.0...java-sorting-2.5.0)

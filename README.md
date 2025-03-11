@@ -1,10 +1,10 @@
 # Java sorting algorithms
 
-*Java console application that solves a **sorting problem** which is defined as a total number of item to be sorted.*
+*A Java console application that solves a **sorting problem** which is defined as a total number of item to be sorted.*
 
-| Branch |                                                                                               Pipeline                                                                                               |                                                                                            Code coverage                                                                                             |                                 Jacoco test report                                  |                                 SonarCloud                                 |
-|:------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------:|:--------------------------------------------------------------------------:|
-| master | [![pipeline status](https://gitlab.com/ShowMeYourCodeYouTube/java-sorting-algorithms/badges/master/pipeline.svg)](https://gitlab.com/ShowMeYourCodeYouTube/java-sorting-algorithms/-/commits/master) | [![coverage report](https://gitlab.com/ShowMeYourCodeYouTube/java-sorting-algorithms/badges/master/coverage.svg)](https://gitlab.com/ShowMeYourCodeYouTube/java-sorting-algorithms/-/commits/master) | [link](https://showmeyourcodeyoutube.gitlab.io/java-sorting-algorithms/test-report) | [link](https://sonarcloud.io/organizations/showmeyourcodeyoutube/projects) |
+| Branch |                                                                                               Pipeline                                                                                               |                                                                                            Code coverage                                                                                             |                                 Jacoco test report                                  |                                     PiTest report                                     |                                 SonarCloud                                 |
+|:------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------:|
+| master | [![pipeline status](https://gitlab.com/ShowMeYourCodeYouTube/java-sorting-algorithms/badges/master/pipeline.svg)](https://gitlab.com/ShowMeYourCodeYouTube/java-sorting-algorithms/-/commits/master) | [![coverage report](https://gitlab.com/ShowMeYourCodeYouTube/java-sorting-algorithms/badges/master/coverage.svg)](https://gitlab.com/ShowMeYourCodeYouTube/java-sorting-algorithms/-/commits/master) | [link](https://showmeyourcodeyoutube.gitlab.io/java-sorting-algorithms/test-report) | [link](https://showmeyourcodeyoutube.gitlab.io/java-sorting-algorithms/pitest-report) | [link](https://sonarcloud.io/organizations/showmeyourcodeyoutube/projects) |
 
 ---
 
@@ -12,8 +12,6 @@
   - <https://www.youtube.com/watch?v=nrs-DjTRwkk>
 - All algorithms' details and the benchmark explanation
   - [ALGORITHMS](./ALGORITHMS.md)
-- Sorting algorithms exercises found on the Internet
-  - [EXERCISES](./EXERCISES.md)
 
 ## Technology stack
 
@@ -27,6 +25,7 @@
   - cglib is required for mocking non-interface types
 - LogCaptor
 - Java Faker
+- PiTest (mutation testing)
 
 ## Getting started
 
@@ -72,16 +71,15 @@ Ref: https://saturncloud.io/blog/is-the-benchmarking-of-my-algorithms-right/
 
 | Algorithm  | 50000&#160;elements&#160;(ms)   | 100000&#160;elements&#160;(ms)    | 150000&#160;elements&#160;(ms)    | Best&#160;complexity   | Average&#160;complexity   | Worst&#160;complexity   | Space&#160;complexity&#160;(the&#160;worst)   | Stable   | In&#160;place  |
 |:--------------------------------|:----------------:|:-----------------:|:-----------------:|:-----------------:|:--------------------:|:------------------:|:------------------------------:|:--------:|:---------:|
-| Bubble&#160;sort |  8306  | 23689 |  43970 |  O(n)  |  O(n^2)  |  O(n^2) |  O(1) |   yes  |  yes  |
-| Cocktail&#160;Shaker&#160;sort <br/> (Bidirectional&#160;bubble&#160;sort)   |  5464  | 19673 |  35717 |  O(n)  |  O(n^2)  |  O(n^2) |  O(1) |   yes  |  yes  |
-| Selection&#160;sort |  2991  | 6072 |  15647 |  O(n^2)  |  O(n^2)  |  O(n^2) |  O(1) |   no  |  yes  |
-| Insertion&#160;sort   |  1135  | 3135 |  7381 |  O(n)  |  O(n^2)  |  O(n^2) |  O(1) |   yes  |  yes  |
-| Shell&#160;sort |  12  | 26 |  38 |  O(n log n)  |  depends on gap sequence  |  O(n^2) |  O(1) |   no  |  yes  |
-| Counting&#160;sort |  10  | 11 |  26 |  O(n+k)  |  O(n+k)  |  O(n+k) |  O(n+k) |   yes/no*  |  no/yes*  |
-| Heap&#160;sort |  15  | 23 |  35 |  O(n log n)  |  O(n log n)  |  O(n log n) |  O(1) |   no  |  yes  |
-| Merge&#160;sort |  12  | 29 |  68 |  O(n log n)  |  O(n log n)  |  O(n log n) |  O(n) |   yes  |  no  |
-| Quick&#160;sort |  6  | 12 |  43 |  O(n log n)  |  O(n log n)  |  O(n^2) |  O(log n) |   no  |  yes  |
-
+| Bubble&#160;sort |  4708  | 14287 |  29547 |  O(n)  |  O(n^2)  |  O(n^2) |  O(1) |   yes  |  yes  |
+| Cocktail&#160;Shaker&#160;sort <br/> (Bidirectional&#160;bubble&#160;sort)   |  3068  | 10609 |  21491 |  O(n)  |  O(n^2)  |  O(n^2) |  O(1) |   yes  |  yes  |
+| Selection&#160;sort |  1677  | 4515 |  9840 |  O(n^2)  |  O(n^2)  |  O(n^2) |  O(1) |   no  |  yes  |
+| Insertion&#160;sort   |  297  | 1504 |  3422 |  O(n)  |  O(n^2)  |  O(n^2) |  O(1) |   yes  |  yes  |
+| Shell&#160;sort |  7  | 17 |  25 |  O(n log n)  |  depends on gap sequence  |  O(n^2) |  O(1) |   no  |  yes  |
+| Counting&#160;sort |  7  | 13 |  9 |  O(n+k)  |  O(n+k)  |  O(n+k) |  O(n+k) |   yes/no*  |  no/yes*  |
+| Heap&#160;sort |  10  | 17 |  23 |  O(n log n)  |  O(n log n)  |  O(n log n) |  O(1) |   no  |  yes  |
+| Merge&#160;sort |  6  | 18 |  41 |  O(n log n)  |  O(n log n)  |  O(n log n) |  O(n) |   yes  |  no  |
+| Quick&#160;sort |  3  | 34 |  15 |  O(n log n)  |  O(n log n)  |  O(n^2) |  O(log n) |   no  |  yes  |
 
 *ms - milliseconds, B - bytes, n - number of elements in an array, k - the dataset/array elements range*  
 *The table is auto generated using the app. Choose `10` to generate new results and copy the table from `resources`.*
@@ -208,9 +206,10 @@ One thread running on the left CPU copies the shared object into its CPU cache, 
 - https://www.digitalocean.com/community/tutorials/java-jvm-memory-model-memory-management-in-java
 - https://jenkov.com/tutorials/java-concurrency/java-memory-model.html
 
-## Release a new version
+## Exercises
 
-Run Maven commands using Maven Release plugin.
-```text
-mvn release:prepare
-```
+Online testing platforms:
+- https://www.hackerrank.com/domains/algorithms/arrays-and-sorting/page/7
+- https://www.hackerrank.com/domains/algorithms?filters%5Bsubdomains%5D%5B%5D=arrays-and-sorting
+- https://www.codewars.com/collections/sorting
+- https://www.w3resource.com/java-exercises/sorting/index.php

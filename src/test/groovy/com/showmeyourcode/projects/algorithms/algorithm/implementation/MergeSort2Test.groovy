@@ -4,10 +4,10 @@ import com.showmeyourcode.projects.algorithms.benchmark.AlgorithmsBenchmarkData
 import com.showmeyourcode.projects.algorithms.benchmark.BenchmarkGroupTask
 import com.showmeyourcode.projects.algorithms.benchmark.ThreadUtil
 
-class QuickSortTest extends AlgorithmTestBase {
+class MergeSort2Test extends AlgorithmTestBase {
 
     def setProperAlgorithm() {
-        this.algorithm = new QuickSort(algorithmDataGenerator)
+        this.algorithm = new MergeSort2(algorithmDataGenerator)
     }
 
     // This test will ensure that the implementation is correct.

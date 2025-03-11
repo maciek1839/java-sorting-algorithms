@@ -3,6 +3,14 @@ package com.showmeyourcode.projects.algorithms.algorithm.implementation;
 import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmDataGenerator;
 import com.showmeyourcode.projects.algorithms.algorithm.AlgorithmType;
 
+/**
+ * Optimized Cocktail Shaker Sort
+ * <p>
+ * In order to optimize, a new variable may be introduced, which is called swap (similarly to Bubble Sort).
+ * The value of swap is set to be true if there is an element swap. If not, it is set to be false.
+ * If no swapping occurs after an iteration, the value of swapping will be false.
+ * This indicates that the elements have already been sorted and that no more iterations are required.
+ */
 public class CocktailShakerSort extends AlgorithmBase {
 
     public CocktailShakerSort(AlgorithmDataGenerator dataGenerator) {
@@ -15,33 +23,37 @@ public class CocktailShakerSort extends AlgorithmBase {
             return new int[]{};
         }
 
-        int tmpArrayIndex = 0;
-        boolean shouldSortFromTheRight;
+        var isSwapped = true;
 
-        do {
-            shouldSortFromTheRight = false;
-            for (int j = tmpArrayIndex; j < inputArray.length - tmpArrayIndex - 1; j++) {
+        for (int i = 0; i < inputArray.length - 1 && isSwapped; i++) {
+            isSwapped = false;
+            for (int j = 0; j < inputArray.length - i - 1; j++) {
                 if (inputArray[j] > inputArray[j + 1]) {
-                    int valToSwap = inputArray[j];
+                    var tmp = inputArray[j];
                     inputArray[j] = inputArray[j + 1];
-                    inputArray[j + 1] = valToSwap;
-                    shouldSortFromTheRight = true;
+                    inputArray[j + 1] = tmp;
+                    isSwapped = true;
                 }
             }
 
-            if (!shouldSortFromTheRight) {
+            // If nothing moved, then array is sorted.
+            // Otherwise, reset the swapped flag so that it
+            // can be used in the next stage.
+            if (!isSwapped) {
                 break;
+            } else {
+                isSwapped = false;
             }
-            for (int j = inputArray.length - tmpArrayIndex - 1; j > tmpArrayIndex; j--) {
+            // move the "j" index back by one as an item at the end is in its rightful spot
+            for (int j = (inputArray.length - i - 1) - 1; j > 0; j--) {
                 if (inputArray[j] < inputArray[j - 1]) {
-                    int valToSwap = inputArray[j];
+                    var tmp = inputArray[j];
                     inputArray[j] = inputArray[j - 1];
-                    inputArray[j - 1] = valToSwap;
+                    inputArray[j - 1] = tmp;
+                    isSwapped = true;
                 }
             }
-            tmpArrayIndex++;
-        } while (tmpArrayIndex < inputArray.length);
-
+        }
         return inputArray;
     }
 
@@ -58,8 +70,8 @@ public class CocktailShakerSort extends AlgorithmBase {
                 AlgorithmComplexityConstant.O_N_2,
                 AlgorithmComplexityConstant.O_N_2,
                 AlgorithmComplexityConstant.O_1,
-                "yes",
-                "yes"
+                YES,
+                YES
         );
     }
 

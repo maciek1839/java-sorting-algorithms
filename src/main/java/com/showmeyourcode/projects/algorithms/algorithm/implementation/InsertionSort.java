@@ -15,13 +15,18 @@ public class InsertionSort extends AlgorithmBase {
             return new int[]{};
         }
 
-        int swappedValue;
-        for (int i = inputArray.length - 1; i > 0; i--) {
-            for (int j = i; j < inputArray.length && inputArray[j - 1] > inputArray[j]; j++) {
-                swappedValue = inputArray[j - 1];
-                inputArray[j - 1] = inputArray[j];
-                inputArray[j] = swappedValue;
+        for (int i = 1; i < inputArray.length; ++i) {
+            int key = inputArray[i];
+            int j = i - 1;
+
+            // Move elements of arr[0..i-1], that are greater than key,
+            // to one position ahead of their current position.
+            // Then insert the key between lower and greater elements.
+            while (j > -1 && inputArray[j] > key) {
+                inputArray[j + 1] = inputArray[j];
+                j = j - 1;
             }
+            inputArray[j + 1] = key;
         }
         return inputArray;
     }
@@ -39,8 +44,8 @@ public class InsertionSort extends AlgorithmBase {
                 AlgorithmComplexityConstant.O_N_2,
                 AlgorithmComplexityConstant.O_N_2,
                 AlgorithmComplexityConstant.O_1,
-                "yes",
-                "yes"
+                YES,
+                YES
         );
     }
 

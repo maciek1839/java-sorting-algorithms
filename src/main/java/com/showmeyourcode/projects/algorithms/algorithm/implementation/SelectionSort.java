@@ -15,20 +15,18 @@ public class SelectionSort extends AlgorithmBase {
             return new int[]{};
         }
 
-        int indexOfTheLowestNumber, tmpSwappedValue;//NOSONAR
-
         for (int i = 0; i < inputArray.length; i++) {
-            indexOfTheLowestNumber = i;
+            var lowestValueIndex = i;
             for (int j = i + 1; j < inputArray.length; j++) {
-                if (inputArray[indexOfTheLowestNumber] > inputArray[j]) {
-                    indexOfTheLowestNumber = j;
+                if (inputArray[lowestValueIndex] > inputArray[j]) {
+                    lowestValueIndex = j;
                 }
             }
 
-            if (indexOfTheLowestNumber != i) {
-                tmpSwappedValue = inputArray[i];
-                inputArray[i] = inputArray[indexOfTheLowestNumber];
-                inputArray[indexOfTheLowestNumber] = tmpSwappedValue;
+            if (lowestValueIndex != i) {
+                var tmp = inputArray[i];
+                inputArray[i] = inputArray[lowestValueIndex];
+                inputArray[lowestValueIndex] = tmp;
             }
         }
         return inputArray;
@@ -52,8 +50,8 @@ public class SelectionSort extends AlgorithmBase {
                 AlgorithmComplexityConstant.O_N_2,
                 AlgorithmComplexityConstant.O_N_2,
                 AlgorithmComplexityConstant.O_1,
-                "no",
-                "yes"
+                NO,
+                YES
         );
     }
 }

@@ -49,8 +49,8 @@ public class ShellSort extends AlgorithmBase {
                 "depends on gap sequence",
                 AlgorithmComplexityConstant.O_N_2,
                 AlgorithmComplexityConstant.O_1,
-                "no",
-                "yes"
+                NO,
+                YES
         );
     }
 

@@ -2,6 +2,9 @@ package com.showmeyourcode.projects.algorithms.algorithm;
 
 public interface Algorithm {
 
+    String YES = "yes";
+    String NO = "no";
+
     long showUsage();
 
     int[] sortData(int[] data);

@@ -13,3 +13,10 @@ Remember about:
 
 If you want to run some tests from your IDE,   
 you might need to add `--add-opens java.base/java.lang=ALL-UNNAMED` JVM param (some tests require it).
+
+## Release a new version
+
+Run Maven commands using Maven Release plugin.
+```text
+mvn release:prepare
+```

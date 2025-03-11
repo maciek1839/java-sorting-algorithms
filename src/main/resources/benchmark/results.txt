@@ -1,40 +1,40 @@
---------------- Benchmark partialResults 2023-09-11T14:31:02.1177313---------------
-Dataset size: 10000 Algorithm: BUBBLE_SORT Duration: 172827100 ns | 172 ms
-Dataset size: 10000 Algorithm: COCKTAIL_SHAKER_SORT Duration: 149642200 ns | 149 ms
-Dataset size: 10000 Algorithm: SELECTION_SORT Duration: 137115800 ns | 137 ms
-Dataset size: 10000 Algorithm: INSERTION_SORT Duration: 64724401 ns | 64 ms
-Dataset size: 10000 Algorithm: SHELL_SORT Duration: 4039901 ns | 4 ms
-Dataset size: 10000 Algorithm: COUNTING_SORT Duration: 20900000 ns | 20 ms
-Dataset size: 10000 Algorithm: HEAP_SORT Duration: 16403800 ns | 16 ms
-Dataset size: 10000 Algorithm: MERGE_SORT Duration: 2555600 ns | 2 ms
-Dataset size: 10000 Algorithm: QUICK_SORT Duration: 1950300 ns | 1 ms
-Dataset size: 50000 Algorithm: BUBBLE_SORT Duration: 5479701500 ns | 5479 ms
-Dataset size: 50000 Algorithm: COCKTAIL_SHAKER_SORT Duration: 3145438100 ns | 3145 ms
-Dataset size: 50000 Algorithm: SELECTION_SORT Duration: 1797282001 ns | 1797 ms
-Dataset size: 50000 Algorithm: INSERTION_SORT Duration: 547560999 ns | 547 ms
-Dataset size: 50000 Algorithm: SHELL_SORT Duration: 8129899 ns | 8 ms
-Dataset size: 50000 Algorithm: COUNTING_SORT Duration: 5855900 ns | 5 ms
-Dataset size: 50000 Algorithm: HEAP_SORT Duration: 10597100 ns | 10 ms
-Dataset size: 50000 Algorithm: MERGE_SORT Duration: 8659300 ns | 8 ms
-Dataset size: 50000 Algorithm: QUICK_SORT Duration: 4637799 ns | 4 ms
-Dataset size: 100000 Algorithm: BUBBLE_SORT Duration: 16576048400 ns | 16576 ms
-Dataset size: 100000 Algorithm: COCKTAIL_SHAKER_SORT Duration: 13969540600 ns | 13969 ms
-Dataset size: 100000 Algorithm: SELECTION_SORT Duration: 4737138400 ns | 4737 ms
-Dataset size: 100000 Algorithm: INSERTION_SORT Duration: 2294097900 ns | 2294 ms
-Dataset size: 100000 Algorithm: SHELL_SORT Duration: 17514100 ns | 17 ms
-Dataset size: 100000 Algorithm: COUNTING_SORT Duration: 49394900 ns | 49 ms
-Dataset size: 100000 Algorithm: HEAP_SORT Duration: 25933100 ns | 25 ms
-Dataset size: 100000 Algorithm: MERGE_SORT Duration: 23338200 ns | 23 ms
-Dataset size: 100000 Algorithm: QUICK_SORT Duration: 10030300 ns | 10 ms
-Dataset size: 150000 Algorithm: BUBBLE_SORT Duration: 31778309199 ns | 31778 ms
-Dataset size: 150000 Algorithm: COCKTAIL_SHAKER_SORT Duration: 25654961500 ns | 25654 ms
-Dataset size: 150000 Algorithm: SELECTION_SORT Duration: 11058034500 ns | 11058 ms
-Dataset size: 150000 Algorithm: INSERTION_SORT Duration: 5234566999 ns | 5234 ms
-Dataset size: 150000 Algorithm: SHELL_SORT Duration: 27097300 ns | 27 ms
-Dataset size: 150000 Algorithm: COUNTING_SORT Duration: 95936400 ns | 95 ms
-Dataset size: 150000 Algorithm: HEAP_SORT Duration: 38043800 ns | 38 ms
-Dataset size: 150000 Algorithm: MERGE_SORT Duration: 49742099 ns | 49 ms
-Dataset size: 150000 Algorithm: QUICK_SORT Duration: 14744600 ns | 14 ms
+--------------- Benchmark partialResults 2023-10-08T00:54:21.404524---------------
+Dataset size: 10000 Algorithm: BUBBLE_SORT Duration: 168537600 ns | 168 ms
+Dataset size: 10000 Algorithm: COCKTAIL_SHAKER_SORT Duration: 114168400 ns | 114 ms
+Dataset size: 10000 Algorithm: SELECTION_SORT Duration: 106961300 ns | 106 ms
+Dataset size: 10000 Algorithm: INSERTION_SORT Duration: 25794000 ns | 25 ms
+Dataset size: 10000 Algorithm: SHELL_SORT Duration: 12194100 ns | 12 ms
+Dataset size: 10000 Algorithm: COUNTING_SORT Duration: 35078300 ns | 35 ms
+Dataset size: 10000 Algorithm: HEAP_SORT Duration: 4394200 ns | 4 ms
+Dataset size: 10000 Algorithm: MERGE_SORT Duration: 2915400 ns | 2 ms
+Dataset size: 10000 Algorithm: QUICK_SORT Duration: 9004800 ns | 9 ms
+Dataset size: 50000 Algorithm: BUBBLE_SORT Duration: 4708497000 ns | 4708 ms
+Dataset size: 50000 Algorithm: COCKTAIL_SHAKER_SORT Duration: 3068449700 ns | 3068 ms
+Dataset size: 50000 Algorithm: SELECTION_SORT Duration: 1677851400 ns | 1677 ms
+Dataset size: 50000 Algorithm: INSERTION_SORT Duration: 297925900 ns | 297 ms
+Dataset size: 50000 Algorithm: SHELL_SORT Duration: 7876400 ns | 7 ms
+Dataset size: 50000 Algorithm: COUNTING_SORT Duration: 7555800 ns | 7 ms
+Dataset size: 50000 Algorithm: HEAP_SORT Duration: 10913000 ns | 10 ms
+Dataset size: 50000 Algorithm: MERGE_SORT Duration: 6646800 ns | 6 ms
+Dataset size: 50000 Algorithm: QUICK_SORT Duration: 3814800 ns | 3 ms
+Dataset size: 100000 Algorithm: BUBBLE_SORT Duration: 14287074700 ns | 14287 ms
+Dataset size: 100000 Algorithm: COCKTAIL_SHAKER_SORT Duration: 10609569900 ns | 10609 ms
+Dataset size: 100000 Algorithm: SELECTION_SORT Duration: 4515021400 ns | 4515 ms
+Dataset size: 100000 Algorithm: INSERTION_SORT Duration: 1504522400 ns | 1504 ms
+Dataset size: 100000 Algorithm: SHELL_SORT Duration: 17169000 ns | 17 ms
+Dataset size: 100000 Algorithm: COUNTING_SORT Duration: 13175300 ns | 13 ms
+Dataset size: 100000 Algorithm: HEAP_SORT Duration: 17411400 ns | 17 ms
+Dataset size: 100000 Algorithm: MERGE_SORT Duration: 18004600 ns | 18 ms
+Dataset size: 100000 Algorithm: QUICK_SORT Duration: 34654200 ns | 34 ms
+Dataset size: 150000 Algorithm: BUBBLE_SORT Duration: 29547671800 ns | 29547 ms
+Dataset size: 150000 Algorithm: COCKTAIL_SHAKER_SORT Duration: 21491511300 ns | 21491 ms
+Dataset size: 150000 Algorithm: SELECTION_SORT Duration: 9840637600 ns | 9840 ms
+Dataset size: 150000 Algorithm: INSERTION_SORT Duration: 3422579200 ns | 3422 ms
+Dataset size: 150000 Algorithm: SHELL_SORT Duration: 25363800 ns | 25 ms
+Dataset size: 150000 Algorithm: COUNTING_SORT Duration: 9695200 ns | 9 ms
+Dataset size: 150000 Algorithm: HEAP_SORT Duration: 23649600 ns | 23 ms
+Dataset size: 150000 Algorithm: MERGE_SORT Duration: 41825500 ns | 41 ms
+Dataset size: 150000 Algorithm: QUICK_SORT Duration: 15598800 ns | 15 ms
 
 
 
@@ -42,12 +42,12 @@ Dataset size: 150000 Algorithm: QUICK_SORT Duration: 14744600 ns | 14 ms
 
 | Algorithm  | 50000&#160;elements&#160;(ms)   | 100000&#160;elements&#160;(ms)    | 150000&#160;elements&#160;(ms)    | Best&#160;complexity   | Average&#160;complexity   | Worst&#160;complexity   | Space&#160;complexity&#160;(the&#160;worst)   | Stable   | In&#160;place  |
 |:--------------------------------|:----------------:|:-----------------:|:-----------------:|:-----------------:|:--------------------:|:------------------:|:------------------------------:|:--------:|:---------:|
-| Bubble&#160;sort |  5479  | 16576 |  31778 |  O(n)  |  O(n^2)  |  O(n^2) |  O(1) |   yes  |  yes  |
-| Cocktail&#160;Shaker&#160;sort <br/> (Bidirectional&#160;bubble&#160;sort)   |  3145  | 13969 |  25654 |  O(n)  |  O(n^2)  |  O(n^2) |  O(1) |   yes  |  yes  |
-| Selection&#160;sort |  1797  | 4737 |  11058 |  O(n^2)  |  O(n^2)  |  O(n^2) |  O(1) |   no  |  yes  |
-| Insertion&#160;sort   |  547  | 2294 |  5234 |  O(n)  |  O(n^2)  |  O(n^2) |  O(1) |   yes  |  yes  |
-| Shell&#160;sort |  8  | 17 |  27 |  O(n log n)  |  depends on gap sequence  |  O(n^2) |  O(1) |   no  |  yes  |
-| Counting&#160;sort |  5  | 49 |  95 |  O(n+k)  |  O(n+k)  |  O(n+k) |  O(n+k) |   yes/no*  |  no/yes*  |
-| Heap&#160;sort |  10  | 25 |  38 |  O(n log n)  |  O(n log n)  |  O(n log n) |  O(1) |   no  |  yes  |
-| Merge&#160;sort |  8  | 23 |  49 |  O(n log n)  |  O(n log n)  |  O(n log n) |  O(n) |   yes  |  no  |
-| Quick&#160;sort |  4  | 10 |  14 |  O(n log n)  |  O(n log n)  |  O(n^2) |  O(log n) |   no  |  yes  |
+| Bubble&#160;sort |  4708  | 14287 |  29547 |  O(n)  |  O(n^2)  |  O(n^2) |  O(1) |   yes  |  yes  |
+| Cocktail&#160;Shaker&#160;sort <br/> (Bidirectional&#160;bubble&#160;sort)   |  3068  | 10609 |  21491 |  O(n)  |  O(n^2)  |  O(n^2) |  O(1) |   yes  |  yes  |
+| Selection&#160;sort |  1677  | 4515 |  9840 |  O(n^2)  |  O(n^2)  |  O(n^2) |  O(1) |   no  |  yes  |
+| Insertion&#160;sort   |  297  | 1504 |  3422 |  O(n)  |  O(n^2)  |  O(n^2) |  O(1) |   yes  |  yes  |
+| Shell&#160;sort |  7  | 17 |  25 |  O(n log n)  |  depends on gap sequence  |  O(n^2) |  O(1) |   no  |  yes  |
+| Counting&#160;sort |  7  | 13 |  9 |  O(n+k)  |  O(n+k)  |  O(n+k) |  O(n+k) |   yes/no*  |  no/yes*  |
+| Heap&#160;sort |  10  | 17 |  23 |  O(n log n)  |  O(n log n)  |  O(n log n) |  O(1) |   no  |  yes  |
+| Merge&#160;sort |  6  | 18 |  41 |  O(n log n)  |  O(n log n)  |  O(n log n) |  O(n) |   yes  |  no  |
+| Quick&#160;sort |  3  | 34 |  15 |  O(n log n)  |  O(n log n)  |  O(n^2) |  O(log n) |   no  |  yes  |
