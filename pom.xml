@@ -18,7 +18,7 @@
         <jmh.version>1.37</jmh.version>
         <logback.version>1.4.11</logback.version>
         <javatuples.version>1.2</javatuples.version>
-        <slf4j.version>2.0.9</slf4j.version>
+        <slf4j.version>2.0.17</slf4j.version>
         <javafaker.version>1.0.2</javafaker.version>
         <logcaptor.version>2.9.0</logcaptor.version>
         <jacoco.version>0.8.10</jacoco.version>
@@ -30,7 +30,7 @@
         <spock.version>2.3-groovy-4.0</spock.version>
         <spring-test.version>6.2.3</spring-test.version>
         <gclib.version>3.3.0</gclib.version>
-        <pitest-maven.version>1.15.3</pitest-maven.version>
+        <pitest-maven.version>1.16.1</pitest-maven.version>
         <pitest-junit5-plugin.version>1.2.1</pitest-junit5-plugin.version>
 
         <sonar.organization>showmeyourcodeyoutube</sonar.organization>
