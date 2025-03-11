@@ -25,7 +25,7 @@
         <lombok.version>1.18.30</lombok.version>
         <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
         <maven-test-plugin.version>3.1.2</maven-test-plugin.version>
-        <gmavenplus-plugin.version>3.0.2</gmavenplus-plugin.version>
+        <gmavenplus-plugin.version>4.1.1</gmavenplus-plugin.version>
         <groovy.version>3.0.24</groovy.version>
         <spock.version>2.3-groovy-4.0</spock.version>
         <spring-test.version>6.2.3</spring-test.version>
