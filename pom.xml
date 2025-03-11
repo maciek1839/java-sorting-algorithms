@@ -28,9 +28,9 @@
         <gmavenplus-plugin.version>3.0.2</gmavenplus-plugin.version>
         <groovy.version>3.0.24</groovy.version>
         <spock.version>2.3-groovy-4.0</spock.version>
-        <spring-test.version>6.0.12</spring-test.version>
+        <spring-test.version>6.2.3</spring-test.version>
         <gclib.version>3.3.0</gclib.version>
-        <pitest-maven.version>1.15.3</pitest-maven.version>
+        <pitest-maven.version>1.16.1</pitest-maven.version>
         <pitest-junit5-plugin.version>1.2.1</pitest-junit5-plugin.version>
 
         <sonar.organization>showmeyourcodeyoutube</sonar.organization>
